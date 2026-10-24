@@ -9,7 +9,9 @@ Confidence tags: **[obs]** read directly from the files, **[inf]** inferred, **[
 | Read this | For |
 |---|---|
 | [notes/engine-network.md](notes/engine-network.md) | launcher, main exe, strings, Diag vs retail, BattlEye hosting, network message IDs |
-| [notes/survival-combat.md](notes/survival-combat.md) | items and actions, firearms, infected and animals, the player survival model |
+| [notes/player-survival.md](notes/player-survival.md) | the player survival model: stats, environment, injuries, contamination, cooking |
+| [notes/weapons-combat.md](notes/weapons-combat.md) | firearms, melee, grenades, weapon state tables |
+| [notes/items-actions-ai.md](notes/items-actions-ai.md) | items and actions, recipes, infected, animals, AI perception |
 | [notes/world-vehicles.md](notes/world-vehicles.md) | Central Economy and server mission data, vehicles, base building, tents and gardening |
 | [notes/data-config.md](notes/data-config.md) | install layout, archive inventory, script layers, configs and real numbers, language table, recipes, reproduction steps |
 | [notes/open-questions.md](notes/open-questions.md) | backlog status and open questions |

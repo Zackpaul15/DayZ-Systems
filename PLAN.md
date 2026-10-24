@@ -8,7 +8,7 @@ Written 2026-10-24 after a review of the whole folder. Build 1.30.164.200, insta
 
 | Part | Size | What it is |
 |---|---|---|
-| `notes/` | 6 files, about 300 KB, 69 numbered sections | The write-up. `engine-network.md` (sections 1.1 to 4.8), `survival-combat.md` (5.2 to 5.4, 6.1 to 6.26; 128 KB, the largest), `world-vehicles.md` (5.6 to 5.13), `data-config.md` (1 to 8), `open-questions.md`, `plan-history.md`; `notes/README.md` maps each section number to its file. |
+| `notes/` | 8 files, about 300 KB, 69 numbered sections | The write-up. `engine-network.md` (sections 1.1 to 4.8), `player-survival.md`, `weapons-combat.md` and `items-actions-ai.md` (5.2 to 5.4, 6 to 6.26; split from the former 128 KB `survival-combat.md` in H4), `world-vehicles.md` (5.6 to 5.13), `data-config.md` (1 to 8), `open-questions.md`, `plan-history.md`; `notes/README.md` maps each section number to its file. |
 | `data/` | 31 CSV tables, 3.4 MB for the whole project | Derived numbers: items (2,508 rows joined with loot on four maps and recipe use), clothing, weapons, ammo, ammo physics, recoil, food and food stages, recipes (234), melee, explosives, actions (342), weapon states (82) and transitions (1,410), vehicles (28), penetration materials (51), AI perception (36 behaviours), noise sources (851), catching items (53), message IDs (155), native API (3,191 methods) and the 730 unmatched declarations, archives (158). |
 | `scripts/` | 21 Python tools and the Ghidra batch runner | All read-only on the game. `bootstrap.py` regenerates the extracted game data outside the project. |
 | Ghidra project | outside the folder (`...\tools\ghidra_projects\DayZ`) | Persistent analysed `DayZ_x64.exe`; a task file of `decompile`, `xrefs`, `bytes`, `string`, `symbols`, `vtable`, `instrscan` and `funcs` lines runs in seconds to a minute. |
@@ -36,7 +36,7 @@ Written 2026-10-24 after a review of the whole folder. Build 1.30.164.200, insta
 **Still open:**
 1. **No version control or backup.** The project is plain files; a bad edit or disk problem loses everything. (A `git init` plus a backup copy is cheap; it needs your go-ahead because it adds a hidden folder.)
 2. ~~`bootstrap.py` does not rebuild the derived tables.~~ **Done (H1, 2026-10-24).** `build_tables.py` rebuilds all 29 tables; ten of them had no generator at all and now have one (`config_tables.py`). They turned out to predate the nested-class inheritance fix, so the corrected tables replaced them (details in `data/PROVENANCE.md`). Only `message_ids` and `message_map` are still hand-built.
-3. **`survival-combat.md` is 128 KB** (roughly half of all the notes). It is hard to navigate and edit; it should be split by topic.
+3. ~~`survival-combat.md` is 128 KB~~ Split in H4 (done) into `player-survival.md`, `weapons-combat.md` and `items-actions-ai.md`; section numbers kept.
 4. **Inference density.** Roughly 55 [inf] tags against 95 [obs] tags (many sections carry one tag for the whole section); several inferences are testable in-game (list in H3). Static analysis cannot confirm them.
 5. **Coverage gaps** (crude measure: script files whose class names are mentioned in the notes: 14% of the 3,056 files and 31% of the 460,000 lines; the true figure is higher because tables such as `actions.csv` cover files whose names are not in the prose, but the picture of where the gaps are is reliable):
    - `5_Mission/GUI` (203 files, 74,000 lines): menus, HUD, inventory screens, server browser, script console. Almost untouched.
@@ -106,7 +106,7 @@ Cost: **S** = scripts and config only, **G** = Ghidra, hours are rough session t
 
 ## 7. Single best next step
 
-H1 to H3 are done. The next hygiene items are H4 (split `survival-combat.md`) and H5 (version control or a backup, your decision); after that, the engine track starting with E1 (Central Economy).
+H1 to H5 are done (H4 split the survival notes; H5 put the project in a private GitHub repo, `Zackpaul15/DayZ-Systems`). Next, the engine track starting with E1 (Central Economy).
 
 ## Standing step: Codex review tracker
 After every task, re-read `CODEX.md` (maintained by Codex), assess new or open findings, fix the valid ones, and record the disposition and the check result in that file. The first review (CXR-001 to CXR-005, 2026-10-24) is fixed and awaiting Codex's validation; see `CODEX.md` and `data/PROVENANCE.md`.

@@ -5,7 +5,9 @@ The write-up is split by workstream. **Section numbers are the original ones**, 
 | File | What it holds |
 |---|---|
 | [engine-network.md](engine-network.md) | The launcher (1.1), the main executable (2), the string survey and the Diag-vs-retail comparison (3, 3.1), how the client hosts BattlEye and the message ID map (4, 4.0, 4.1) |
-| [survival-combat.md](survival-combat.md) | Inventory, items and actions (5.2), firearms (5.3), infected and animals (5.4), and the whole player survival model (6.1 to 6.15) |
+| [player-survival.md](player-survival.md) | The player survival model: stats, modifiers, environment, injuries, item temperature, contamination, cooking, soft skills (6 to 6.15, 6.18 to 6.21) |
+| [weapons-combat.md](weapons-combat.md) | Firearms and recoil (5.3), melee, grenades, weapon state tables (6.16, 6.17, 6.24) |
+| [items-actions-ai.md](items-actions-ai.md) | Inventory, actions and the action catalog (5.2, 6.23), recipes (6.22), infected, animals, AI helpers and perception (5.4, 6.25, 6.26) |
 | [world-vehicles.md](world-vehicles.md) | Server mission data and the Central Economy (5.6), vehicles, base building and fireplaces (5.7), placement hologram, tents and gardening (5.9) |
 | [data-config.md](data-config.md) | Install layout and archive inventory (1, 1.2), script layers (5), binary configs and real item numbers (5.1), language table (5.5), crafting recipes (5.8), how to reproduce (8) |
 | [open-questions.md](open-questions.md) | The backlog (7.1 to 7.6) and the smaller open questions (7.7). The forward plan is in `../PLAN.md` |
@@ -43,9 +45,9 @@ Confidence tags used throughout: **[obs]** read directly from the files, **[inf]
 | 4.8 | Projectile flight, ricochet, penetration and damage | [engine-network.md](engine-network.md) |
 | 5 | Enforce script source (`dta/scripts.pbo`) | [data-config.md](data-config.md) |
 | 5.1 | The binary config (`config.bin`) and the real item numbers | [data-config.md](data-config.md) |
-| 5.2 | Inventory, items and actions | [survival-combat.md](survival-combat.md) |
-| 5.3 | Firearms and recoil | [survival-combat.md](survival-combat.md) |
-| 5.4 | Infected and animals | [survival-combat.md](survival-combat.md) |
+| 5.2 | Inventory, items and actions | [items-actions-ai.md](items-actions-ai.md) |
+| 5.3 | Firearms and recoil | [weapons-combat.md](weapons-combat.md) |
+| 5.4 | Infected and animals | [items-actions-ai.md](items-actions-ai.md) |
 | 5.5 | The language table and in-game names | [data-config.md](data-config.md) |
 | 5.6 | Server mission data: gameplay config and the Central Economy | [world-vehicles.md](world-vehicles.md) |
 | 5.7 | Vehicles, base building and fireplaces | [world-vehicles.md](world-vehicles.md) |
@@ -58,33 +60,33 @@ Confidence tags used throughout: **[obs]** read directly from the files, **[inf]
 | 5.10 | Restricted areas and the bunker broadcast | [world-vehicles.md](world-vehicles.md) |
 | 5.11 | The Central Economy on all four maps | [world-vehicles.md](world-vehicles.md) |
 | 5.12 | The cross-linked item table | [data-config.md](data-config.md) |
-| 6 | Player survival systems (from the scripts) | [survival-combat.md](survival-combat.md) |
-| 6.1 | Big picture | [survival-combat.md](survival-combat.md) |
-| 6.2 | Tick model | [survival-combat.md](survival-combat.md) |
-| 6.3 | Stats (`PlayerStats`) | [survival-combat.md](survival-combat.md) |
-| 6.4 | Modifiers (`ModifiersManager`, `ModifierBase`) | [survival-combat.md](survival-combat.md) |
-| 6.5 | Stomach | [survival-combat.md](survival-combat.md) |
-| 6.6 | Notifiers (`NotifiersManager`, `NotifierBase`) | [survival-combat.md](survival-combat.md) |
-| 6.7 | Symptoms (`SymptomManager` in `StateManager.c`) | [survival-combat.md](survival-combat.md) |
-| 6.8 | How state reaches clients | [survival-combat.md](survival-combat.md) |
-| 6.9 | Transmission agents and the immune system | [survival-combat.md](survival-combat.md) |
-| 6.10 | Environment, heat comfort, wetness, heat buffer, thermal bias and heat stroke | [survival-combat.md](survival-combat.md) |
-| 6.11 | Stamina, shock and unconsciousness | [survival-combat.md](survival-combat.md) |
-| 6.12 | Bleeding, hits, broken legs and injury state | [survival-combat.md](survival-combat.md) |
-| 6.13 | Not covered yet | [survival-combat.md](survival-combat.md) |
-| 6.14 | Item temperature and clothing isolation | [survival-combat.md](survival-combat.md) |
-| 6.15 | Heavy metal, contamination, silicosis and sandstorms | [survival-combat.md](survival-combat.md) |
-| 6.16 | Melee combat | [survival-combat.md](survival-combat.md) |
-| 6.17 | Grenades and other explosives | [survival-combat.md](survival-combat.md) |
-| 6.18 | Sewing wounds and ragdoll | [survival-combat.md](survival-combat.md) |
-| 6.19 | The soft-skills system | [survival-combat.md](survival-combat.md) |
-| 6.20 | Cooking, food stages and rotting | [survival-combat.md](survival-combat.md) |
-| 6.21 | Stat levels (health, blood, energy, water, immunity) | [survival-combat.md](survival-combat.md) |
-| 6.22 | What recipe `Do` methods change | [survival-combat.md](survival-combat.md) |
-| 6.23 | The action catalog | [survival-combat.md](survival-combat.md) |
-| 6.24 | Weapon state machine tables | [survival-combat.md](survival-combat.md) |
-| 6.25 | Animals and AI helper classes | [survival-combat.md](survival-combat.md) |
-| 6.26 | AI perception: noise, vision, alert | [survival-combat.md](survival-combat.md) |
+| 6 | Player survival systems (from the scripts) | [player-survival.md](player-survival.md) |
+| 6.1 | Big picture | [player-survival.md](player-survival.md) |
+| 6.2 | Tick model | [player-survival.md](player-survival.md) |
+| 6.3 | Stats (`PlayerStats`) | [player-survival.md](player-survival.md) |
+| 6.4 | Modifiers (`ModifiersManager`, `ModifierBase`) | [player-survival.md](player-survival.md) |
+| 6.5 | Stomach | [player-survival.md](player-survival.md) |
+| 6.6 | Notifiers (`NotifiersManager`, `NotifierBase`) | [player-survival.md](player-survival.md) |
+| 6.7 | Symptoms (`SymptomManager` in `StateManager.c`) | [player-survival.md](player-survival.md) |
+| 6.8 | How state reaches clients | [player-survival.md](player-survival.md) |
+| 6.9 | Transmission agents and the immune system | [player-survival.md](player-survival.md) |
+| 6.10 | Environment, heat comfort, wetness, heat buffer, thermal bias and heat stroke | [player-survival.md](player-survival.md) |
+| 6.11 | Stamina, shock and unconsciousness | [player-survival.md](player-survival.md) |
+| 6.12 | Bleeding, hits, broken legs and injury state | [player-survival.md](player-survival.md) |
+| 6.13 | Not covered yet | [player-survival.md](player-survival.md) |
+| 6.14 | Item temperature and clothing isolation | [player-survival.md](player-survival.md) |
+| 6.15 | Heavy metal, contamination, silicosis and sandstorms | [player-survival.md](player-survival.md) |
+| 6.16 | Melee combat | [weapons-combat.md](weapons-combat.md) |
+| 6.17 | Grenades and other explosives | [weapons-combat.md](weapons-combat.md) |
+| 6.18 | Sewing wounds and ragdoll | [player-survival.md](player-survival.md) |
+| 6.19 | The soft-skills system | [player-survival.md](player-survival.md) |
+| 6.20 | Cooking, food stages and rotting | [player-survival.md](player-survival.md) |
+| 6.21 | Stat levels (health, blood, energy, water, immunity) | [player-survival.md](player-survival.md) |
+| 6.22 | What recipe `Do` methods change | [items-actions-ai.md](items-actions-ai.md) |
+| 6.23 | The action catalog | [items-actions-ai.md](items-actions-ai.md) |
+| 6.24 | Weapon state machine tables | [weapons-combat.md](weapons-combat.md) |
+| 6.25 | Animals and AI helper classes | [items-actions-ai.md](items-actions-ai.md) |
+| 6.26 | AI perception: noise, vision, alert | [items-actions-ai.md](items-actions-ai.md) |
 | 7 | Backlog and open questions | [open-questions.md](open-questions.md) |
 | 7.1 | Enabler (do first if wanted) | [open-questions.md](open-questions.md) |
 | 7.2 | Finish the player and survival picture (scripts, all S) | [open-questions.md](open-questions.md) |
