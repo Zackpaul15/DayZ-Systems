@@ -43,6 +43,7 @@ Confidence tags used throughout: **[obs]** read directly from the files, **[inf]
 | 4.6 | Ballistics from the engine side | [engine-network.md](engine-network.md) |
 | 4.7 | Firing a shot: ammo type to projectile | [engine-network.md](engine-network.md) |
 | 4.8 | Projectile flight, ricochet, penetration and damage | [engine-network.md](engine-network.md) |
+| 4.9 | Net-sync variables, script RPC and sync junctures | [engine-network.md](engine-network.md) |
 | 5 | Enforce script source (`dta/scripts.pbo`) | [data-config.md](data-config.md) |
 | 5.1 | The binary config (`config.bin`) and the real item numbers | [data-config.md](data-config.md) |
 | 5.2 | Inventory, items and actions | [items-actions-ai.md](items-actions-ai.md) |
