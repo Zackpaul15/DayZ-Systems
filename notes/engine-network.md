@@ -1,0 +1,350 @@
+# Engine, network and launcher
+
+Part of the DayZ static analysis notes (see `README.md` in this folder for the map). Section numbers are the original ones, so cross-references such as "see 6.10" still resolve.
+
+### 1.1 The launcher (`DayZLauncher.exe`) [obs from metadata and string literals; no code decompiled]
+
+A managed .NET Framework 4.5 (x86) WPF application, version 1.6.164.64, built from 1,366 types, 11,179 methods and 5,630 string literals. It is almost entirely managed: the only declared native import is one `MessageBox` call from `user32.dll`. Steam access goes through the shipped `SteamLayerWrap.dll` and `steam_api.dll`, which I did not analyze. REA evidence: `ev_64318113...` (members), `ev_d1afab54...` (native boundaries).
+
+**Structure (namespaces, by size):** `Launcher.Extensions` (the mod and addon features), `Launcher.ViewModels` (MVVM view models, including `Servers`, `Parameters`, `DLC`, `Shell.Banners`), `Launcher.Steam` and `Launcher.Steam.Servers`, `Launcher.Views`, `Launcher.Controls`, `Launcher.News`, `Launcher.Reporting`, `Launcher.Presets`, plus a bundled `HTMLConverter` (with an oEmbed helper used for Twitter embeds in news posts).
+
+**What it does, from type and string names:**
+- **Game start:** `GameLocator` finds the install, `GameExecutor` starts `DayZ_x64.exe` (or `DayZ_BE.exe` when BattlEye is on) and watches the process. A run error carries the 64-bit game path, BattlEye path and game folder. If the game exits within 10 s it flags a possible crash. It falls back to a shell execute when elevation is required, in which case it cannot talk to the BattlEye or game process.
+- **Command-line parameters it builds or understands:** `-connect` / `+connect`, `-mod=`, `-server`, `-nolauncher`, `-useBE`, `-skipserverbrowser`, `-safemode`, `-nohwa`, `-devmode`, `-win32` / `-win64`, `-buldozer`, `-setupHost`, `-inGame=` and `-openedFrom=`, plus a profiles directory option.
+- **BattlEye management:** status codes and log messages for installing, updating, launching, a blocked file and an unknown status; a BattlEye EULA window (accepting is required to launch); and a "server requires BattlEye, enable and join" prompt in the server browser.
+- **Server browser:** `ServerBrowserService`, a request queue, a rules cache, filters (game time, player density, mod filter, tags), direct connect, favorites, LAN, ping, and a `QueryEndPoint`. I found no web URL for a server list, so the list probably comes through Steam's server queries [inf].
+- **Steam and mods:** subscribes to and downloads Workshop items (the Workshop path uses app ID **221100**), tracks download queues and per-item states, manages DLC (resource keys for app IDs 1151700, 1151710, 2968040, 3015370 and 3816030, and named keys "Frostline" and "Badlands"; I infer these relate to the extra map folders but did not confirm), and handles Steam invites. Mod presets are file based. It also carries a long built-in list of mod homepages left over from the Arma 3 era.
+- **Settings files it reads or writes:** `Parameters.json`, `UGC.json`, `News.json`, `Misc.json` and `ServerBrowser.Settings.json`, plus `steam_appid.txt` handling.
+- **News:** fetches developer news posts as JSON and renders them as flow documents.
+- **Reporting:** gathers game logs and basic system information into a zip, writes an emergency log to the desktop if the launcher itself fails, and points users to the DayZ feedback tracker.
+- **Inter-process:** a named-pipe or COM-style channel (`LauncherPipeProtocol`, `LauncherComClient` / `Server`) with focus and invite messages, so a second launch can hand over to a running launcher.
+
+Not done: no method bodies were decompiled, so none of the above says how a feature behaves, only that it exists. The launcher's third-party libraries (Json.NET, protobuf-net, log4net, Xceed WPF toolkit) were noted in section 1.
+
+## 2. Main executable overview [obs]
+
+Evidence `ev_b1b48e4f...`. Base `0x140000000`. 68,913 procedures, 38,334 defined strings.
+Sections: `.text` 18.1 MB, `.rdata` 6.1 MB, `.data` 54 MB in memory (only about 0.5 MB stored in the file, so mostly zero-filled), `.pdata` 0.8 MB.
+The exe references a PDB name (`DayZ_x64.pdb`) that is not shipped, so functions are unnamed.
+
+## 3. String survey [obs unless noted]
+
+- **Engine:** the exe calls itself Enfusion ("Enfusion engine version %d", `DayZApp::InitializeEnfusion`). Build paths come from a Jenkins tree (`...CodeSVN\Enfusion\src\{render,system,script}`).
+- **Graphics and audio:** DirectX 11 (`enf_texture_dx11.cpp`), own texture format `EnfusionDDS`, XAudio2.
+- **Bundled libraries:** OpenSSL 3.4.1, libcurl + nghttp2, Opus 1.3 (voice), Detour (navmesh), in-house `StatsLib`.
+- **Script runtime:** a runtime compiler (`enf_scriptcompiler.cpp`) and five script modules: `engine`, `gameLib`, `game`, `world`, `mission`. Retail refuses `ScriptModule.LoadScript` and `ExecuteEnforceScript`.
+- **Networking:** about 40 `NetworkMessage*` types (create/update for objects, vehicles, buildings, shots, weather...), Steam interfaces (`SteamUser023`, `SteamGameServer015`...), Steam token exchange against a Bohemia web API.
+- **Anti-cheat and integrity:** BattlEye client and server modules, `.bisign`/`.bikey` handling, a `DataIntegrityMonitorThread`.
+- Not found: RakNet (no real hits). Absence of a string proves nothing about use.
+- Limits: Ghidra only reports strings it defined.
+
+### 3.1 The Diag executable compared with retail [obs from strings, inf from names]
+
+Item 17 of the backlog. `DayZDiag_x64.exe` (28.8 MB) ships next to `DayZ_x64.exe` (26.0 MB). I compared their printable strings (ASCII and UTF-16, six characters or more) with `scripts\exe_strings.py`; no Ghidra run was needed and nothing was executed.
+
+| | Strings |
+|---|---|
+| Retail | 45,632 |
+| Diag | 52,839 |
+| In both | 44,831 |
+| Only in retail | 801 |
+| Only in Diag | 8,008 |
+
+**What the Diag-only strings are.**
+- **A developer UI toolkit.** The largest block (several thousand strings) is the **Dear ImGui** and **ImPlot** libraries, including their demo windows (`imgui_demo.cpp`, "Widgets/...", "Tables/..."). The Diag build links them in for its on-screen debug windows. The other Diag-only source paths are `enf_debugCore.cpp` (Enfusion `DebuggingUI`), `enf_light.cpp`, `soundXA2.cpp`, `Vehicles\transport.cpp` and `collisions.cpp`. The two builds were compiled from the same branch (`_Continuous_branches_stable_0130`), with PDB paths `build-binaries-win-ret\...\DayZ_x64.pdb` and `build-binaries-win-ret-diag\...\DayZDiag_x64.pdb`.
+- **The scripted diag menu.** The scripts define 231 `DiagMenuIDs` and 514 `#ifdef DIAG_DEVELOPER` blocks across 140 script files. The menu state is saved to `$profile:diagmenu.save`. Biggest groups: MISC 78, bleeding indicators 23, cheats 13 (kill player, invincibility, disable stamina, reset player, inventory access, fix items, create a hit and others), logs 12, weapon 11, feature 10 (time acceleration), melee 8, bleeding 7, base building 6, crash simulation 6 (infinite loop, null pointer, division by zero, error function), robo-clients 4 (bot clients), crafting 4, plus smaller groups for vehicles, sound, triggers, underground, radio, lifespan and camera tools. `staticDefinesDoc.c` says the `DEVELOPER` define is on in the binarize, debug, release, releaseAsserts and releaseNoOpt builds and off for the retail client and servers.
+- **Profilers and memory reports:** `EnProfiler` (time, call count and instance count per class and per function), script allocation and leak reports ("Script Leak (C++ side): '%s' %d instances"), `DebugMemory` prints, and a "Script profiler UI".
+- **Game-system overlays:** "Zombie Alerted: CALM / DISTURBED / ATTRACTED / CHASE / FIGHT" and `ZombieRespawner` counts; animal counts and spawn visualisation; the vehicle physics sleep and speed counters (`_sleepingVehicles`, `_fastVehicles` and similar); navmesh generation and visualisation; Bullet physics drawing and profiling; weather client and server config windows; sound controllers; `[VON]` voice-chat logs (megaphone, PAS broadcaster, radio transmitter); and 54 `ACID_*` names (animal, human, infected and physics-agent animation callback and state names) [inf: debug labels for the AI and animation event systems].
+- **Central Economy diagnostics:** 20 `[CE]` messages (player spawn points, hive, dynamic events) and the spawn-cap messages ("CANNOT SPAWN, GLOBAL CAP DEPLETED"), plus a per-class statistics table header (`Class,Nominal,Total,Map,DE,Hoarder,Cargo,Attachment,Player,Infected,Animal,Vehicle,RSuccess,RFail`). Retail contains the matching script API names (`CEApi::SpawnLoot`, `CEApi::LootExportMap`, `CEApi::EconomyLog` and about 45 more) together with the warning "Not available in this build. Only in a Diag executable." [inf: retail keeps stubs; the working implementation is Diag-only].
+- **Network diagnostic messages** that exist only in Diag: `AskForBuildingDiag` / `BuildingDiagAnswer` and `AskForDamageSystemDiag` / `DamageSystemDiagAnswer`.
+- **Server-side classes** that the retail client lacks: `ServerSession`, `SteamServerSession`, `VerificationManagerServer`, `ContentDLCManager_Server`, `SegmentedDataManagerServer`, `LoginMachine`, `RespawnMachine` and its respawn states. [inf: the Diag executable can host a server session as well as a client; the `SERVER` define is described as "client with -server"]
+- **Server-side BattlEye** strings appear only here: "BattlEye Server: Command received", "BattlEye kicked player %d for '%s'", "BattlEye server updated to version: %d", "Player %s kicked off by BattlEye". Retail has no BattlEye string that Diag lacks (the client reaches the DLL through the paths in section 4).
+
+**What is only in retail: a statistics service.** The 801 retail-only strings are mostly a telemetry library, `StatisticsLib` (several hundred strings): a local file service, and two HTTP senders named `SR` and `TD` (expansion unknown), with retry queues and JSON builders. Event and field names in the strings include `playerConnected`, `playerDisconnected`, `playerSpawned`, `playerDeath`, `appStarted`, `appClosed`, `amt_time_session`, `amt_time_camera_1pv` / `_3pv`, `cnt_toggle_camera`, and descriptive fields such as `name_cpu`, `name_gpu`, `amt_ram`, `amt_vram`, `name_os`, `name_locale`, `code_country`, `date_install`, `name_video_res`, `map_name`, `mod_list`, `id_server`, `id_user` and `id_session`. One endpoint string is present: `https://bohemia-interactive.iegcom.com/dayz/prod/report?signature=`, and a message says that unknown user types get an id "from HW". There is also a `statsDisabled` flag. [?] I did not trace whether it is enabled by default, what is actually sent on a normal client, or where the `TD` endpoint comes from (it is not a literal in the file).
+
+**Smaller points.**
+- Retail rejects a script-loading call with "'ScriptModule.LoadScript' can't be called on Retail Client!" (a retail-only guard).
+- The Diag build has no `StatisticsLib` strings, yet it has the RTTI names `SteamStat`, `SteamStatistics` and `Stat_characterTimeAlive` that retail lacks.
+- RTTI class names present only in Diag include `Stat_characterTimeAlive`, `VoNSystemRetranslate`, `ToolsManager`, `ShapeStatsDrawTool` and `PhysicsDiagDrawTool`. Some Diag-only names may exist in retail under a different decoration; the comparison is by exact string.
+
+## 4. How the client starts BattlEye [obs code, inf roles]
+
+1. **Trigger.** `FUN_140929c50` is the client's network message dispatcher. On message 2 (`RequestIdentityMessage`) it stores a flag byte from the message. If set, it calls the loader `FUN_1409284e0` on the BattlEye state object at `client + 0x178`. A failed load calls an error path and returns early.
+2. **Loader.**
+   - Loads `BattlEye\BEClient_x64.dll`, calls its `GetVer` export, and unloads it.
+   - Loads a second copy from another path and compares versions.
+   - If that copy is older or missing, copies the installed DLL over it and logs "BattlEye client updated to version: %d".
+   - Calls the `Init` export with version 2, a game-info structure, and two exe callbacks (`FUN_14092ec40`, `FUN_140932a40`).
+   - Requires `GetVer` at least 247. On success it marks the object ready and the DLL fills a function table at slots `0x10` to `0x14`.
+3. **Packets.** Message `0x52` (`BattlEyeMessage`) is passed to slot `0x13` of that table, with payload pointer and length. [inf: this is the DLL's incoming-packet handler]
+4. **Reload.** `FUN_1409319e0` calls a table function, and if it reports false it shuts the DLL down, replaces the local copy and runs the loader again. Its one call site, `0x14092e677`, is read below.
+5. Entries at `0x144af9048` and `0x144af9378` are `.pdata` unwind records, not callers.
+
+#### 4.0 The rest of the wiring (item 16) [obs code, inf roles]
+
+Three further functions were decompiled (`FUN_14092e290`, `FUN_14092ec40`, `FUN_140932a40`), and the loader and reload code re-read. This is understanding of how the client hosts the DLL; it says nothing about the DLL's internals, which were not examined.
+
+**The BattlEye state object** (`client + 0x178`, `param_1` in the loader). Offsets are bytes from its start:
+
+| Offset | Content |
+|---|---|
+| `+0x00` | module handle of `BEClient_x64.dll` (0 when not loaded) |
+| `+0x08` | "ready" flag, set to 1 only after a successful `Init` |
+| `+0x58` | pointer to a game-info string held in a global buffer, built from two strings returned by an engine singleton (called through its vtable at `+0x38` and `+0x20`) joined by a separator [obs, resolved in G1d: the application name, a single space, and the version, for example `DayZ 1.30.164200.56`; see below] |
+| `+0x60` | a 32-bit value filled by a call on the client's network connection object (`client + 0x128`, vtable `+0x60`) |
+| `+0x64` | a 16-bit value from the same call, byte-swapped before storing |
+| `+0x68` | **callback A**, `FUN_14092ec40` |
+| `+0x70` | zero (an unused callback slot) |
+| `+0x78` | **callback B**, `FUN_140932a40` |
+| `+0x80` to `+0xA0` | function table that the DLL fills in (slots `0x10`, `0x11`, `0x12`, `0x14`, `0x13`) |
+
+**The `Init` call.** `Init(2, &state[+0x58], &state[+0x80])`: version 2, a pointer to the block `+0x58` to `+0x78` as input (game-info string, the 32 plus 16-bit values, two callbacks), and a pointer to the table that the DLL fills. The 32-bit plus byte-swapped 16-bit pair has the shape of an IPv4 address and a network-order port [inf: the address and port of the game server the client is connected to]. The loader requires `GetVer` of at least 247 (0xF7); a lower version prints "Obsolete/unsupported BattlEye version, please reinstall BE!".
+
+**Callback A, `FUN_14092ec40` (log sink).** Takes a text string from the DLL, splits it at newline characters, and writes each line to the game's log through the logging singleton at level `0x40` with the category name **"BattlEye"**. A string with no newline is logged as one entry. [inf: the DLL's own status messages show up in the game log under this tag]
+
+**Callback B, `FUN_140932a40` (send to server).** Takes a data pointer and length from the DLL, copies it into a `BattlEyeMessage` object, and, when the client's connection state (global client object, field `+0x2F4`) is greater than 2, sends it to the server as a game message. This is the outgoing half of message `0x52`; the incoming half is slot `0x13` (section above). [inf: the DLL never opens its own socket; its traffic rides the game's own connection, so the exe is a relay in both directions]
+
+**Table slots in use** (from the reload code): slot `0x11` is a per-frame function that returns a boolean ("still healthy"); slot `0x10` is called before unloading (a shutdown or exit hook); slot `0x13` takes incoming packets. Slots `0x12` and `0x14` are cleared on unload and are never read in the client networking code (see G1e below).
+
+**Per-frame loop and reload.** The caller of `FUN_1409319e0` is `FUN_14092e290`, the client network manager's update function. Each frame it processes queued connection-state events, raises a `MPConnectionLostEvent` when a connection-quality value goes above 1.0 (and again when it recovers), pumps the network connection object, and then calls `FUN_1409319e0(client + 0x178, client)`. That function:
+1. Calls slot `0x11`. If the DLL reports healthy, nothing else happens.
+2. If not healthy: calls slot `0x10` (if the object is ready), frees the DLL, clears the table, deletes the local copy, and renames a staged file over it (a second path built from a literal prefix and the same file name), then runs the loader again (`FUN_1409284e0`).
+3. If the reload also fails, the update function calls `FUN_140926040(client, <string>)`. That function (decompiled) is the client's **disconnect with a reason** routine: it closes the network connection (vtable `+0x1A8` on the connection object), resets the connection state to 0, logs the reason string (category "System", or through the client's message handler if one is registered), then tears BattlEye down: calls table slot `0x10` if the ready flag is set, `FreeLibrary`, and clears the pointer and table. So a BattlEye health failure that cannot be repaired by reloading ends the session on the client side.
+
+**Install-copy logic (re-read).** On each load the loader asks for the install copy `BattlEye\BEClient_x64.dll`, reads its `GetVer`, then loads the working copy (the same file name under a path from `FUN_1409b2fa0`) and compares versions. A working copy that is older than the installed one is freed and replaced by `FUN_140bbf5b0(installed, working)` (a file copy), and the message "BattlEye client updated to version: %d" is logged. If the install copy is missing, the working copy is deleted.
+
+### 4.1 Client message ID map [obs from the decompile, grouping inferred]
+
+Source: the `switch` on the message ID in `FUN_140929c50` (saved decompile; parsed locally with no new Ghidra run). The table below lists what the client handles. Message types are named from the `::vftable` that each case constructs, so names are the game's own class names. The parse was automatic, so a group boundary could be off by one case.
+
+- The client handles **111 distinct IDs**, with a maximum of 154 (0x9A). Anything else prints "Client: Unhandled user message %d".
+- IDs 1, 70, 129 and 130 are explicit no-ops.
+
+| Group | IDs (decimal) | Message types |
+|---|---|---|
+| Session and state | 2, 4, 5, 6, 8 | `RequestIdentityMessage` (2, the one that starts the BattlEye load), `ServerStateMessage`, `ClientStateMessage` (5, logs "OnClientStateChanged"), `PlayerClientStateMessage`, `AskForHiveUpdateResponseMessage` |
+| Login and logout | 11, 133, 136, 137, 138 | `LogoutMessage`, `LogoutResponseMessage`, `LoginTimeMessage`, `LoginPreloadMessage` (also respawn and preload events), `LoginStatusMessage` |
+| Disconnect and server info | 73, 81, 85, 86, 89, 100, 101, 108 | `ServerTimeoutMessage`, `DisconnectMessage`, `ServerTimeMessage` (warns if client and server clocks differ by more than 10 s), `ServerAdminMessage`, `ServerInfoMessage`, `ServerFpsMessage` and related stats events |
+| Chat | 12, 72, 109 | `ChatMessage`, `LocalizedChatMessage`, `StatusChatMessage` |
+| Integrity and anti-cheat | 74 to 77, 82, 87 | `DataSignatureAskMessage` (77 has the full handler; 74 to 76 are short stubs), `BattlEyeMessage` (82, payload handed to the BattlEye client), `FileSignatureAskMessage` |
+| Bunker broadcast | 13 to 19 | `BunkerCodeStartMessage`, `BunkerCodeMessage`, `BunkerCodeEndMessage`, and setters for speed, bunker repeat, total repeat and pause between bunkers |
+| Spectating and camera | 21, 22, 134 | `SelectPlayerMessage`, `SelectSpectatorMessage`, `CameraPositionMessage` |
+| Gameplay | 26 to 29, 30, 31, 32, 90, 122, 150, 151 | `FireWeaponMessage` (29, with 26 to 28 as separate handlers), `SyncJunctureMessage`, `NetworkMovementMessage`, `DeleteObjectMessage`, `AskWeaponSynchMessage`, `InventoryCommandMessage`, `AttachObjectMessage`, `DetachObjectMessage` |
+| Weather | 123 to 127 | `WeatherUpdateMessage` (124), wind (125), storm (126), property (127); 123 is a short inline handler |
+| Commands | 66, 67 | `NetworkCommandMessage` (a large handler, about 280 lines), a connectivity-stats event |
+
+**Object stream.** 47 more IDs are not individually named. Two shared mechanisms handle them:
+- **18 IDs** (33, 35, 39, 41 to 44, 48, 50, 52, 55, 59, 62, 64, 65, 71, 98, 152) each build a small type-specific callback and hand it to one common function (`FUN_1409254e0`), which takes an object and a message context. These look like the object *creation* messages.
+- **29 IDs** (34, 36, 37, 40, 45 to 47, 49, 51, 53, 56 to 58, 60, 61, 63, 91, 92, 96, 97, 99, 102 to 107, 153, 154) share a single body that looks up an object by ID and type, warns "Object ... not found" if it is unknown, and ignores updates for objects that are local to the client. These look like the *update* messages.
+- That matches the 40 or so `NetworkMessageCreate*` / `NetworkMessageUpdate*` types seen in section 3 (vehicles, buildings, shots, pawns, transports and so on). All 155 IDs are now named (section 4.2).
+- Small leftover inline handlers without a recognizable message class: IDs 10, 20, 26 to 28, 38, 54, 68. A per-message-type lookup table in the exe (`DAT_144a8d1d0`) is read for every message below 155, and I have not identified what it holds.
+
+The full parsed table is in the scratchpad as `message_map.csv`; it is a working file and not part of these notes.
+
+### 4.2 The complete message ID table [obs from the exe, grouping inferred]
+
+Task G1a. Every network message ID from 0 to 154 is now named. The full table is `data\message_ids.csv` (columns: id, hex, message class, short name, kind, object size in bytes, factory function, whether the client dispatcher of 4.1 handles it).
+
+**How it was found.** `FUN_140994790` is a message factory: a `switch` on the ID (cases 0 to 0x9A, and "Unregistered message type=%d" otherwise) that calls one allocator per ID. Each allocator zero-fills a block and sets the `NetworkMessage...::vftable`, so the class name is recovered directly from the vtable symbol Ghidra's RTTI pass created. Each of the 155 IDs maps to a different class (154 resolved from the allocator body; ID 0 is `NetworkMessageMsgFormatItem`).
+
+**Checks that passed.** All 18 IDs that the client dispatcher routes to the common "create object" function (33, 35, 39, 41 to 44, 48, 50, 52, 55, 59, 62, 64, 65, 71, 98, 152) are `Create*` classes, and all 29 IDs that share the "update object" body (34, 36, 37, 40, 45 to 47, 49, 51, 53, 56 to 58, 60, 61, 63, 91, 92, 96, 97, 99, 102 to 107, 153, 154) are `Update*` classes. That settles the earlier guess in 4.1.
+
+**Table by kind.**
+
+| Kind | Count | IDs and names |
+|---|---|---|
+| Create (object spawn) | 20 | 10 Identity, 33 Object, 35 Vehicle, 39 Shot, 41 SoundOnVehicle, 42 ObjectDestructed, 43 Weapon, 44 VehicleAI, 48 Pawn, 50 VehicleBrain, 52 DayZPlayer, 55 DayZCreature, 59 Transport, 62 Car, 64 Boat, 65 Motorbike, 71 DynSoundSource, 93 Muzzle, 98 Building, 152 Helicopter |
+| Update | 26 | 34 Object, 36 Vehicle, 40 Shot, 45 VehicleAI, 46 VehicleAIIncremental, 47 ScriptedEntity, 51 VehicleBrain, 56 DayZCreature, 57 DayZCreatureIncremental, 58 DayZCreatureAIIncremental, 60 Transport, 63 Car, 91 Weapon, 94 Muzzle, 96 Magazine, 97 InventoryItem, 99 Building, 102 ItemGrenade, 103 ItemRadio, 104 ItemTransmitter, 105 PASBroadcaster, 106 PASReceiver, 107 StaticTransmitter, 153 Helicopter, plus 9 UpdateNetworkInputActions and 69 UpdateTransferAmmoInfo |
+| Update position | 7 | 37 Vehicle, 49 PawnIncremental, 53 DayZPlayerIncremental, 61 TransportIncremental, 92 Weapon, 95 Muzzle, 154 Helicopter |
+| Backtracking state | 2 | 38 Vehicle, 54 DayZPlayer (lag-compensation state) [inf from the name] |
+| Other | 100 | session, login, chat, weather, voice, anti-cheat, diagnostics and control messages below |
+
+**Other messages, by role** (names are the game's own class names):
+- *Session and login:* 2 RequestIdentity, 4 ServerState, 5 ClientState, 6 PlayerClientState, 11 Logout, 81 Disconnect, 131 RequestRespawn, 132 LogoutRequest, 133 LogoutResponse, 135 LoginData, 136 LoginTime, 137 LoginPreload, 138 LoginStatus, 73 ServerTimeout.
+- *Server information and time:* 20 MissionHeader, 68 MissionParams, 85 ServerTime, 86 ServerAdmin, 89 ServerInfo, 108 ServerFps, 83 LocPlayerInfo, 84 LocPlayerInfoList.
+- *Chat and voice:* 12 Chat, 72 LocalizedChat, 109 StatusChat, 70 VoiceOn, 139 VoiceLevel, 144 MuteAllRequest, 146 BlockPlayersRequest, 147 ResetBlockListRequest, 148 MutePlayersPlatformRequest, 149 ResetMuteListPlatformRequest.
+- *Integrity and anti-cheat:* 74 to 76 CompressedData (Segment, End, Data), 77 DataSignatureAsk, 78 DataSignatureAnswer, 79 HackedData, 80 ReportCheat, 82 BattlEye, 87 FileSignatureAsk, 88 FileSignatureAnswer.
+- *Gameplay actions:* 29 FireWeapon, 30 SyncJuncture, 31 NetworkMovement, 32 DeleteObject, 90 AskWeaponSynch, 100 InteractBuilding, 101 ScriptRPC, 110 ShotEvent, 111 ShotEventBatch, 113 FirearmDamage, 122 InventoryCommand, 150 AttachObject, 151 DetachObject, 26 to 28 effect messages (Explosion, Firearm, CloseCombat), 66 NetworkCommand, 67 PlayerUpdate.
+- *Weather:* 123 WeatherInit, 124 WeatherUpdate, 125 WeatherWind, 126 WeatherStorm, 127 WeatherProperty, 128 WeatherPropertyInit.
+- *Bunker broadcast:* 13 to 19 (see 4.1).
+- *Spectating, camera, tracking, position:* 21 SelectPlayer, 22 SelectSpectator, 23 SpectatorUpdate, 24 AskForMoveVector, 25 AskForMoveMatrix, 134 CameraPosition, 129 and 130 PositionOnServer(Toggled), 140 to 143 Tracking(Add/Remove)Agent(Point).
+- *Hive:* 7 AskForHiveUpdate, 8 AskForHiveUpdateResponse.
+- *Diagnostics (Diag build):* 112 ShotDiag, 114 to 117 Ask/Answer for damage-system and building diagnostics, 118 to 121 inventory debug dumps, 145 AskForCrashServer.
+- *Framework:* 0 MsgFormatItem, 1 MsgFormat, 3 Messages.
+
+**44 IDs are not handled by the client dispatcher** of 4.1 (the other 111 are). They are mostly client-to-server messages or server-side ones: the answers and requests (78 DataSignatureAnswer, 79 HackedData, 80 ReportCheat, 88 FileSignatureAnswer, 131 RequestRespawn, 132 LogoutRequest, 135 LoginData, the mute and block requests), the diagnostics (112 to 121, 145), `AskForMoveVector/Matrix`, the tracking messages (140 to 143), `ShotEvent` and `ShotEventBatch` (110, 111), `FirearmDamage` (113), `WeatherPropertyInit` (128), `UpdateNetworkInputActions` (9), `UpdateTransferAmmoInfo` (69) and the Muzzle messages (93 to 95). [inf: direction from the dispatcher not handling them and from the names; not confirmed on the server side]
+
+**Per-class `GetNMType`.** Entity classes carry a virtual `GetNMType(kind)` that returns the three IDs of their create, update and update-position messages. Example: `Muzzle::GetNMType` returns 0x5D, 0x5E or 0x5F (93, 94 or 95) for kinds -1, 0 and 1, and logs "unknown NMC type (in Muzzle::GetNMType)" otherwise. [obs for Muzzle only; other classes not read]
+
+**Open:** `DAT_144a8d1d0`, the per-message table read by the dispatcher, is in the zero-filled part of `.data` (all zero in the file), so it is filled at run time; the writer has not been found.
+
+### 4.3 The retail statistics service: what the code shows so far [obs for the functions, [?] for behaviour]
+
+Task G1c, first pass (persistent Ghidra project, `scripts\ghidra\run_batch.ps1`). This continues the finding in 3.1.
+- **Where it starts.** The log line "Initializing stats manager." sits inside the large application start-up function `FUN_140a74560` (called from `FUN_140691b00`). It reads a string from a global singleton (field `+0x40`) and passes it to a stats-manager setup call (`FUN_140817820`, `FUN_140817690`) after the engine has been initialised.
+- **Configuration is a JSON document.** `FUN_14081ce90` and `FUN_14081bc40` read and write a JSON object (a rapidjson-style tree walk) with the keys `statsHistory`, `statsRevision`, `statsEnabled` and `statsDisabled`; missing keys are created with defaults. So `statsDisabled` is a key in a JSON configuration or state object, not a command-line switch [obs for the key names and the read/write code; not yet traced to its source file or default values; the defaults and the services are in the 4.3 addendum].
+- **The upload URL.** The literal `...iegcom.com/dayz/prod/report?signature=` is used in `FUN_140817c50`, and "Stats: Unknown type of user, generating id from HW!" in `FUN_140817eb0` (the user-id fallback).
+- **Event senders** for `playerConnected`, `playerSpawned`, `playerDeath`, `appStarted`, `mod_list`, `name_os_ver_type` and `nflag_video_completed` are small functions around `FUN_140820403`, `FUN_14082054b`, `FUN_14081f29a`, `FUN_14081f645` and `FUN_14081ff7c`.
+- **Second pass: how the manager is created and what the JSON is.** `FUN_140817690` (the stats-manager setup) only creates the client classes `Statistics::PlayerStatisticsClient` and `Statistics::StatisticsEventHandlerClient` when two things hold: a flag byte in the manager singleton (at `+0x0B` of the object at `0x141740af0`) is non-zero, and the application flag read by `FUN_140682bf0` (`DAT_141836879`, which looks like a server or no-GUI mode flag) is zero. In the file image that flag byte is **statically initialised to 1** (bytes `01 01` at `+0x0A` and `+0x0B`), so by default the manager is created on a normal client. [obs for the initial value and the condition; I found no code that clears it, but writes through a base-plus-offset pointer do not show up as cross-references, so this is not proven.]
+- **The JSON is a per-user settings file, not a download.** Inside setup, `FUN_14081e950` asks `FUN_140817eb0` for the user id (the function whose fallback derives an id from hardware), asks a file-system object (`param_1[0x21]`, virtual calls at `+0x10` and `+0x18`) for a path based on that id, and constructs the settings object `FUN_14081a850` with it. That constructor loads the file if it exists (`FUN_14081b750`) and otherwise creates a default document with `statsRevision` set to `0x28168` = **164200**, the build number, and saves it (`FUN_14081c7f0`). The document holds `statsEnabled`, `statsDisabled`, `statsHistory`, `statsRevision` plus change-tracking fields (`statsChangeReason`, `statsChangeSource`). The services also check a per-event "disabled for this service" condition ("StatsServiceSR: Event is disabled for this service."). [obs for the construction and the keys; inf that `statsEnabled`/`statsDisabled` are the user's opt-in and opt-out state]
+- **Not yet known (partly answered in the 4.3 addendum below):** the literal file name or folder (it comes from the file-system object's virtual calls), the default values written for `statsEnabled` and `statsDisabled`, whether any UI or launcher option writes the opt-out, which of the `SR` or `TD` senders is used on a normal retail client, and the origin of the `TD` endpoint (no second URL literal exists in the file). [?]
+
+**4.3 addendum: the three stats services and what the client sends** [obs for the structure and the settings, inf for the runtime defaults]. This answers most of the open items in the list above. The statistics library (`StatisticsLib`) builds up to three services from one settings structure in `FUN_1410d3d30` ("StatisticsServices: Initializing services"):
+- **`StatsServiceSR`** (constructor `FUN_1410d4e20`), enabled by the byte at `+0xC0` of the settings. This is the one that reports to the web.
+- **`StatsServiceTD`** (constructor `FUN_1410d4650`), enabled by the byte at `+0x68`.
+- **`StatsServiceLocal`** (constructor `FUN_1410d4b90`), enabled by the byte at `+0xC`; it writes events to a local statistics log file ("Created statistics log file %s", "Failed to create statistics log file %s").
+
+**The client builds its settings in `FUN_140817c50`** and sets them like this: the **SR flag is forced to 1** and its URL and a fixed 32-character signature string are written into the settings (the URL is the Bohemia analytics report address already listed above; the signature is a constant embedded in the executable, not recorded here); the **TD flag is forced to 0** and no TD URL is ever set, which is why no second URL literal exists: **TD is a disabled alternative service in the retail client**; the **Local flag is copied from an argument** that is 0 for this client in the static initial state (the manager singleton at `0x141740af0` has its `+8` and `+9` bytes at 0 and its `+0xA` and `+0xB` bytes at 1), so the local log file is **off unless something sets that byte at run time** [inf; no static writer was found]. The HTTP client settings in the same structure are: content type `application/json`, platform label `PC_CLIENT`, field names `id_user`, `id_session` and `name_event`, numeric defaults of 10, 5, 60, 1 and 500 (by inference timeouts in seconds, a retry count and a queue size of 500 events). A full queue logs "Send queue is full (event count: %d)" and drops events.
+
+**What a report contains.** The JSON builders show the shape: for SR an event record has the log name, the user id, the session id, a timestamp and the event values (text, integer, float, boolean, object and array values are all supported); the TD builder uses configurable key names for event, user and session. The statistics events defined by the game are: application started, closed, resumed and suspended; player connected, spawned, died and disconnected; video started and stopped; plus the senders for `mod_list` (the list of loaded mods), `name_os_ver_type` (the operating system name and version) and `nflag_video_completed`. The user id is derived from the account type, with a **fallback that generates an id from hardware** ("Stats: Unknown type of user, generating id from HW!"). The exact set of values inside each event (for example what `playerDeath` carries) was not decoded [?].
+
+**Opting out.** The per-user settings file (4.3 above) holds `statsEnabled` and `statsDisabled`; the manager is only created when its flag byte is set and the application is not a dedicated server or no-GUI run, so **a dedicated server probably never creates the statistics client** [inf: the flag that blocks it is the one 3.1 read as a server or no-GUI mode]. Whether any in-game option writes the opt-out into the settings file was not found [?]. The HTTPS request code warns when the platform certificate store cannot be used ("reports will fail to verify"), so reports are verified against the system store.
+
+### 4.4 The engine's native script API: registration table (item 18 pilot) [obs for the table, [inf] for class attribution]
+
+Task G3. Result: `data\native_api.csv` (3,191 registered native script methods) and the tool `scripts\native_api.py`.
+
+**How natives are registered.** At start-up the engine runs about 197 registration functions, one per script class (or group of classes). Each calls one of two registrars with a context, a class object, the method name as a string literal, and the native implementation:
+- `FUN_1402725a0(context, class, "Name", nativeFn, ...)`: **instance** methods (2,631 registrations);
+- `FUN_1402724e0(context, class, "Name", nativeFn, 0, 1)`: **static** methods (560).
+Example: the `DayZPhysics` function `FUN_140b3af70` creates the class with the literal "DayZPhysics" and registers `RaycastRV` (`FUN_140b3d1b0`), `GetHitSurface`, `RayCastBullet`, `SphereCastBullet`, `GeometryOverlapBullet`, `EntityOverlapBullet`, `CylinderOverlapBullet`, `SphereOverlapBullet`, `CapsuleOverlapBullet`, `BoxOverlapBullet` and others.
+
+**How the table was built.** (1) Cross-references to the two registrars give 3,201 call sites in 198 functions. (2) All 198 were decompiled in one batch run of `run_batch.ps1` (18 s), and the name and native function parsed from each call; 94 names that Ghidra had not defined as strings (short names such as `Pow`, `Sqrt`, `Read`) were read with the `string` task. 3,191 registrations were parsed; one of the 198 functions yielded none and 10 call sites were not recovered. (3) `scripts\native_api.py` joins them with the `proto` declarations parsed from the script source.
+
+**Class attribution is heuristic.** The class object is passed in rather than named in most registration functions, so each function's set of method names is matched to the script class whose `proto` declarations overlap most (Jaccard score; a class name literal in the same function wins ties). `class_score` in the CSV says how good the match is; a score of 1.0 means the sets are identical, and a lower score marks a shared or mixed group (for example a function of 245 widget methods and one of 96 math methods). Do not rely on an attribution below about 0.5 without checking.
+
+**Coverage (first pass; superseded by the 4.4 addendum below: 2,809 of 3,539 after the parser fix).** 3,545 script `proto` declarations (counting plain `proto` as well as `proto native`; the 3,770 quoted in section 3 is a different count) in 279 classes; **2,724 of them (77%)** have a registration with the same name in the attributed class. The rest are not matched, which has several possible causes: declarations on a base class whose registration sits in a derived-class group, properties or constructors registered by another mechanism, natives that share a name across classes, and the 10 unrecovered call sites. 174 native functions are shared by several names (aliases or generic accessors). [?] Not yet analysed which cause applies to the 821 unmatched.
+
+**Spot checks.** `Car.GetFluidFraction` = `FUN_1407c7d20` takes a vehicle and a fluid index and returns a float read from a fluid table at offset `+0x9C + index * 4` (with a power-based quantisation); `Weather.GetRain` = `FUN_140258eb0` returns a stored field at `+0x20`; `DayZPhysics.RaycastRV` = `FUN_140b3d1b0` sits in the `DayZPhysics` registration. All three were consistent with their script declarations.
+
+**Use.** Look up a script `proto` call in `native_api.csv` to get the address of the engine function that implements it, then decompile it with `run_batch.ps1`. Next slices (G4): ballistics (`RayCastBullet`, `SphereCastBullet`, weapon and ammo natives), AI perception and noise, and vehicle physics.
+
+**4.4 addendum: the unmatched declarations (follow-up on the 821)** [obs for the counts, inf for the reasons]. The first pass left 821 script `proto` declarations without a matching native registration. Part of that was a parser bug in `native_api.py`: an indented forward declaration `class PlayerBase` inside the `CGame` body was read as a new class, so the `CGame` natives declared after it were credited to `PlayerBase` (which showed 85 unmatched declarations before the fix). With the parser fixed the table matches **2,809 of 3,539** declared methods in 274 classes (3,191 registrations in 197 registration functions). The remaining **730** are listed with a reason in `data/native_unmatched.csv` (built by `scripts/native_gaps.py`):
+- **140 dev / VR / console classes** (`DebugText`, `Workbench`, `EnProfiler`, `DbgUI`, `VRDevice` and similar): not part of the retail game, so nothing registers them [inf].
+- **100 builtin types** (`string`, `vector`, `array`, `int`, `float`): registered through the type system, not the two registrars.
+- **269 "other class"**: the same method name is registered, but the row was attributed to a different script class. Mostly inheritance: the widget classes (`TextWidget`, `ScrollWidget`, `VideoWidget`, `ImageWidget`, `ButtonWidget`, `SliderWidget`) and `IEntity` use methods the engine registers once on a base class, and the name-overlap score cannot split them. These are almost certainly registered, only mis-attributed [inf].
+- **221 not registered**: no registration with that method name exists (for example `PacketInputAdapter`, `BoneMask`, `OcclusionQuery`, `MenuManager`); these may be registered through a third mechanism or be dead declarations [?].
+
+### 4.5 BattlEye hosting: the remaining details (G1d, G1e) [obs]
+
+- **The game-info string** passed to `Init` is built from an application-info singleton, `OFPApplicationInfoFunctions` (`FUN_1405d6930`): its virtual at `+0x38` returns the application name, then the loader appends a single space, then its virtual at `+0x20` returns the version. The version getter returns the literal `1.30.164200.56`. The name getter returns `DayZ` for build type 1, `DayZ Exp` (2), `DayZ Int` (3), `DayZ Bot` (4), `DayZ Test` (5) and `DayZ Unk` otherwise. In this retail build the string is therefore **`DayZ 1.30.164200.56`**.
+- **The disconnect message** shown when BattlEye cannot be loaded or reloaded is a localized string ID, `STR_BATTLEYE_INIT_FAILED`, whose English text is **"BattlEye initialization failed"**. `FUN_140ba0ff0` looks the ID up in the localization table ("String id %d is not localized" if it is missing). The global holding the ID (`0x141833330`) is zero in the file and filled at start-up; the exe has a registry of records {address of an ID variable, pointer to its name string}, and the record for this ID names `STR_BATTLEYE_INIT_FAILED` (neighbouring records: `STR_SIGNATURE_WRONG`, `STR_SIGNATURE_CHECK_TIMED_OUT`). The same ID is read by the message dispatcher (`FUN_140929c50`) on the failed first load triggered by message 2, and by the per-frame update (`FUN_14092e290`) on a failed reload. So both failure paths end with the same text.
+- **Table slots `0x12` and `0x14`.** An instruction scan of the client networking range (`0x140920000` to `0x140940000`) for the table offsets finds only writes that zero them (`FUN_140926040`, the disconnect routine, and `FUN_140929bd0`, which looks like the client's initialiser) and no call through them. Slot `0x13` is read once in the dispatcher (`0x14092dcda`, the incoming-packet call). [obs within that range; not proven for the whole exe, because other code could reach the object through a different path]
+- The batch tool gained an `instrscan` task for this (`scripts\ghidra\BatchDecompile.java`).
+
+### 4.6 Ballistics from the engine side (G4, first slice) [obs unless noted]
+
+**A naming trap.** The `DayZPhysics` natives whose names end in `Bullet` (`RayCastBullet`, `SphereCastBullet`, `BoxOverlapBullet`, `CapsuleOverlapBullet`, `CylinderOverlapBullet`, `SphereOverlapBullet`, `GeometryOverlapBullet`, `EntityOverlapBullet`) are **queries against the Bullet physics library** (the `bt*` classes in the exe, and the Diag build's "Draw Bullet shape" and "Force sleep Bullet" options), not firearm projectile code. `FUN_140b3ce80` (`RayCastBullet`) only reads the script arguments (start, end, flags, and output positions, normal, and a hit flag), calls a virtual method (`+0x178`) on the physics world object (`*(DAT_141837190 + 0xD0)`), and writes the results back. [obs]
+
+**Surface data accessors are plain field reads.** `SurfaceInfo.GetBulletPenetrability` (`FUN_1407fd400`) returns the float at offset `+0x48` of the surface record, and `GetDeflection` (`FUN_1407fd840`) the float at `+0xB8`; the other 36 `SurfaceInfo` natives in `data\native_api.csv` are the same kind of accessor (name, thickness, roughness, sound sets, particle IDs and so on). So penetrability and deflection are per-surface config values, applied by engine code that has not been located yet. [obs for the accessors; ? for where they are used]
+
+**The projectile classes.** The exe has two projectile simulation classes, `ShotBullet` and `ShotShell` (each with several vtables, so several subclasses), plus a script-visible `ProjectileStoppedInfo` (natives: `GetAmmoType`, `GetInVelocity`, `GetPos`, `GetProjectileDamage`, `GetSource`) and the script events `OnProjectileStopped`, `OnProjectileStoppedInObject` and `OnProjectileStoppedInTerrain`. `HitInfo` exposes the ammo type, position, surface, surface normal, a water flag and a surface noise multiplier (`GetSurfaceNoiseMultiplier`). The damage natives are `Object.ProcessDirectDamage` (`FUN_1406716f0`), `DamageSystem.CloseCombatDamage`, `CloseCombatDamageName` and `ExplosionDamage`.
+
+**What the engine reads from each `CfgAmmo` class.** One function, `FUN_140a35e70`, reads these keys (it is the engine-side ammo loader):
+- *Kind:* `simulation` (values `shotBullet`, `shotShell`, `shotSpread`, `shotIlluminating`, `shotArrow`), `SimulationScriptClass`, `defaultMagazine`.
+- *Flight:* `initSpeed`, `typicalSpeed`, `maxSpeed`, `maxLeadSpeed`, `airFriction`, `airFrictionChangeOnActivation`, `coefGravity`, `timeToLive`, `simulationStep`, `slowdownThreshold`, `initTime`, `explosionTime`, `fuseDistance`.
+- *Surface interaction:* `caliber`, `deflecting`, `deflectingMultiplier`, `deflectionSlowDown`, `dispersion`, `projectilesCount` (pellets).
+- *Explosions:* `explosive`, `explosionType` (`directional` or `radial`), `indirectHit`, `indirectHitRange`, `indirectHitRangeMultiplier`, `indirectHitAngle1`, `indirectHitAngle2`, `soundSpeedAppliesToHit`.
+- *Tracers:* `tracerScale`, `tracerStartTime`, `tracerEndTime`, `nvgOnly`.
+- *Sounds and effects:* a `hit*` class per surface type (ground soft and hard, man, armor, iron, building, foliage, wood, glass, armored glass, plastic, concrete, rubber, metal plate, metal, snow, ice, dry mud, default), `bulletFly`, `soundFly`, `soundEngine`, `supersonicCrackNear`, `supersonicCrackFar`, the `soundSet*` fields, `SoundSetsGroundHits`.
+- *Weapon wear:* `damageBarrel`, `damageBarrelDestroyed`, `jamChance`, `jamChanceDestroyed`, `dmgPerUse`, and the `DamageApplied` class.
+Every key except the sound, wear and explosion groups appears in `data\ammo_physics.csv` (254 ammo classes, resolved through inheritance). The scripts in 5.3 never touch these values, which fits the finding there that flight and penetration are engine and config driven.
+
+**Real values** (from the configs, `data\ammo_physics.csv`):
+- *Simulation kinds:* `shotBullet` 224 classes, `shotShell` 13, `shotIlluminating` 9, `shotSpread` 3, `shotArrow` 3, and 2 with none.
+- *Typical bullet (5.56x45):* `initSpeed` 850, `typicalSpeed` 1000, `airFriction` -0.00125, `coefGravity` 1.0, `timeToLive` 6 s, `caliber` 1, `deflecting` 10, `deflectingMultiplier` 1.0, `deflectionSlowDown` 0.8, `simulationStep` 0.05 s, `slowdownThreshold` 500, `maxLeadSpeed` 23.
+- *Across all 254:* `airFriction` runs from -0.06 to -0.0005 (-0.0005 for 212 classes); `coefGravity` is 1.0 for 250 and 0.1 for 4; `timeToLive` is 6 s for 214 classes, up to 40 s; `deflectionSlowDown` is 0.8 for all 247 that set it; `dispersion` is 0 for 248.
+- The sign convention suggests `airFriction` is a negative drag coefficient, but the integration formula was not read. [inf]
+
+**Not located yet:** the code that integrates a `ShotBullet` through the world (its per-step update), the penetration and ricochet decision that uses `caliber`, `deflecting` and the surface values, and the damage calculation that produces the health, blood and shock numbers of 5.3. Leads: the `ShotBullet` and `ShotShell` vtables (`0x141204da0`, `0x141204208` and the other copies), `FUN_140a35e70`'s output structure, and the callers of `ProcessDirectDamage`.
+
+### 4.7 Firing a shot: from ammo type to spawned projectile [obs for the code, [inf] for parameter roles]
+
+Task G4 continued. This traces the engine path that turns an ammo type into projectile objects. Functions are in `DayZ_x64.exe` (retail).
+
+**1. The ammo type's `simulation` value.** The loader (4.6) stores `simulation` as an integer at offset `+0x368` of the ammo type object. The spawn code accepts only 0 (nothing happens) and 1 to 5; anything above prints "Unknown ammo used.". The values line up with the config names in the loader's order: **1 = `shotShell`, 2 = `shotBullet`, 3 = `shotSpread`, 4 = `shotIlluminating`, 5 = `shotArrow`**. [obs for the integers and what each builds; inf for the pairing with the config names, from the order in which the loader lists them and from 4 = flare and 5 = arrow]
+
+**2. The shot factory, `FUN_1405f95b0(world, ammoType, id)`.** It switches on `+0x368`:
+
+| Value | Object built | Size |
+|---|---|---|
+| 1 and 3 | plain `ShotShell`-family object (`FUN_1405f58a0`) | 0x460 |
+| 2 | `ShotBullet` (`FUN_1405f5410`) | 0x4B8 |
+| 4 | `Flare`, with a point light and an animation section | 0x590 |
+| 5 | `ShotArrow` (a `ShotBullet` with a different vtable) | 0x4C8 |
+| other | error "Unsupported ammo type (type name %s)" | |
+
+The class chain is `Shot` to `ShotShell` to `ShotBullet` (constructors write each vtable in turn). The `ShotBullet` constructor draws a random tracer offset from the type's tracer fields (`+0x414`, `+0x418`; the offset is scaled by one random number) and records whether the tracer start time is non-negative.
+
+**3. The spawn function, `FUN_1409f12d0`** (a virtual of the firing object; also reached through a thunk from two vtables). For each projectile it needs, it:
+- adds the ammo type's own `dispersion` (`+0x3D4`) to the incoming spread value;
+- creates the shot with the factory above and sets its orientation and ids;
+- draws a random offset on each of two axes by summing **four uniform random numbers** per axis, computing `(0.5 x sum - 1.0) x spread`, so the offset lies in `[-spread, +spread]` with a bell shape (a sum of four uniforms: standard deviation about 0.29 x spread). The constants are read from the file (`0.5` double, `1.0` float);
+- rotates that offset into the muzzle direction using the shooter's orientation matrix;
+- sets the velocity to `direction x initSpeed (+0x394) x speed multiplier` **plus the shooter's own velocity** (an input vector), where the multiplier comes from `FUN_1409e1890`, a lookup of a float in the per-muzzle or per-weapon record (`+0x930`, falling back to `+0xB4`); the exe has the config names `initSpeedMultiplier`, `dispersionModifier` and `conditionDispersion` [inf: these are the weapon-side inputs];
+- registers the shot in the world's shot list (`DAT_141832b80`) and stores it in the output array.
+The pellet count is the length of the output array the caller supplies, so a shotgun's `projectilesCount` is applied by the caller. [inf]
+
+**4. The random number generator** (`FUN_140bc8ff0`, `FUN_140bc91c0`): a 31-bit linear congruential generator, `seed = (seed x 0xC1C64E6D + 0x3039) & 0x7FFFFFFF`, which is the classic C `rand` recurrence (multiplier 1,103,515,245, increment 12,345). Each draw returns the 31-bit state scaled to a float in [0, 1). The seed is passed in, so a shot's spread is reproducible from the same seed on client and server. [obs for the recurrence; inf for the reproducibility claim]
+
+**5. The client side.** When the server creates a shot, the client builds the same object from a message: `FUN_1405f7d80` (the handler for `NetworkMessageCreateShot`, ID 39 in 4.2) looks the ammo type up by name in the type registry (`DAT_141832e20`, checked with a dynamic cast to `AmmoType`), calls the same factory, restores the shot's state from the message, and adds it to the same world list. [obs]
+
+**6. Weapon-level values** that feed in, from the configs: `dispersion` is 0.002 for 214 of the weapon classes (0.1 for one); `initSpeed` appears on 6 weapon classes (30). These are the values the spawn code works with before the ammo's own `dispersion` (0 for 248 of 254 ammo classes) is added. [obs for the config values; inf for the exact pairing with the function's parameter]
+
+**Still not located:** the per-step flight integration (gravity, `airFriction`, `simulationStep`, `slowdownThreshold`), the impact handler that applies `caliber`, `deflecting` and the surface penetrability, and the damage computation. Leads: the world shot list `DAT_141832b80` (find who iterates it), the virtuals the spawn code calls on the shot at `+0x750` (set velocity), `+0x1b8` and `+0x1d0`, and the callers of `ProcessDirectDamage`.
+
+**4.7 addendum (overnight pass).** The world shot list `DAT_141832b80` is read by hundreds of small unrelated functions (it is a general world list, not specific to shots), so it is not a useful lead. Comparing the vtables of `Shot`, `ShotShell`, `ShotBullet` and `ShotArrow` shows only six slots that differ: the destructor (0), the tracer transform (13, `FUN_1405f8d40` for `ShotBullet`), and slots 82, 89, 92 and 104, all small functions (`FUN_1405fd1f0`, `FUN_1405fd260`, `FUN_1405fd310`, `FUN_140a5f030`, `FUN_140a60300`; none contains a ballistic formula). The flight and impact logic is therefore not in the per-class virtuals; it is probably in the world's per-frame simulation of entities, which calls the shared base virtuals. [?] Next lead for a later session: the virtual at `+0x750` (set velocity) and the world's simulation loop that processes entities with a `Shot` type.
+
+### 4.8 Projectile flight, ricochet, penetration and damage (G4 slice 1b) [obs for the code paths and constants, [inf] for what the fields are]
+The 4.7 addendum looked for the flight logic in the virtuals that differ between `Shot` subclasses and concluded it was elsewhere. It is in the **shared base `Shot` virtuals at the end of the vtable** (slots 270 to 304, `FUN_1405f8600` to `FUN_1405fc940`), which are identical in every subclass and so never showed up in the diff. `ShotBullet::vftable` is at `0x141204da0`. Addresses below are for build 1.30.164.200.
+
+**Per-step flight** `FUN_1405fa8a0(shot, dt, ...)` (2,447 bytes): sweeps the segment from the old to the new position with the collision query `FUN_14073f300` (a list of 0x68-byte hit records in a 0x3400-byte scratch block), sorts the hits (`FUN_1405f4960`) and walks them in order. For each hit it calls the ricochet handler `FUN_1405f9b70` or the penetration handler `FUN_1405fb230`; when nothing stops the projectile it moves on. The string "ShotProxy can't simulate without ..." (used by `FUN_1409e63e0`) marks the client-side proxy, which does not run this.
+
+**Velocity integration** `FUN_1405fd040(shot, dt, newPos, scale)`: the distance travelled this step is subtracted from a per-shot counter at `+0x45c` (floored at 0), the position is set through virtual `+0x308`, and the velocity is updated as
+
+`v += ( G * coefGravity + v * |v| * k ) * dt`, with `G = (0, -9.81, 0)` (the vector `(0,1,0)` at `0x1417471c0` times the float `-9.81` at `0x1411fb27c`), `coefGravity` = ammo `+0x3ec`, and `k` the per-shot float at `+0x458` (presumably the ammo `airFriction` copied at spawn; air friction is negative, so this is quadratic drag) [inf for k]. The step is only applied when `0 < dt <= 1000 x (ammo +0x3c8, default 0.01)`; that field is also the penetration divisor below, so it behaves like the config `caliber`, and the step guard is a looser use I did not explain [?]. A stopped flag at `+0x420` is set when `|v|^2 < 1e-6` (`0x141153b0c`).
+
+**Ricochet** `FUN_1405f9b70(shot, hitObj, hitNormal, hitPos, ...)`: the chance is `ammo.deflecting (+0x3cc) x ammo(+0x3d0) x angleFactor`, floored at 0. If it is below 1 the surface normal is jittered with three random offsets before use, so grazing hits scatter. Two virtuals decide the outcome:
+- `+0x968` (`FUN_1405f6ac0`, "can deflect"): never for simulation type 3; needs the chance above 0, and either a chance of at least 1, or an incoming angle and speed test and a reflected direction that points away from the surface.
+- `+0x978` (`FUN_1405f9530`, "may continue through"): true when the fuse step count at `+0x764` is non-zero and the shot's step counter (`+0x43c`) is still below it (see the addendum), or when the distance counter at `+0x45c` is still above 0, **and** the normal component of the velocity and the thickness are below limits (constants `0x141153b18`, `0x14115a420`).
+If it deflects, the velocity is reflected, `v' = v - 2 (v.n) n` (the factor 2 is `DAT_141153b18`), then scaled by `random x min(1 - cos^2(angle), deflectionSlowDown(+0x3dc))`: a shallow angle keeps more speed, and `deflectionSlowDown` caps how much. The hit is then reported through virtual `+0x960`, the position and velocity are replaced, and the step restarts. If it is not deflected, a second branch pushes the shot along the surface with a friction term and keeps simulating.
+
+**Penetration** `FUN_1405fb230(shot, hitList, ...)`, using the surface material `+0x48` (a penetrability factor) and `+0x4c` (a thickness limit; 0 means use `+0x48` alone): `reach = thickness x materialFactor / ammo(+0x3c8)`. If `reach < speed` the projectile **leaves the object** with its speed reduced by `reach` and a random direction jitter proportional to `reach / speed`; otherwise it **stops inside** after `speed x ammo(+0x3c8) / materialFactor` of travel. So `+0x3c8` acts as a penetration power: a higher value means a thinner effective wall [inf]. `FUN_1405f6d60` (slot 302) is the eligibility check: needs `+0x3c8 > 0` and a surface factor above 0.
+
+**Hit report** `FUN_1405fa240` (slot 300, 1,627 bytes; the virtual `+0x960`): on the server it builds the hit record with the speed fraction `|v| / typicalSpeed` (ammo `+0x3a0`), capped at 1, appends it to the shot's hit list (`0xa8` bytes per entry) for the network batch (`NetworkMessageShotEvent` / `ShotEventBatch`, see 4.2), and returns whether the shot has stopped. So the **speed fraction that scales damage is the speed at impact divided by the ammo's typical speed**, not the muzzle speed.
+
+**Damage on the target**: `Object::ProcessDirectDamage` (`FUN_1406716f0`, the native of the same name) is server-only (the string "cannot be called on client") and resolves the ammo type by name, then calls the object's virtual `+0x678` (`FUN_140671460`, the common implementation). That drops duplicate hits (same ammo, zone, source and frame), then runs two stages:
+1. `FUN_140c3e7f0`: area damage for explosives; for each entity in the explosion group the damage is `curve(speed) x hitFraction x ammo(+0x31c) x distanceFactor x zoneFactor`.
+2. `FUN_140c3ede0` (direct hit): `multiplier = speedFraction x ((k x random x 2 + 1) - k)` where `k` is ammo `+0x314`, so every hit is scaled by a random factor between `1 - k` and `1 + k` [inf: `k` named from use]. `FUN_140c3f020` then applies it per damage zone: `FUN_140c3e4a0` computes the main value as `multiplier x base(+8) x curve(x)` and each named damage type (health, blood, shock and so on) as `multiplier x entry value x curve_type(x)`, where `curve` is an optional lookup on the ammo's damage table (`FUN_140c35a70`; a negative result means no curve, and the raw value is used). Armour follows: for every affected zone the zone's armour table is searched by the ammo's name, and the main damage and each typed damage are multiplied by the armour entry; an entry whose second value is below the roll threshold gives 0. Results are packed into a `TotalDamageResult` and handed to the script event path (`EEOnDamageCalculated` and the zone-damage functions in 5.2 and 6.12).
+
+**Melee and explosions** use the same objects: `DamageSystem.CloseCombatDamage` (`FUN_140c44cf0`) builds a hit record directly and calls `FUN_140c3e190`, and `DamageSystem.ExplosionDamage` (`FUN_140c44f80`) queues an `ExplosionData` object for area processing (the explosion group list at `0x144a90ab0`).
+
+**Spawn (4.7) details added:** the shot gets a per-shot random start offset: `dispersion = userDispersion + ammo(+0x3d4)`, the offset is the sum of four random values per axis (a bell-shaped spread, `FUN_140bc91c0`) times the dispersion, applied in the weapon's frame; the initial speed is `ammo.initSpeed (+0x394) x initSpeedCoef (FUN_1409e1890)` plus the shooter's velocity.
+
+**Open:** the material table fields behind `+0x48` and `+0x4c` (and how surface configs set them), the counter at `+0x45c`, the config names of the fields inside the `DamageApplied` structure, the damage-curve table format, and the armour table keys. These need the ammo-type and surface-type loaders, which is the next slice.
+
+**4.8 addendum: ammo fields resolved from the loader `FUN_140a35e70`** [obs]. Reading the loader again settles several roles that 4.8 left open:
+- `+0x3cc` is not the raw `deflecting` value: the loader stores `sin(deflecting x 0.0174533)`, so the config `deflecting` is an angle in **degrees**, and the ricochet chance in 4.8 is `sin(deflecting) x deflectingMultiplier (+0x3d0, default 1) x angleFactor`.
+- `+0x3d0` = `deflectingMultiplier`, `+0x3d4` = `dispersion`, `+0x3d8` = `projectilesCount`, `+0x3dc` = `deflectionSlowDown`, `+0x3c4` = `explosive`, `+0x3c0` = `simulationStep`, `+0x3c8` = `caliber`, `+0x3ec` = `coefGravity`, `+0x3e4` = `airFriction`, `+0x3e0` = `timeToLive`, `+0x3a0` = `typicalSpeed` (and `+0x3a4` its square), `+0x394` = `initSpeed` (`+0x398` its reciprocal), `+0x39c` = `maxLeadSpeed`, `+0x3ac` = `initTime`, `+0x3b0` = `explosionTime` (set to the float maximum when 0 or less), `+0x3b4` = `fuseDistance`, `+0x3bc` = `maxSpeed`, `+0x430` = `dmgPerUse`.
+- `+0x310` is the parsed `DamageApplied` structure (parser `FUN_140c36230`; a missing `type` gives the warning "DamageSystem Warning: Missing Type of damage in DamageApplied subclass of AmmoType %s"), so the "`k`" at `+0x314` and the factor at `+0x31c` in 4.8 are fields inside that structure, not separate ammo fields; their config names are still to be read from the parser.
+- `+0x760`, `+0x764`, `+0x768` are step counts derived from the times above at 100 steps per second: `+0x768 = initTime x 100`, `+0x764 = +0x768 + explosionTime x 100` (the step at which the fuse fires) and `+0x760 = timeToLive x 100 + initTime steps`. The shot's counter at `+0x43c` is therefore a **step counter**, and the "may continue through" test in 4.8 means "the fuse has not fired yet, or the distance budget (`fuseDistance`) is not used up": a live grenade slides or bounces instead of detonating on contact. The earlier reading "pass count" was wrong.
+- Simulation types: `shotShell` 1, `shotBullet` 2, `shotSpread` 3, `shotIlluminating` 4, `shotArrow` 5 (a bad name logs "%s: Bad ammo simulation %s"). `SimulationScriptClass` is stored at `+0x370`. Explosion fields: `indirectHit` (`+0x37c`), `indirectHitRange`, `indirectHitRangeMultiplier`, `indirectHitAngle1/2`, `explosionType` (`directional` or `radial`, `+0x390`).
+- Per-surface hit effect groups are loaded at 0x20-byte strides from `+0x438`: `hitDefault`, `hitGroundSoft`, `hitGroundHard`, `hitMan`, `hitArmor`, `hitIron`, `hitBuilding`, `hitFoliage`, `hitWood`, `hitGlass`, `hitGlassArmored`, `hitConcrete`, `hitPlastic`, `hitRubber`, `hitMetal`, `hitSnow`, `hitIce`, `hitMetalplate`, `hitMudDry`.
+
+**4.8 addendum 2: the `DamageApplied` structure and the damage curves** [obs]. The loader `FUN_140c36230` (called for each ammo from `FUN_140a35e70`) reads the `DamageApplied` body of an ammo class into the structure at ammo `+0x310`:
+- `type`: required (the damage type name, for example `Projectile`, `Melee`, `FragGrenade`, `Infected`), with the warning given in the first addendum when missing. This name is also the key used to look up the target's armour.
+- `dispersion` (struct `+4`): the spread `k` in 4.8; the real name of the "damage spread" is `dispersion`, a different field from the ammo's own `dispersion` (accuracy).
+- `defaultDamageOverride`: an array of `[x, y]` pairs forming a damage curve (stored at struct `+0x20`).
+- One sub-class per damage type (`Health`, `Blood`, `Shock` and any others): `damage` (the base value, struct `+8` for `Health`), `armorDamage` (the damage dealt to the armour item, struct `+0xc`; this is what 4.8 called "ammo `+0x31c`"), and an optional `damageOverride` curve that replaces the default one for that type.
+The bleed threshold (`bleedThreshold`) is not read by this loader; it is read by the script bleeding code (6.12).
+
+**The curve** (`FUN_140c35010`): the input is the speed fraction (impact speed over `typicalSpeed`, 4.8) capped at 1. The curve is the list of `[x, y]` points taken from highest `x` to lowest, with an **implicit point (1, 1) at the top and (0, 0) at the bottom**, and linear interpolation in between. Examples: the 5.56 bullet's `[[0.87, 1.0]]` gives a multiplier of 1.0 for any speed fraction at or above 0.87 and then falls in a straight line to 0 at zero speed; the fist's `[[0.5, 1.0]]` gives full damage from 50 % of typical speed. If a damage type has no override of its own, the default curve is used; if neither exists the raw fraction is used (4.8). So **final damage per type = `random spread x damage x curve(speedFraction)`**, and then the target's armour.
+
+**Armour.** A damage zone (and each inventory slot item covering it) carries an `ArmorType` or `GlobalArmor` body with one sub-class per damage `type` name and, in each, the same `Health` / `Blood` / `Shock` `damage` entries, which are **multipliers** (the plate carrier vest: Projectile health 0.3, blood 0, shock 0.6; Melee 0.3, 0, 0.25; frag 0.5, 0, 0.26; Infected 0.3, 0, 0.25; the bare torso zone: all 1). The zone's `inventorySlots` and `inventorySlotsCoefs` say which worn items share the hit and how much (the torso: vest 1.0, body 1.0, back 0.5, hips 0.1). The engine multiplies the typed damage by each armour entry (4.8); an armour entry whose health threshold is above the item's current health fraction counts as 0 [inf for the exact threshold meaning, from the comparison in `FUN_140c3f020`].
+
+**4.8 addendum 3: the penetration materials** [obs for the loader and the file values, inf for the units]. The surface and material loader `FUN_1407fe960` reads the material fields that 4.8 left open. They come from two places: terrain surfaces from `CfgSurfaces` (`deflection`, `impact`, `soundEnviron`, `friction`, `restitution`, `transparency`, `audibility`, `isLiquid`, `isSolid`, `isPassthrough`, `soundHit` and more; 129 classes in the merged config) and **object materials from 51 rapified `.bisurf` files in `dz.pbo` under `data\penetration`**, which `scripts/penetration.py` tabulates in `data/penetration_materials.csv` (an object's `.rvmat` names its penetration material).
+- **Stored values.** `+0x48` = **1,000,000 divided by `bulletPenetrability`** (the loader inverts it), and `bulletPenetrabilityWithThickness`, when present, is used instead of the plain value. `+0x4c` = **`Thickness` x 0.001** (the file value is in millimetres, the engine uses metres); the default is -1 (no thickness defined). `Density`, `deflection`, `transparency`, `rough`, `dust`, `friction`, `restitution`, `impact` (hit effect) and `soundHit` are read too.
+- **Resistance.** So the per-metre loss of speed is `R = 1,000,000 / bulletPenetrability`, and the penetration test in 4.8 becomes `reach = path length x R / ammo.caliber`. A bullet leaves the object if `reach` is below its speed and loses `reach` m/s; otherwise it stops after `speed x caliber / R` metres. With a thickness defined, the path length is the plate thickness divided by the cosine of the angle to the surface normal (clamped to the real depth of the mesh when the hit record asks for it); otherwise it is the real distance through the object. Higher `bulletPenetrability` means **easier** to shoot through: foliage 1,500,000 (R about 0.67), snow 1,500,000, fabric_thin 150,000, wood 135 (R about 7,400), concrete 200 (R 5,000), dirt 50 (R 20,000), granite 74, iron 20 (R 50,000) and `armour` 1 (R 1,000,000, effectively impenetrable).
+- **Plates** use the thickness form: the 1, 3, 5, 7, 11, 16, 23 and 30 mm steel plates all have `bulletPenetrabilityWithThickness` 13 (R about 76,900), so a 5 mm plate at normal incidence costs `0.005 x 76,900 / caliber` = about 385 m/s per hit; thickness and `deflection` scale together (1 mm 0.1 up to 23 mm and 30 mm 1.5). Other thickness entries: cast iron plate 5 mm / 3, iron plate 5 mm / 10, metal plate 2 mm / 10, glass plate 5 mm / 120, plexi plate 2 mm / 150, fabricP 1 mm / 500, rubber plate 5 mm / 200, wood desk 20 mm / 150, impenetrable wood 30 mm / 13, thin wire 0.1 mm / 15,000.
+- **Hit effects and the player.** Surface `impact` names the hit effect (for example `Hit_Concrete`, `Hit_Metal`). The `weaponLift` material (used for the weapon-lift raycast, 5.3) has penetrability 150,000, so it never stops anything. The same table gives body parts: `meat` 250 (R 4,000) and `meatbones` 370 (R 2,700).
+- **Examples** (from the formulas and `data/ammo_physics.csv`; rough illustrations, not measured behaviour): a 7.62x39 round (initial speed 640, caliber 1.0) stops after about 0.13 m of concrete, 0.09 m of wood or 0.03 m of dirt; a 9x19 round (350, caliber 0.8) after about 0.056 m of concrete; a 5.56 round (850, caliber 1.0) after about 0.17 m of concrete. Real stopping also depends on the speed lost over distance in air, and on ricochet (the ground and hard surfaces use the `deflection` value above). A 5 mm steel plate at normal incidence removes about 385 m/s from a caliber-1 bullet, so most pistol rounds (under 400 m/s) are stopped by it and rifle rounds are slowed but pass.

@@ -1,0 +1,152 @@
+name,displayName,weight,size,full,energy,water,nut,tox,dig,agents,qmax
+Achar,Achar,0,"[2, 2]",5,200,50,1,0,,,300
+AgaricusMushroom,Field Mushroom,0,"[1, 2]",,,,,,,,150
+AmanitaMushroom,Fly Amanita,0,"[1, 2]",,,,,,,,150
+Apple,Apple,0,"[1, 1]",,,,,,,,125
+AuriculariaMushroom,Wood Ear,0,"[1, 2]",,,,,,,,150
+Ayran,Ayran,10,"[1, 2]",1,20,100,1,0,,,250
+AyranBottle,Ayran Bottle,150,"[1, 3]",,,,,,,,1000.0
+BakedBeansCan,Canned Baked Beans,440,"[2, 2]",,,,,,,,0
+BakedBeansCan_Opened,Canned Baked Beans,40,"[2, 2]",2,200,25,1,0,,,400
+Banana,$UNT$Banana,0,"[1, 2]",,,,,,,,100
+BearSteakMeat,Bear Steak,0,"[2, 2]",,,,,,,,500
+Bitterlings,Bitterlings,150,"[2, 1]",,,,,,,,500
+BoarSteakMeat,Boar Steak,0,"[1, 2]",,,,,,,,250
+BoletusMushroom,Penny Bun,0,"[1, 2]",,,,,,,,150
+BoxCerealCrunchin,Cereals,12,"[3, 3]",2,400,0,1,0,,,250
+BrisketSpread,Brisket Spread,115,"[1, 1]",,,,,,,,0
+BrisketSpread_Opened,Brisket Spread,15,"[1, 1]",2,200,20,1,0,,,100
+Candycane_Green,Candy Cane,0,"[1, 2]",3,4500,0,1,0,,,150
+Candycane_Red,Candy Cane,0,"[1, 2]",3,4500,0,1,0,,,150
+Candycane_RedGreen,Candy Cane,0,"[1, 2]",3,4500,0,1,0,,,150
+Candycane_Yellow,Candy Cane,0,"[1, 2]",3,4500,0,1,0,,,150
+CaninaBerry,Rose Hips,0,"[1, 1]",,,,,,,,50
+CanisterGasoline,Jerrycan,4000,"[5, 6]",,,,,,,,20000.0
+Cannabis,$UNT$Cannabis,0,"[1, 1]",,,,,,,,10
+Canteen,Canteen,250,"[2, 2]",,,,,,,,1000
+Carp,Carp,300,"[3, 2]",,,,,,,,1000
+CarpFilletMeat,Carp Fillet,0,"[3, 1]",,,,,,,,500
+Catfish,Catfish,600,"[4, 2]",,,,,,,,1000
+CatfishFilletMeat,Catfish Fillet,0,"[3, 1]",,,,,,,,500
+CatFoodCan,Cat Food Can,265,"[2, 1]",,,,,,,,0
+CatFoodCan_Opened,Cat Food Can,15,"[2, 1]",10,125,40,1,0,,,250
+Cauldron,Cauldron,2000,"[4, 3]",,,,,,,,2000
+CharcoalTablets,Charcoal Tablets,20,"[1, 2]",,,,,,,,12
+ChelatingTablets,Chelating Tablets,200g,"[1, 2]",,,,,,,,20
+ChickenBreastMeat,Chicken Steak,0,"[1, 2]",,,,,,,,125
+Chips,Chips,10,"[2, 2]",3,200,0,1,0,,,50
+CowSteakMeat,Beef Steak,0,"[2, 2]",,,,,,,,500
+CrabCan,Canned Crab,265,"[2, 1]",,,,,,,,0
+CrabCan_Opened,Canned Crab,15,"[2, 1]",2,200,50,1,0,,,250
+Crackers,Crackers,10,"[2, 2]",3,150,0,1,0,,,50
+CraterellusMushroom,Yellowfoot Mushroom,0,"[2, 1]",,,,,,,,150
+DeadChicken_Brown,Hen,1500,"[3, 3]",,,,,,,,1000
+DeadChicken_Spotted,Hen,1500,"[3, 3]",,,,,,,,1000
+DeadChicken_White,Hen,1500,"[3, 3]",,,,,,,,1000
+DeadFox,Red Fox,1000,"[6, 3]",,,,,,,,3000
+DeadLizard,Desert Monitor,1000,"[6, 3]",,,,,,,,3000
+DeadRabbit,Hare,1000,"[3, 4]",,,,,,,,2000
+DeadRooster,Rooster,1500,"[3, 3]",,,,,,,,1000
+DeerSteakMeat,Venison Steak,0,"[1, 2]",,,,,,,,250
+DisinfectantAlcohol,Alcoholic Tincture,100,"[1, 2]",1,-10,1,55,0.30000001192092896,2,16,200
+DisinfectantSpray,Disinfectant Spray,50,"[1, 3]",1,-10,1,55,0.30000001192092896,2,16,500
+DogFoodCan,Dog Food Can,265,"[2, 1]",,,,,,,,0
+DogFoodCan_Opened,Dog Food Can,15,"[2, 1]",10,150,40,1,0,,,250
+DogSteakMeat,Dog Steak,0,"[1, 2]",,,,,,,,150
+Figs,Figs,0,"[1, 1]",,,,,,,,50
+FilteringBottle,Filtering Bottle,180,"[1, 3]",,,,,,,,650.0
+FoxSteakMeat,Fox Steak,0,"[1, 2]",,,,,,,,130
+GlassBottle,Glass Bottle,550,"[1, 3]",,,,,,,,750.0
+GoatSteakMeat,Chevon Steak,0,"[1, 2]",,,,,,,,150
+GreenBellPepper,Pepper,0,"[1, 2]",,,,,,,,150
+Guts,Guts,100,"[3, 2]",5,50,20,1,0,,4,500
+HalvaCan,,265,"[2, 1]",,,,,,,,0
+HalvaCan_Opened,Halva Can,15,"[2, 1]",2,240,0,,0,,,250
+Honey,Honey,0,"[2, 2]",5,250,0,1,0,,,400
+HumanSteakMeat,Human Steak,0,"[1, 3]",,,,,,,,150
+IodineTincture,Iodine Tincture,100,"[1, 2]",,,,,,,16,250
+Kiwi,$UNT$Kiwi,0,"[1, 1]",,,,,,,,75
+LactariusMushroom,Red Pine Mushroom,0,"[1, 2]",,,,,,,,150
+Lard,Fat,0,"[2, 2]",,,,,,,,200
+Lassi_Mango,Lassi,30,"[1, 2]",1,20,100,1,0,,,250
+Lassi_Masala,Lassi,30,"[1, 2]",1,20,100,1,0,,,250
+Lassi_Mint,Lassi,30,"[1, 2]",1,20,100,1,0,,,250
+LizardMeat,Lizard Meat,0,"[3, 1]",,,,,,,,150
+Lunchmeat,Lunchmeat,265,"[2, 1]",,,,,,,,0
+Lunchmeat_Opened,Lunchmeat,15,"[2, 1]",2,200,20,1,0,,,250
+Mackerel,Mackerel,300,"[4, 2]",,,,,,,,1000
+MackerelFilletMeat,Mackerel Fillet,0,"[3, 1]",,,,,,,,500
+MacrolepiotaMushroom,Parasol Mushroom,0,"[1, 2]",,,,,,,,150
+Marmalade,Strawberry Jam,250,"[2, 2]",4,150,50,1,0,,,400
+MouflonSteakMeat,$UNT$Mouflon Steak,0,"[1, 2]",,,,,,,,230
+Orange,$UNT$Orange,0,"[1, 1]",,,,,,,,110
+PainkillerTablets,Codeine Pills,20,"[1, 2]",,,,,,,,12
+Pajka,Pájka,115,"[1, 1]",,,,,,,,0
+Pajka_Opened,Pájka,15,"[1, 1]",2,150,20,1,0,,,100
+Pate,Liver Pate,115,"[1, 1]",,,,,,,,0
+Pate_Opened,Liver Pate,15,"[1, 1]",2,250,20,1,0,,,100
+PeachesCan,Canned Peaches,440,"[2, 2]",,,,,,,,0
+PeachesCan_Opened,Canned Peaches,40,"[2, 2]",2,150,50,1,0,,,400
+Pear,Pear,0,"[1, 2]",,,,,,,,150
+PigSteakMeat,Pork Steak,0,"[1, 2]",,,,,,,,250
+PleurotusMushroom,Oyster Mushroom,0,"[1, 2]",,,,,,,,150
+Plum,Plum,0,"[1, 1]",,,,,,,,75
+PorkCan,Canned Pork,265,"[2, 1]",,,,,,,,0
+PorkCan_Opened,Canned Pork,15,"[2, 1]",2,225,20,1,0,,,250
+Pot,Cooking Pot,1000,"[4, 3]",,,,,,,,2000
+Potato,Peeled Potato,0,"[2, 1]",,,,,,,,200
+PowderedMilk,Powdered Milk,30,"[1, 2]",2,400,0,1,0,,,200
+PsilocybeMushroom,Liberty Cap,0,"[1, 1]",,,,,,,,50
+Pumpkin,Pumpkin,0,"[2, 2]",,,,,,,,2300
+PurificationTablets,Chlorine Tablets,20,"[1, 2]",,,,,,,,10
+RabbitLegMeat,Hare Leg,100,"[1, 2]",,,,,,,,250
+RedCaviar,Red Caviar,300,"[1, 1]",,,,,,,,200
+ReindeerSteakMeat,Reindeer Steak,0,"[1, 2]",,,,,,,,250
+Rice,Rice,60,"[2, 3]",3,100,0,1,0,,,500
+RoundGoby,Round Goby,150,"[2, 1]",,,,,,,,500
+SaltyMix,Salty Mix,10,"[2, 2]",3,300,0,1,0,,,50
+SaltySticks,Salty Sticks,10,"[2, 2]",3,100,0,1,0,,,50
+SambucusBerry,Elderberries,0,"[1, 1]",,,,,,,,50
+Sardines,Sardines,150,"[2, 1]",,,,,,,,400
+SardinesCan,Canned Sardines,125,"[2, 1]",,,,,,,,0
+SardinesCan_Opened,Canned Sardines,25,"[2, 1]",2,250,25,1,0,,,100
+SarmaCan,,265,"[2, 1]",,,,,,,,0
+SarmaCan_Opened,Canned Sarma,15,"[2, 1]",2,150,30,,0,,,250
+SheepSteakMeat,Mutton Steak,0,"[1, 2]",,,,,,,,150
+Shrimp,Shrimp,1,"[2, 1]",,,,,,,,149
+SlicedPumpkin,Pumpkin Slices,0,"[2, 2]",,,,,,,,250
+SmallGlassBottle_Afza,Afza,150,"[1, 2]",1,50,90,1,0,,,355
+SmallGlassBottle_Jallab,Jallab,150,"[1, 2]",1,50,90,1,0,,,355
+SmallGuts,$UNT$Small Guts,100,"[2, 1]",2.5,150,20,1,0,,4,200
+SodaCan_Cola,Nota Cola,15,"[1, 2]",1,50,90,1,0,,,330
+SodaCan_Fronta,Fronta Lemonade,15,"[1, 2]",1,50,90,1,0,,,330
+SodaCan_Kvass,Mad Monk Kvass,15,"[1, 2]",1,50,90,1,0,,,330
+SodaCan_Pipsi,Pipsi Cola,15,"[1, 2]",1,50,90,1,0,,,330
+SodaCan_Spite,Spite Lemonade,15,"[1, 2]",1,50,90,1,0,,,330
+SodaCan_Takola,Soda Can,15,"[1, 2]",1,50,90,1,0,,,330
+SodaCan_ZumZam,Soda Can,15,"[1, 2]",1,50,90,1,0,,,330
+SpaghettiCan,Canned Spaghetti,440,"[2, 2]",,,,,,,,0
+SpaghettiCan_Opened,Canned Spaghetti,40,"[2, 2]",2,175,38,1,0,,,400
+SpicyCrackers,Spicy Crackers,10,"[2, 2]",3,200,0,1,0,,,50
+SteelheadTrout,Steelhead Trout,0,"[4, 2]",,,,,,,,1000
+SteelheadTroutFilletMeat,Steelhead Trout Fillet,0,"[3, 1]",,,,,,,,500
+TacticalBaconCan,Canned Bacon,440,"[2, 2]",,,,,,,,0
+TacticalBaconCan_Opened,Canned Bacon,40,"[2, 2]",2,300,25,1,0,,,400
+TetracyclineAntibiotics,Tetracycline Pills,20,"[1, 2]",,,,,,,,12
+Tomato,Tomato,0,"[1, 1]",,,,,,,,100
+TunaCan,Canned Tuna,265,"[2, 1]",,,,,,,,0
+TunaCan_Opened,Canned Tuna,15,"[2, 1]",2,150,20,1,0,,,250
+UnknownFoodCan,Unknown Food Can,440,"[2, 2]",,,,,,,,0
+UnknownFoodCan_Opened,Unknown Food Can,40,"[2, 2]",10,200,50,1,0,,,400
+VitaminBottle,Multivitamin Pills,100,"[1, 2]",,,,,,,,50
+WalleyePollock,Walleye Pollock,0,"[3, 2]",,,,,,,,1000
+WalleyePollockFilletMeat,Walleye Pollock Fillet,0,"[3, 1]",,,,,,,,500
+WaterBottle,Plastic Bottle,50,"[1, 3]",,,,,,,,1000.0
+Waterskin_Natural,Waterskin,250,"[2, 4]",,,,,,,,1250.0
+WineBottle,Glass Bottle,550,"[1, 3]",,,,,,,,750.0
+WolfSteakMeat,Wolf Steak,0,"[1, 2]",,,,,,,,150
+Worm,Earthworm,21,"[1, 1]",,,,,,,,5.0
+Zagorky,Zagorky,10,"[1, 2]",0,100,0,1,0,,,100
+ZagorkyChocolate,Zagorky Chocolate,10,"[1, 2]",0,200,0,1,0,,,100
+ZagorkyPeanuts,Zagorky Peanuts,10,"[1, 2]",0,150,0,1,0,,,100
+Zucchini,Zucchini,0,"[1, 3]",,,,,,,,200

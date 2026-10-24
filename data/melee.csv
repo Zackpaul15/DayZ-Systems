@@ -1,0 +1,179 @@
+name,displayName,light_ammo,light_range,light_health,light_blood,light_shock,heavy_ammo,heavy_range,heavy_health,heavy_blood,heavy_shock,sprint_ammo,sprint_range,weight
+ak74_hndgrd,KA Wooden Handguard,MeleeLightBlunt,1,5,0,10,MeleeLightBlunt_Heavy,1,10,0,15,MeleeLightBlunt_Heavy,2.799999952316284,550
+ak74_hndgrd_black,KA Wooden Handguard,MeleeLightBlunt,1,5,0,10,MeleeLightBlunt_Heavy,1,10,0,15,MeleeLightBlunt_Heavy,2.799999952316284,550
+ak74_hndgrd_camo,KA Wooden Handguard,MeleeLightBlunt,1,5,0,10,MeleeLightBlunt_Heavy,1,10,0,15,MeleeLightBlunt_Heavy,2.799999952316284,550
+ak74_woodbttstck,KA Wooden Buttstock,MeleeLightBlunt,1,5,0,10,MeleeLightBlunt_Heavy,1,10,0,15,MeleeLightBlunt_Heavy,2.799999952316284,530
+ak74_woodbttstck_black,KA Wooden Buttstock,MeleeLightBlunt,1,5,0,10,MeleeLightBlunt_Heavy,1,10,0,15,MeleeLightBlunt_Heavy,2.799999952316284,530
+ak74_woodbttstck_camo,KA Wooden Buttstock,MeleeLightBlunt,1,5,0,10,MeleeLightBlunt_Heavy,1,10,0,15,MeleeLightBlunt_Heavy,2.799999952316284,530
+ak_bayonet,KA Bayonet,MeleeSharpLight_4,1.100000023841858,22,100,12,MeleeSharpHeavy_4,1.100000023841858,38,100,18,MeleeSharpHeavy_4,3.299999952316284,470
+ak_foldingbttstck,KA Lightweight Buttstock,MeleeLightBlunt,1,5,0,10,MeleeLightBlunt_Heavy,1,10,0,15,MeleeLightBlunt_Heavy,2.799999952316284,720
+ak_foldingbttstck_black,KA Lightweight Buttstock,MeleeLightBlunt,1,5,0,10,MeleeLightBlunt_Heavy,1,10,0,15,MeleeLightBlunt_Heavy,2.799999952316284,720
+ak_foldingbttstck_green,KA Lightweight Buttstock,MeleeLightBlunt,1,5,0,10,MeleeLightBlunt_Heavy,1,10,0,15,MeleeLightBlunt_Heavy,2.799999952316284,720
+ak_plasticbttstck,KA Polymer Buttstock,MeleeLightBlunt,1,5,0,10,MeleeLightBlunt_Heavy,1,10,0,15,MeleeLightBlunt_Heavy,2.799999952316284,363
+ak_plasticbttstck_black,KA Polymer Buttstock,MeleeLightBlunt,1,5,0,10,MeleeLightBlunt_Heavy,1,10,0,15,MeleeLightBlunt_Heavy,2.799999952316284,363
+ak_plasticbttstck_green,KA Polymer Buttstock,MeleeLightBlunt,1,5,0,10,MeleeLightBlunt_Heavy,1,10,0,15,MeleeLightBlunt_Heavy,2.799999952316284,363
+ak_plastichndgrd,KA Polymer Handguard,MeleeLightBlunt,1,5,0,10,MeleeLightBlunt_Heavy,1,10,0,15,MeleeLightBlunt_Heavy,2.799999952316284,160
+ak_railhndgrd,KA Rail Handguard,MeleeLightBlunt,1,5,0,10,MeleeLightBlunt_Heavy,1,10,0,15,MeleeLightBlunt_Heavy,2.799999952316284,430
+ak_railhndgrd_black,KA Rail Handguard,MeleeLightBlunt,1,5,0,10,MeleeLightBlunt_Heavy,1,10,0,15,MeleeLightBlunt_Heavy,2.799999952316284,430
+ak_railhndgrd_green,KA Rail Handguard,MeleeLightBlunt,1,5,0,10,MeleeLightBlunt_Heavy,1,10,0,15,MeleeLightBlunt_Heavy,2.799999952316284,430
+ak_woodbttstck,KA Wooden Buttstock,MeleeLightBlunt,1,5,0,10,MeleeLightBlunt_Heavy,1,10,0,15,MeleeLightBlunt_Heavy,2.799999952316284,530
+ak_woodbttstck_black,KA Wooden Buttstock,MeleeLightBlunt,1,5,0,10,MeleeLightBlunt_Heavy,1,10,0,15,MeleeLightBlunt_Heavy,2.799999952316284,530
+ak_woodbttstck_camo,KA Wooden Buttstock,MeleeLightBlunt,1,5,0,10,MeleeLightBlunt_Heavy,1,10,0,15,MeleeLightBlunt_Heavy,2.799999952316284,530
+ak_woodbttstck_gold,KA Wooden Buttstock,MeleeLightBlunt,1,5,0,10,MeleeLightBlunt_Heavy,1,10,0,15,MeleeLightBlunt_Heavy,2.799999952316284,530
+ak_woodhndgrd,KA Wooden Handguard,MeleeLightBlunt,1,5,0,10,MeleeLightBlunt_Heavy,1,10,0,15,MeleeLightBlunt_Heavy,2.799999952316284,550
+ak_woodhndgrd_black,KA Wooden Handguard,MeleeLightBlunt,1,5,0,10,MeleeLightBlunt_Heavy,1,10,0,15,MeleeLightBlunt_Heavy,2.799999952316284,550
+ak_woodhndgrd_camo,KA Wooden Handguard,MeleeLightBlunt,1,5,0,10,MeleeLightBlunt_Heavy,1,10,0,15,MeleeLightBlunt_Heavy,2.799999952316284,550
+ak_woodhndgrd_gold,KA Wooden Handguard,MeleeLightBlunt,1,5,0,10,MeleeLightBlunt_Heavy,1,10,0,15,MeleeLightBlunt_Heavy,2.799999952316284,550
+akinaka,Akina,MeleeSharpLight_3,1.399999976158142,20,100,10,MeleeSharpHeavy_3,1.399999976158142,32,100,16,MeleeSharpHeavy_3,3.299999952316284,800
+aks74u_bttstck,KAS-74U Lightweight Buttstock,MeleeLightBlunt,1,5,0,10,MeleeLightBlunt_Heavy,1,10,0,15,MeleeLightBlunt_Heavy,2.799999952316284,450
+aks74u_bttstck_black,KAS-74U Lightweight Buttstock,MeleeLightBlunt,1,5,0,10,MeleeLightBlunt_Heavy,1,10,0,15,MeleeLightBlunt_Heavy,2.799999952316284,450
+aks74u_bttstck_green,KAS-74U Lightweight Buttstock,MeleeLightBlunt,1,5,0,10,MeleeLightBlunt_Heavy,1,10,0,15,MeleeLightBlunt_Heavy,2.799999952316284,450
+atlasbipod,$UNT$ATLAS Bipod,MeleeLightBlunt,1.0,5,0,10,MeleeLightBlunt_Heavy,1.0,10,0,15,MeleeLightBlunt_Heavy,2.799999952316284,376
+barbedbaseballbat,Barbed Baseball Bat,MeleeCraftedLight_3,1.7999999523162842,15,100,21,MeleeCraftedHeavy_3,1.7999999523162842,27,100,45,MeleeCraftedHeavy_3,3.700000047683716,600
+baseballbat,Baseball Bat,MeleeBluntLight_3,1.7999999523162842,15,100,21,MeleeBluntHeavy_3,1.7999999523162842,27,100,45,MeleeBluntHeavy_3,3.700000047683716,566
+binoculars,Binoculars,MeleeLightBlunt,1.0,5,0,10,MeleeLightBlunt_Heavy,1.0,10,0,15,MeleeLightBlunt_Heavy,2.799999952316284,980
+bitterlings,Bitterlings,MeleeSoft,1.0,3,0,3,MeleeSoft_Heavy,1.0,7,0,7,MeleeSoft_Heavy,2.799999952316284,150
+blowtorch,Blowtorch,MeleeLightBlunt,1.600000023841858,5,0,10,MeleeLightBlunt_Heavy,1.600000023841858,10,0,15,MeleeLightBlunt_Heavy,2.200000047683716,210
+boneknife,Bone Knife,MeleeCraftedLight_1,1.100000023841858,10,100,10,MeleeCraftedHeavy_1,1.100000023841858,15,100,15,MeleeCraftedHeavy_1,3.299999952316284,50
+brassknuckles_dull,Brass Knuckles,MeleeBluntLight_3,1.0,15,100,21,MeleeBluntHeavy_3,1.0,27,100,45,MeleeBluntHeavy_3,2.799999952316284,142
+brassknuckles_menatarms,Brass Knuckles,MeleeBluntLight_4,1.0,17,100,28,MeleeBluntHeavy_4,1.0,30,100,65,MeleeBluntHeavy_4,2.799999952316284,250
+brassknuckles_shiny,Brass Knuckles,MeleeBluntLight_3,1.0,15,100,21,MeleeBluntHeavy_3,1.0,27,100,45,MeleeBluntHeavy_3,2.799999952316284,162
+bricktrowel,Brick Trowel,MeleeSharpLight_1,1.100000023841858,18,100,5,MeleeSharpHeavy_1,1.100000023841858,25,100,12,MeleeSharpHeavy_1,3.299999952316284,250
+broom,Broom,MeleeLightBlunt,1.600000023841858,5,0,10,MeleeLightBlunt_Heavy,1.600000023841858,10,0,15,MeleeLightBlunt_Heavy,2.200000047683716,450
+broom_birch,Birch Broom,MeleeLightBlunt,1.600000023841858,5,0,10,MeleeLightBlunt_Heavy,1.600000023841858,10,0,15,MeleeLightBlunt_Heavy,2.200000047683716,670
+canteen,Canteen,MeleeLightBlunt,1.0,5,0,10,MeleeLightBlunt_Heavy,1.0,10,0,15,MeleeLightBlunt_Heavy,2.799999952316284,250
+carp,Carp,MeleeSoft,1.0,3,0,3,MeleeSoft_Heavy,1.0,7,0,7,MeleeSoft_Heavy,2.799999952316284,300
+cassette,$UNT$Cassette,MeleeLightBlunt,1.0,5,0,10,MeleeLightBlunt_Heavy,1.0,10,0,15,MeleeLightBlunt_Heavy,2.799999952316284,80
+catfish,Catfish,MeleeSoft,1.0,3,0,3,MeleeSoft_Heavy,1.0,7,0,7,MeleeSoft_Heavy,2.799999952316284,600
+cattleprod,Cattle Prod,MeleeLightBlunt,1.600000023841858,5,0,10,MeleeLightBlunt_Heavy,1.600000023841858,10,0,15,MeleeLightBlunt_Heavy,2.200000047683716,2700
+cleaver,Cleaver,MeleeSharpLight_2,1.399999976158142,18,100,8,MeleeSharpHeavy_2,1.399999976158142,28,100,14,MeleeSharpHeavy_2,3.299999952316284,500
+combatknife,Combat Knife,MeleeSharpLight_4,1.2000000476837158,22,100,12,MeleeSharpHeavy_4,1.2000000476837158,38,100,18,MeleeSharpHeavy_4,3.299999952316284,312
+crowbar,Crowbar,MeleeBluntLight_2,1.7999999523162842,13,100,18,MeleeBluntHeavy_2,1.7999999523162842,22,100,30,MeleeBluntHeavy_2,4.099999904632568,4400
+crudemachete,Crude Machete,MeleeSharpLight_3,1.399999976158142,20,100,10,MeleeSharpHeavy_3,1.399999976158142,32,100,16,MeleeSharpHeavy_3,3.299999952316284,500
+darkmotohelmet_yellowscarred,Motorbike Helmet,MeleeMachete,1.399999976158142,15,100,20,MeleeMachete_Heavy,1.399999976158142,25,100,27,MeleeMachete_Heavy,3.299999952316284,1210
+darkmotohelmet_yellowscarred_test,Motorbike Helmet,MeleeMachete,1.399999976158142,15,100,20,MeleeMachete_Heavy,1.399999976158142,25,100,27,MeleeMachete_Heavy,3.299999952316284,1210
+deadchicken_brown,Hen,MeleeSoft,1.0,3,0,3,MeleeSoft_Heavy,1.0,7,0,7,MeleeSoft_Heavy,2.799999952316284,1500
+deadchicken_spotted,Hen,MeleeSoft,1.0,3,0,3,MeleeSoft_Heavy,1.0,7,0,7,MeleeSoft_Heavy,2.799999952316284,1500
+deadchicken_white,Hen,MeleeSoft,1.0,3,0,3,MeleeSoft_Heavy,1.0,7,0,7,MeleeSoft_Heavy,2.799999952316284,1500
+deadrabbit,Hare,MeleeSoft,1.0,3,0,3,MeleeSoft_Heavy,1.0,7,0,7,MeleeSoft_Heavy,2.799999952316284,1000
+deadrooster,Rooster,MeleeSoft,1.0,3,0,3,MeleeSoft_Heavy,1.0,7,0,7,MeleeSoft_Heavy,2.799999952316284,1500
+donerknife,Doner Knife,MeleeSharpLight_3,1.5,20,100,10,MeleeSharpHeavy_3,1.600000023841858,32,100,16,MeleeSharpHeavy_3,3.5,700
+fal_foldingbttstck,LAR Lightweight Buttstock,MeleeLightBlunt,1,5,0,10,MeleeLightBlunt_Heavy,1,10,0,15,MeleeLightBlunt_Heavy,2.799999952316284,530
+fal_oebttstck,LAR Polymer Buttstock,MeleeLightBlunt,1,5,0,10,MeleeLightBlunt_Heavy,1,10,0,15,MeleeLightBlunt_Heavy,2.799999952316284,530
+fangeknife,Fange,MeleeSharpLight_3,1.399999976158142,20,100,10,MeleeSharpHeavy_3,1.399999976158142,32,100,16,MeleeSharpHeavy_3,3.299999952316284,200
+farminghoe,Farming Hoe,MeleeSharpLight_2,1.7999999523162842,18,100,8,MeleeSharpHeavy_2,1.7999999523162842,28,100,14,MeleeSharpHeavy_2,4.099999904632568,1600
+fieldshovel,Field Shovel,MeleeSharpLight_3,1.399999976158142,20,100,10,MeleeSharpHeavy_3,1.399999976158142,32,100,16,MeleeSharpHeavy_3,3.299999952316284,1800
+fireextinguisher,$UNT$Fire Extinguisher,MeleeFireExtinguisher,1.399999976158142,10,0,15,MeleeFireExtinguisher_Heavy,1.399999976158142,10,0,15,MeleeFireExtinguisher_Heavy,3.299999952316284,7700
+firefighteraxe,Firefighter Axe,MeleeSharpLight_5,1.7999999523162842,22,100,14,MeleeSharpHeavy_5,1.7999999523162842,45,100,20,MeleeSharpHeavy_5,3.700000047683716,2600
+firefighteraxe_black,Firefighter Axe,MeleeSharpLight_5,1.7999999523162842,22,100,14,MeleeSharpHeavy_5,1.7999999523162842,45,100,20,MeleeSharpHeavy_5,3.700000047683716,2600
+firefighteraxe_green,Firefighter Axe,MeleeSharpLight_5,1.7999999523162842,22,100,14,MeleeSharpHeavy_5,1.7999999523162842,45,100,20,MeleeSharpHeavy_5,3.700000047683716,2600
+fishingrod,Fishing Rod,MeleeLightBlunt,1.7999999523162842,5,0,10,MeleeLightBlunt_Heavy,1.7999999523162842,10,0,15,MeleeLightBlunt_Heavy,3.700000047683716,910
+flashlight,Flashlight,MeleeFistLight,1.0,10,100,15,MeleeFistHeavy,1.0,12,100,17,MeleeFistHeavy,2.799999952316284,210
+groza_lowerreceiver,$UNT$Groza Lower Reciever,MeleeLightBlunt,1.0,5,0,10,MeleeLightBlunt_Heavy,1.0,10,0,15,MeleeLightBlunt_Heavy,2.799999952316284,354
+grozagl_lowerreceiver,$UNT$Groza GP-30 Reciever,MeleeLightBlunt,1.0,5,0,10,MeleeLightBlunt_Heavy,1.0,10,0,15,MeleeLightBlunt_Heavy,2.799999952316284,1954
+guts,Guts,MeleeSoft,1.0,3,0,3,MeleeSoft_Heavy,1.0,7,0,7,MeleeSoft_Heavy,2.799999952316284,100
+hacksaw,Hacksaw,MeleeSharpLight_1,1.2000000476837158,18,100,5,MeleeSharpHeavy_1,1.2000000476837158,25,100,12,MeleeSharpHeavy_1,3.299999952316284,800
+hammer,Hammer,MeleeBluntLight_2,1.100000023841858,13,100,18,MeleeBluntHeavy_2,1.100000023841858,22,100,30,MeleeBluntHeavy_2,3.299999952316284,940
+handcuffs,Handcuffs,MeleeFistLight,1.0,10,100,15,MeleeFistHeavy,1.0,12,100,17,MeleeFistHeavy,2.799999952316284,380
+handcuffslocked,Restrained by Handcuffs,MeleeFistLight,1.0,10,100,15,MeleeFistHeavy,1.0,12,100,17,MeleeFistHeavy,2.799999952316284,380
+handsaw,Hand Saw,MeleeSharpLight_1,1.2000000476837158,18,100,5,MeleeSharpHeavy_1,1.2000000476837158,25,100,12,MeleeSharpHeavy_1,3.299999952316284,800
+hatchet,Hatchet,MeleeSharpLight_2,1.399999976158142,18,100,8,MeleeSharpHeavy_2,1.399999976158142,28,100,14,MeleeSharpHeavy_2,3.299999952316284,1000
+hayhook,$UNT$Hay Hook,MeleeSickle,1.2000000476837158,15,100,17,MeleeSickle_Heavy,1.2000000476837158,25,100,25,MeleeSickle_Heavy,3.299999952316284,250
+hockeystick,$UNT$Hockey Stick,MeleeWoodBlunt,1.7999999523162842,5,0,15,MeleeWoodBlunt_Heavy,1.7999999523162842,5,0,15,MeleeWoodBlunt_Heavy,3.700000047683716,650
+huntingknife,Hunting Knife,MeleeSharpLight_4,1.2000000476837158,22,100,12,MeleeSharpHeavy_4,1.2000000476837158,38,100,18,MeleeSharpHeavy_4,3.299999952316284,200
+iceaxe,Ice Axe,MeleeSharpLight_3,1.399999976158142,20,100,10,MeleeSharpHeavy_3,1.399999976158142,32,100,16,MeleeSharpHeavy_3,3.299999952316284,550
+jambiya,Jambiya,MeleeSharpLight_2,1.2000000476837158,18,100,8,MeleeSharpHeavy_2,1.2000000476837158,28,100,14,MeleeSharpHeavy_2,3.299999952316284,400
+kitchenknife,Kitchen Knife,MeleeSharpLight_2,1.2000000476837158,18,100,8,MeleeSharpHeavy_2,1.2000000476837158,28,100,14,MeleeSharpHeavy_2,3.299999952316284,170
+kukriknife,Kukri,MeleeSharpLight_3,1.399999976158142,20,100,10,MeleeSharpHeavy_3,1.399999976158142,32,100,16,MeleeSharpHeavy_3,3.299999952316284,250
+lockpick,Lock Pick,MeleeFistLight,1.0,10,100,15,MeleeFistHeavy,1.0,12,100,17,MeleeFistHeavy,2.799999952316284,190
+longtorch,Long Torch,MeleeLightBlunt,1.600000023841858,5,0,10,MeleeLightBlunt_Heavy,1.600000023841858,10,0,15,MeleeLightBlunt_Heavy,2.200000047683716,500
+longwoodenstick,Long Stick,MeleeBluntStick,1.2000000476837158,12,0,17,MeleeBluntStick_Heavy,1.2000000476837158,18,0,25,MeleeBluntStick_Heavy,3.299999952316284,670
+lugwrench,Tire Iron,MeleeBluntLight_2,1.7000000476837158,13,100,18,MeleeBluntHeavy_2,1.2999999523162842,22,100,30,MeleeBluntHeavy_2,4.099999904632568,1600
+m249_bipod,$UNT$M248 Bipod,MeleeLightBlunt,1.0,5,0,10,MeleeLightBlunt_Heavy,1.0,10,0,15,MeleeLightBlunt_Heavy,2.799999952316284,376
+m249_hndgrd,$UNT$M249 handguard,MeleeLightBlunt,1.0,5,0,10,MeleeLightBlunt_Heavy,1.0,10,0,15,MeleeLightBlunt_Heavy,2.799999952316284,350
+m249_rishndgrd,$UNT$M249 Ris handguard,MeleeLightBlunt,1.0,5,0,10,MeleeLightBlunt_Heavy,1.0,10,0,15,MeleeLightBlunt_Heavy,2.799999952316284,400
+m4_cqbbttstck,M4-A1 CQB Buttstock,MeleeLightBlunt,1,5,0,10,MeleeLightBlunt_Heavy,1,10,0,15,MeleeLightBlunt_Heavy,2.799999952316284,450
+m4_cqbbttstck_black,M4-A1 CQB Buttstock,MeleeLightBlunt,1,5,0,10,MeleeLightBlunt_Heavy,1,10,0,15,MeleeLightBlunt_Heavy,2.799999952316284,450
+m4_cqbbttstck_green,M4-A1 CQB Buttstock,MeleeLightBlunt,1,5,0,10,MeleeLightBlunt_Heavy,1,10,0,15,MeleeLightBlunt_Heavy,2.799999952316284,450
+m4_mpbttstck,M4-A1 MP Buttstock,MeleeLightBlunt,1,5,0,10,MeleeLightBlunt_Heavy,1,10,0,15,MeleeLightBlunt_Heavy,2.799999952316284,330
+m4_mpbttstck_black,M4-A1 MP Buttstock,MeleeLightBlunt,1,5,0,10,MeleeLightBlunt_Heavy,1,10,0,15,MeleeLightBlunt_Heavy,2.799999952316284,330
+m4_mpbttstck_green,M4-A1 MP Buttstock,MeleeLightBlunt,1,5,0,10,MeleeLightBlunt_Heavy,1,10,0,15,MeleeLightBlunt_Heavy,2.799999952316284,330
+m4_mphndgrd,M4-A1 MP Handguard,MeleeLightBlunt,1,5,0,10,MeleeLightBlunt_Heavy,1,10,0,15,MeleeLightBlunt_Heavy,2.799999952316284,350
+m4_mphndgrd_black,M4-A1 MP Handguard,MeleeLightBlunt,1,5,0,10,MeleeLightBlunt_Heavy,1,10,0,15,MeleeLightBlunt_Heavy,2.799999952316284,350
+m4_mphndgrd_green,M4-A1 MP Handguard,MeleeLightBlunt,1,5,0,10,MeleeLightBlunt_Heavy,1,10,0,15,MeleeLightBlunt_Heavy,2.799999952316284,350
+m4_oebttstck,M4-A1 Telescopic Buttstock,MeleeLightBlunt,1,5,0,10,MeleeLightBlunt_Heavy,1,10,0,15,MeleeLightBlunt_Heavy,2.799999952316284,354
+m4_oebttstck_black,M4-A1 Telescopic Buttstock,MeleeLightBlunt,1,5,0,10,MeleeLightBlunt_Heavy,1,10,0,15,MeleeLightBlunt_Heavy,2.799999952316284,354
+m4_oebttstck_green,M4-A1 Telescopic Buttstock,MeleeLightBlunt,1,5,0,10,MeleeLightBlunt_Heavy,1,10,0,15,MeleeLightBlunt_Heavy,2.799999952316284,354
+m4_plastichndgrd,M4-A1 Polymer Handguard,MeleeLightBlunt,1,5,0,10,MeleeLightBlunt_Heavy,1,10,0,15,MeleeLightBlunt_Heavy,2.799999952316284,250
+m4_plastichndgrd_black,M4-A1 Polymer Handguard,MeleeLightBlunt,1,5,0,10,MeleeLightBlunt_Heavy,1,10,0,15,MeleeLightBlunt_Heavy,2.799999952316284,250
+m4_plastichndgrd_green,M4-A1 Polymer Handguard,MeleeLightBlunt,1,5,0,10,MeleeLightBlunt_Heavy,1,10,0,15,MeleeLightBlunt_Heavy,2.799999952316284,250
+m4_rishndgrd,M4-A1 Rail Handguard,MeleeLightBlunt,1,5,0,10,MeleeLightBlunt_Heavy,1,10,0,15,MeleeLightBlunt_Heavy,2.799999952316284,470
+m4_rishndgrd_black,M4-A1 Rail Handguard,MeleeLightBlunt,1,5,0,10,MeleeLightBlunt_Heavy,1,10,0,15,MeleeLightBlunt_Heavy,2.799999952316284,470
+m4_rishndgrd_green,M4-A1 Rail Handguard,MeleeLightBlunt,1,5,0,10,MeleeLightBlunt_Heavy,1,10,0,15,MeleeLightBlunt_Heavy,2.799999952316284,470
+m9a1_bayonet,M4-A1 Bayonet,MeleeSharpLight_4,1.2000000476837158,22,100,12,MeleeSharpHeavy_4,1.2000000476837158,38,100,18,MeleeSharpHeavy_4,3.299999952316284,450
+mace,Mace,MeleeBluntLight_5,1.399999976158142,18,100,35,MeleeBluntHeavy_5,1.399999976158142,35,100,80,MeleeBluntHeavy_5,3.700000047683716,1200
+machete,Machete,MeleeSharpLight_3,1.399999976158142,20,100,10,MeleeSharpHeavy_3,1.399999976158142,32,100,16,MeleeSharpHeavy_3,3.299999952316284,500
+mackerel,Mackerel,MeleeSoft,1.0,3,0,3,MeleeSoft_Heavy,1.0,7,0,7,MeleeSoft_Heavy,2.799999952316284,300
+meattenderizer,Meat Tenderizer,MeleeBluntLight_2,1.2000000476837158,13,100,18,MeleeBluntHeavy_2,1.2000000476837158,22,100,30,MeleeBluntHeavy_2,3.299999952316284,350
+megaphone,Megaphone,MeleeLightBlunt,1.0,5,0,10,MeleeLightBlunt_Heavy,1.0,10,0,15,MeleeLightBlunt_Heavy,2.799999952316284,2400
+messtin,$UNT$Mess tin,MeleeFistLight,1.0,10,100,15,MeleeFistHeavy,1.0,12,100,17,MeleeFistHeavy,2.799999952316284,170
+mosin_bayonet,Mosin 91/30 Bayonet,MeleeSharpLight_2,1.100000023841858,18,100,8,MeleeSharpHeavy_2,1.100000023841858,28,100,14,MeleeSharpHeavy_2,3.299999952316284,480
+mp5_plastichndgrd,SG5-K Polymer Handguard,MeleeLightBlunt,1,5,0,10,MeleeLightBlunt_Heavy,1,10,0,15,MeleeLightBlunt_Heavy,2.799999952316284,250
+mp5_railhndgrd,SG5-K Rail Handguard,MeleeLightBlunt,1,5,0,10,MeleeLightBlunt_Heavy,1,10,0,15,MeleeLightBlunt_Heavy,2.799999952316284,250
+mp5k_stockbttstck,SG5-K Lightweight Buttstock,MeleeLightBlunt,1,5,0,10,MeleeLightBlunt_Heavy,1,10,0,15,MeleeLightBlunt_Heavy,2.799999952316284,450
+nailedbaseballbat,Nailed Bat,MeleeCraftedLight_4,1.7999999523162842,17,100,28,MeleeCraftedHeavy_4,1.7999999523162842,30,100,65,MeleeCraftedHeavy_4,3.700000047683716,600
+newhockeystick,$UNT$Ice Hockey Stick,MeleeBat,1.7999999523162842,20,0,30,MeleeBat_Heavy,1.7999999523162842,30,0,40,MeleeBat_Heavy,3.700000047683716,650
+orientalmachete,Oriental Machete,MeleeSharpLight_3,1.399999976158142,20,100,10,MeleeSharpHeavy_3,1.399999976158142,32,100,16,MeleeSharpHeavy_3,3.299999952316284,500
+p1907_bayonet,P1907 Bayonet,MeleeSharpLight_3,1.399999976158142,20,100,10,MeleeSharpHeavy_3,1.399999976158142,32,100,16,MeleeSharpHeavy_3,3.299999952316284,500
+paddle,$UNT$Canoe Paddle,MeleeWoodBlunt,1.600000023841858,5,0,15,MeleeWoodBlunt_Heavy,1.600000023841858,5,0,15,MeleeWoodBlunt_Heavy,3.700000047683716,800
+pen_black,Pen,MeleeFistLight,1.0,10,100,15,MeleeFistHeavy,1.0,12,100,17,MeleeFistHeavy,2.799999952316284,12
+pen_blue,Pen,MeleeFistLight,1.0,10,100,15,MeleeFistHeavy,1.0,12,100,17,MeleeFistHeavy,2.799999952316284,12
+pen_green,Pen,MeleeFistLight,1.0,10,100,15,MeleeFistHeavy,1.0,12,100,17,MeleeFistHeavy,2.799999952316284,12
+pen_red,Pen,MeleeFistLight,1.0,10,100,15,MeleeFistHeavy,1.0,12,100,17,MeleeFistHeavy,2.799999952316284,12
+personalradio,Handheld Transceiver,MeleeLightBlunt,1.0,5,0,10,MeleeLightBlunt_Heavy,1.0,10,0,15,MeleeLightBlunt_Heavy,2.799999952316284,250
+pickaxe,Pickaxe,MeleeSharpLight_4,1.7999999523162842,22,100,12,MeleeSharpHeavy_4,1.7999999523162842,38,100,18,MeleeSharpHeavy_4,3.700000047683716,2500
+pipe,Pipe,MeleeBluntLight_2,1.7000000476837158,13,100,18,MeleeBluntHeavy_2,1.2999999523162842,22,100,30,MeleeBluntHeavy_2,4.099999904632568,3200
+pipewrench,Pipe Wrench,MeleeBluntLight_4,1.5,17,100,28,MeleeBluntHeavy_4,1.5,30,100,65,MeleeBluntHeavy_4,4.099999904632568,4400
+pitchfork,Pitchfork,MeleeSharpLight_4,2,22,100,12,MeleeSharpHeavy_4,2.5,38,100,18,MeleeSharpHeavy_4,4.099999904632568,1700
+pliers,Pliers,MeleeFistLight,1.0,10,100,15,MeleeFistHeavy,1.0,12,100,17,MeleeFistHeavy,2.799999952316284,240
+policebaton,Police Baton,MeleeBluntLight_2,1.7999999523162842,13,100,18,MeleeBluntHeavy_2,1.600000023841858,22,100,30,MeleeBluntHeavy_2,4.099999904632568,680
+pp19_bttstck,Bizon Lightweight Buttstock,MeleeLightBlunt,1,5,0,10,MeleeLightBlunt_Heavy,1,10,0,15,MeleeLightBlunt_Heavy,2.799999952316284,720
+rabbitsnaretrap,Snare Trap,MeleeLightBlunt,1.0,5,0,10,MeleeLightBlunt_Heavy,1.0,10,0,15,MeleeLightBlunt_Heavy,2.799999952316284,400
+radio,$UNT$Radio,MeleeLightBlunt,1.0,5,0,10,MeleeLightBlunt_Heavy,1.0,10,0,15,MeleeLightBlunt_Heavy,2.799999952316284,1700
+rangefinder,Rangefinder,MeleeLightBlunt,1.0,5,0,10,MeleeLightBlunt_Heavy,1.0,10,0,15,MeleeLightBlunt_Heavy,2.799999952316284,270
+raycaster,Raycast Scanner,MeleeFistLight,1.0,10,100,15,MeleeFistHeavy,1.0,12,100,17,MeleeFistHeavy,2.799999952316284,210
+red9bttstck,$UNT$Red 9 Buttstock,MeleeLightBlunt,1.0,5,0,10,MeleeLightBlunt_Heavy,1.0,10,0,15,MeleeLightBlunt_Heavy,2.799999952316284,400
+roundgoby,Round Goby,MeleeSoft,1.0,3,0,3,MeleeSoft_Heavy,1.0,7,0,7,MeleeSoft_Heavy,2.799999952316284,150
+saiga_bttstck,Vaiga Lightweight Buttstock,MeleeLightBlunt,1,5,0,10,MeleeLightBlunt_Heavy,1,10,0,15,MeleeLightBlunt_Heavy,2.799999952316284,720
+sardines,Sardines,MeleeSoft,1.0,3,0,3,MeleeSoft_Heavy,1.0,7,0,7,MeleeSoft_Heavy,2.799999952316284,150
+scar_precisionbttstck,SCR Precision Buttstock,MeleeLightBlunt,1,5,0,10,MeleeLightBlunt_Heavy,1,10,0,15,MeleeLightBlunt_Heavy,2.799999952316284,1200
+scar_precisionbttstck_black,SCR Precision Buttstock,MeleeLightBlunt,1,5,0,10,MeleeLightBlunt_Heavy,1,10,0,15,MeleeLightBlunt_Heavy,2.799999952316284,1200
+scar_stockbttstck,SCR Buttstock,MeleeLightBlunt,1,5,0,10,MeleeLightBlunt_Heavy,1,10,0,15,MeleeLightBlunt_Heavy,2.799999952316284,650
+scar_stockbttstck_black,SCR Buttstock,MeleeLightBlunt,1,5,0,10,MeleeLightBlunt_Heavy,1,10,0,15,MeleeLightBlunt_Heavy,2.799999952316284,650
+scimitar,Scimitar,MeleeSharpLight_4,1.7999999523162842,22,100,12,MeleeSharpHeavy_4,1.899999976158142,38,100,18,MeleeSharpHeavy_4,3.799999952316284,1100
+screwdriver,Screwdriver,MeleeSharpLight_1,1.100000023841858,18,100,5,MeleeSharpHeavy_1,1.100000023841858,25,100,12,MeleeSharpHeavy_1,3.299999952316284,150
+sharpwoodenstick,Sharpened Stick,MeleeSharpLight_1,1.2000000476837158,18,100,5,MeleeSharpHeavy_1,1.2000000476837158,25,100,12,MeleeSharpHeavy_1,3.299999952316284,670
+shovel,Shovel,MeleeBluntLight_3,1.7999999523162842,15,100,21,MeleeBluntHeavy_3,1.7999999523162842,27,100,45,MeleeBluntHeavy_3,3.700000047683716,3000
+shrimp,Shrimp,MeleeSoft,1.0,3,0,3,MeleeSoft_Heavy,1.0,7,0,7,MeleeSoft_Heavy,2.799999952316284,1
+sickle,Sickle,MeleeSharpLight_2,1.399999976158142,18,100,8,MeleeSharpHeavy_2,1.399999976158142,28,100,14,MeleeSharpHeavy_2,3.299999952316284,350
+sks_bayonet,SK 59/66 Bayonet,MeleeSharpLight_2,1.100000023841858,18,100,8,MeleeSharpHeavy_2,1.100000023841858,28,100,14,MeleeSharpHeavy_2,3.299999952316284,450
+sledgehammer,Sledgehammer,MeleeBluntLight_5,1.7999999523162842,18,100,35,MeleeBluntHeavy_5,1.7999999523162842,35,100,80,MeleeBluntHeavy_5,3.700000047683716,5000
+smallguts,$UNT$Small Guts,MeleeSoft,1.0,3,0,3,MeleeSoft_Heavy,1.0,7,0,7,MeleeSoft_Heavy,2.799999952316284,100
+spearbone,Improvised Spear,MeleeSharpLight_2,1.7999999523162842,18,100,8,MeleeSharpHeavy_2,1.7999999523162842,28,100,14,MeleeSharpHeavy_2,3.700000047683716,500
+spearstone,Improvised Spear,MeleeSharpLight_2,1.7999999523162842,18,100,8,MeleeSharpHeavy_2,1.7999999523162842,28,100,14,MeleeSharpHeavy_2,3.700000047683716,500
+splint,Splint,MeleeLightBlunt,1.399999976158142,5,0,10,MeleeLightBlunt_Heavy,1.399999976158142,10,0,15,MeleeLightBlunt_Heavy,3.299999952316284,540
+splint_applied,Splint,MeleeLightBlunt,1.399999976158142,5,0,10,MeleeLightBlunt_Heavy,1.399999976158142,10,0,15,MeleeLightBlunt_Heavy,3.299999952316284,540
+steakknife,Steak Knife,MeleeSharpLight_1,1.100000023841858,18,100,5,MeleeSharpHeavy_1,1.100000023841858,25,100,12,MeleeSharpHeavy_1,3.299999952316284,90
+steelheadtrout,Steelhead Trout,MeleeSoft,1.0,3,0,3,MeleeSoft_Heavy,1.0,7,0,7,MeleeSoft_Heavy,2.799999952316284,0
+stoneknife,Stone Knife,MeleeCraftedLight_1,1.100000023841858,10,100,10,MeleeCraftedHeavy_1,1.100000023841858,15,100,15,MeleeCraftedHeavy_1,3.299999952316284,260
+stunbaton,Stun Baton,MeleeLightBlunt,1.5,5,0,10,MeleeLightBlunt_Heavy,1.5,10,0,15,MeleeLightBlunt_Heavy,2.0,800
+sword,Sword,MeleeSharpLight_4,1.7999999523162842,22,100,12,MeleeSharpHeavy_4,1.7999999523162842,38,100,18,MeleeSharpHeavy_4,3.700000047683716,1500
+telescopicbaton,$UNT$Telescopic Baton,MeleeLightBlunt,1.0,5,0,10,MeleeLightBlunt_Heavy,1.0,10,0,15,MeleeLightBlunt_Heavy,2.799999952316284,252
+torch,Torch,MeleeLightBlunt,1.600000023841858,5,0,10,MeleeLightBlunt_Heavy,1.600000023841858,10,0,15,MeleeLightBlunt_Heavy,2.200000047683716,240
+torch_video,Long Torch,MeleeLightBlunt,1.600000023841858,5,0,10,MeleeLightBlunt_Heavy,1.600000023841858,10,0,15,MeleeLightBlunt_Heavy,2.200000047683716,500
+walleyepollock,Walleye Pollock,MeleeSoft,1.0,3,0,3,MeleeSoft_Heavy,1.0,7,0,7,MeleeSoft_Heavy,2.799999952316284,0
+weaponcleaningkit,Gun Cleaning Kit,MeleeFistLight,1.0,10,100,15,MeleeFistHeavy,1.0,12,100,17,MeleeFistHeavy,2.799999952316284,780
+woodaxe,Splitting Axe,MeleeWAxeLight,1.7999999523162842,22,100,12,MeleeWAxelHeavy,1.7999999523162842,38,100,18,MeleeWAxelHeavy,3.700000047683716,1500
+woodenstick,Short Stick,MeleeBluntStick,1.2000000476837158,12,0,17,MeleeBluntStick_Heavy,1.2000000476837158,18,0,25,MeleeBluntStick_Heavy,3.299999952316284,220
+wrench,Wrench,MeleeBluntLight_1,1.600000023841858,12,100,15,MeleeBluntHeavy_1,1.600000023841858,18,100,24,MeleeBluntHeavy_1,4.099999904632568,340
+xmasbaseballbat,Festive Baseball Bat,MeleeBluntLight_3,1.7999999523162842,15,100,21,MeleeBluntHeavy_3,1.7999999523162842,27,100,45,MeleeBluntHeavy_3,3.700000047683716,566

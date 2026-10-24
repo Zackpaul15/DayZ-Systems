@@ -1,0 +1,318 @@
+item,displayName,stage,cook_min_temp,cook_time_s,cook_max_temp,nutrition_properties,transitions
+AgaricusMushroom,Field Mushroom,Raw,0,0,,2.5|120|100|1|0,ToBaked:baking->Baked; ToBoiled:boiling->Boiled; ToDried:drying->Dried; ToBurned:drying->Burned; ToRotten:time->Rotten
+AgaricusMushroom,Field Mushroom,Rotten,0,0,,2|90|40|1|0|16,ToBurned:baking->Burned
+AgaricusMushroom,Field Mushroom,Baked,70,35,,1.75|300|60|1|0,ToBaked:baking->Burned; ToBoiled:boiling->Burned; ToDried:drying->Burned; ToBurned:drying->Burned; ToRotten:time->Rotten
+AgaricusMushroom,Field Mushroom,Boiled,105,45,,1.5|250|160|1|0,ToBaked:baking->Burned; ToBoiled:boiling->Burned; ToDried:drying->Burned; ToBurned:drying->Burned; ToRotten:time->Rotten
+AgaricusMushroom,Field Mushroom,Dried,70,30,80,0.75|250|20|1|0,ToBaked:baking->Burned; ToBoiled:boiling->Burned; ToDried:drying->Burned; ToBurned:drying->Burned; ToRotten:time->Rotten
+AgaricusMushroom,Field Mushroom,Burned,100,20,,2|90|0|1|0,
+AmanitaMushroom,Fly Amanita,Raw,0,0,,2.5|120|150|1|0,ToBaked:baking->Baked; ToBoiled:boiling->Boiled; ToDried:drying->Dried; ToBurned:drying->Burned; ToRotten:time->Rotten
+AmanitaMushroom,Fly Amanita,Rotten,0,0,,2|90|40|1|0|16,ToBurned:baking->Burned
+AmanitaMushroom,Fly Amanita,Baked,70,35,,1.75|300|60|1|0,ToBaked:baking->Burned; ToBoiled:boiling->Burned; ToDried:drying->Burned; ToBurned:drying->Burned; ToRotten:time->Rotten
+AmanitaMushroom,Fly Amanita,Boiled,105,45,,1.5|250|160|1|0,ToBaked:baking->Burned; ToBoiled:boiling->Burned; ToDried:drying->Burned; ToBurned:drying->Burned; ToRotten:time->Rotten
+AmanitaMushroom,Fly Amanita,Dried,70,30,80,0.75|250|20|1|0,ToBaked:baking->Burned; ToBoiled:boiling->Burned; ToDried:drying->Burned; ToBurned:drying->Burned; ToRotten:time->Rotten
+AmanitaMushroom,Fly Amanita,Burned,100,20,,2|90|0|1|0,
+Apple,Apple,Raw,0,0,,1|100|40|1|0,ToBaked:baking->Baked; ToBoiled:boiling->Boiled; ToDried:drying->Dried; ToBurned:drying->Burned; ToRotten:time->Rotten
+Apple,Apple,Rotten,0,0,,10|75|16|1|0|16|1|9,ToBurned:baking->Burned
+Apple,Apple,Baked,70,35,,1|250|24|1|0,ToBaked:baking->Burned; ToBoiled:boiling->Burned; ToDried:drying->Burned; ToBurned:drying->Burned; ToRotten:time->Rotten
+Apple,Apple,Boiled,105,45,,1|200|64|1|0,ToBaked:baking->Burned; ToBoiled:boiling->Burned; ToDried:drying->Burned; ToBurned:drying->Burned; ToRotten:time->Rotten
+Apple,Apple,Dried,70,30,80,1|200|8|1|0,ToBaked:baking->Burned; ToBoiled:boiling->Burned; ToDried:drying->Burned; ToBurned:drying->Burned; ToRotten:time->Rotten
+Apple,Apple,Burned,100,20,,5|100|0|1|0|16|1|4,
+AuriculariaMushroom,Wood Ear,Raw,0,0,,2.5|120|100|1|0,ToBaked:baking->Baked; ToBoiled:boiling->Boiled; ToDried:drying->Dried; ToBurned:drying->Burned; ToRotten:time->Rotten
+AuriculariaMushroom,Wood Ear,Rotten,0,0,,2|90|40|1|0|16|1|9,ToBurned:baking->Burned
+AuriculariaMushroom,Wood Ear,Baked,70,35,,1.75|300|60|1|0,ToBaked:baking->Burned; ToBoiled:boiling->Burned; ToDried:drying->Burned; ToBurned:drying->Burned; ToRotten:time->Rotten
+AuriculariaMushroom,Wood Ear,Boiled,105,45,,1.5|250|160|1|0,ToBaked:baking->Burned; ToBoiled:boiling->Burned; ToDried:drying->Burned; ToBurned:drying->Burned; ToRotten:time->Rotten
+AuriculariaMushroom,Wood Ear,Dried,70,30,80,0.75|250|20|1|0,ToBaked:baking->Burned; ToBoiled:boiling->Burned; ToDried:drying->Burned; ToBurned:drying->Burned; ToRotten:time->Rotten
+AuriculariaMushroom,Wood Ear,Burned,100,20,,2|90|0|1|0|16|1|3,
+Banana,$UNT$Banana,Raw,0,0,,1|200|20|1|0,ToRotten:time->Rotten
+Banana,$UNT$Banana,Rotten,0,0,,10|100|8|1|0|16|1|8,
+BearSteakMeat,Bear Steak,Raw,0,0,,5|50|40|1|0|4,ToBaked:baking->Baked; ToBoiled:boiling->Boiled; ToDried:drying->Dried; ToBurned:drying->Burned; ToRotten:time->Rotten
+BearSteakMeat,Bear Steak,Rotten,0,0,,10|25|16|1|0|4 + 		  16|1|20,ToBurned:baking->Burned
+BearSteakMeat,Bear Steak,Baked,70,45,,2|400|24|1|0,ToBaked:baking->Burned; ToBoiled:boiling->Burned; ToDried:drying->Burned; ToBurned:drying->Burned; ToRotten:time->Rotten
+BearSteakMeat,Bear Steak,Boiled,105,55,,2|350|64|1|0,ToBaked:baking->Burned; ToBoiled:boiling->Burned; ToDried:drying->Burned; ToBurned:drying->Burned; ToRotten:time->Rotten
+BearSteakMeat,Bear Steak,Dried,70,120,80,3|350|8|1|0,ToBaked:baking->Burned; ToBoiled:boiling->Burned; ToDried:drying->Burned; ToBurned:drying->Burned; ToRotten:time->Rotten
+BearSteakMeat,Bear Steak,Burned,100,30,,5|50|0|1|0|16|1|7,
+Bitterlings,Bitterlings,Raw,0,0,,5|10|20|1|0|16|1|8,ToBaked:baking->Baked; ToBoiled:boiling->Boiled; ToDried:drying->Dried; ToBurned:drying->Burned; ToRotten:time->Rotten
+Bitterlings,Bitterlings,Rotten,0,0,,10|5|8|1|0|4 + 		  16|1|16,ToBurned:baking->Burned
+Bitterlings,Bitterlings,Baked,70,45,,2|50|12|1|0,ToBaked:baking->Burned; ToBoiled:boiling->Burned; ToDried:drying->Burned; ToBurned:drying->Burned; ToRotten:time->Rotten
+Bitterlings,Bitterlings,Boiled,105,55,,2|40|32|1|0,ToBaked:baking->Burned; ToBoiled:boiling->Burned; ToDried:drying->Burned; ToBurned:drying->Burned; ToRotten:time->Rotten
+Bitterlings,Bitterlings,Dried,70,45,80,3|40|4|1|0,ToBaked:baking->Burned; ToBoiled:boiling->Burned; ToDried:drying->Burned; ToBurned:drying->Burned; ToRotten:time->Rotten
+Bitterlings,Bitterlings,Burned,100,30,,5|10|0|1|0|16|1|3,
+BoarSteakMeat,Boar Steak,Raw,0,0,,5|50|40|1|0|4,ToBaked:baking->Baked; ToBoiled:boiling->Boiled; ToDried:drying->Dried; ToBurned:drying->Burned; ToRotten:time->Rotten
+BoarSteakMeat,Boar Steak,Rotten,0,0,,10|25|16|1|0|4 + 		  16|1|20,ToBurned:baking->Burned
+BoarSteakMeat,Boar Steak,Baked,70,45,,2|325|24|1|0,ToBaked:baking->Burned; ToBoiled:boiling->Burned; ToDried:drying->Burned; ToBurned:drying->Burned; ToRotten:time->Rotten
+BoarSteakMeat,Boar Steak,Boiled,105,55,,1|275|64|1|0,ToBaked:baking->Burned; ToBoiled:boiling->Burned; ToDried:drying->Burned; ToBurned:drying->Burned; ToRotten:time->Rotten
+BoarSteakMeat,Boar Steak,Dried,70,120,80,3|275|8|1|0,ToBaked:baking->Burned; ToBoiled:boiling->Burned; ToDried:drying->Burned; ToBurned:drying->Burned; ToRotten:time->Rotten
+BoarSteakMeat,Boar Steak,Burned,100,30,,5|50|0|1|0|16|1|7,
+BoletusMushroom,Penny Bun,Raw,0,0,,2.5|120|100|1|0,ToBaked:baking->Baked; ToBoiled:boiling->Boiled; ToDried:drying->Dried; ToBurned:drying->Burned; ToRotten:time->Rotten
+BoletusMushroom,Penny Bun,Rotten,0,0,,2|90|40|1|0|16|1|9,ToBurned:baking->Burned
+BoletusMushroom,Penny Bun,Baked,70,35,,1.75|300|60|1|0,ToBaked:baking->Burned; ToBoiled:boiling->Burned; ToDried:drying->Burned; ToBurned:drying->Burned; ToRotten:time->Rotten
+BoletusMushroom,Penny Bun,Boiled,105,45,,1.5|250|160|1|0,ToBaked:baking->Burned; ToBoiled:boiling->Burned; ToDried:drying->Burned; ToBurned:drying->Burned; ToRotten:time->Rotten
+BoletusMushroom,Penny Bun,Dried,70,30,80,0.75|250|20|1|0,ToBaked:baking->Burned; ToBoiled:boiling->Burned; ToDried:drying->Burned; ToBurned:drying->Burned; ToRotten:time->Rotten
+BoletusMushroom,Penny Bun,Burned,100,20,,2|90|0|1|0|16|1|3,
+CaninaBerry,Rose Hips,Raw,0,0,,2.5|50|60|1|0,ToBaked:baking->Baked; ToBoiled:boiling->Boiled; ToDried:drying->Dried; ToBurned:drying->Burned; ToRotten:time->Rotten
+CaninaBerry,Rose Hips,Rotten,0,0,,2|37.5|40|1|0|16,ToBurned:baking->Burned
+CaninaBerry,Rose Hips,Baked,70,35,,1.75|90|36|1|0,ToBaked:baking->Burned; ToBoiled:boiling->Burned; ToDried:drying->Burned; ToBurned:drying->Burned; ToRotten:time->Rotten
+CaninaBerry,Rose Hips,Boiled,105,45,,1.5|90|96|1|0,ToBaked:baking->Burned; ToBoiled:boiling->Burned; ToDried:drying->Burned; ToBurned:drying->Burned; ToRotten:time->Rotten
+CaninaBerry,Rose Hips,Dried,70,30,80,0.75|90|12|1|0,ToBaked:baking->Burned; ToBoiled:boiling->Burned; ToDried:drying->Burned; ToBurned:drying->Burned; ToRotten:time->Rotten
+CaninaBerry,Rose Hips,Burned,100,20,,2|37.5|0|1|0,
+Cannabis,$UNT$Cannabis,Raw,0,0,,1|284|293|30|1,ToBaked:baking->Baked; ToBoiled:boiling->Boiled; ToDried:drying->Dried; ToBurned:drying->Burned; ToRotten:time->Rotten
+Cannabis,$UNT$Cannabis,Rotten,0,0,,1|100|293|10|1|16,ToBurned:baking->Burned
+Cannabis,$UNT$Cannabis,Baked,70,35,,1|69|172|70|1,ToBaked:baking->Burned; ToBoiled:boiling->Burned; ToDried:drying->Burned; ToBurned:drying->Burned; ToRotten:time->Rotten
+Cannabis,$UNT$Cannabis,Boiled,105,45,,1|69|172|70|1,ToBaked:baking->Burned; ToBoiled:boiling->Burned; ToDried:drying->Burned; ToBurned:drying->Burned; ToRotten:time->Rotten
+Cannabis,$UNT$Cannabis,Dried,70,30,80,1|69|172|70|1,ToBaked:baking->Burned; ToBoiled:boiling->Burned; ToDried:drying->Burned; ToBurned:drying->Burned; ToRotten:time->Rotten
+Cannabis,$UNT$Cannabis,Burned,100,20,,1|20|40|10|1,
+Carp,Carp,Raw,0,0,,1|20|60|70|1,ToRotten:time->Rotten
+Carp,Carp,Rotten,0,0,,10|25|25|1|0,
+CarpFilletMeat,Carp Fillet,Raw,0,0,,5|30|40|1|0|16|1|9,ToBaked:baking->Baked; ToBoiled:boiling->Boiled; ToDried:drying->Dried; ToBurned:drying->Burned; ToRotten:time->Rotten
+CarpFilletMeat,Carp Fillet,Rotten,0,0,,10|15|16|1|0|4 + 		  16|1|15,ToBurned:baking->Burned
+CarpFilletMeat,Carp Fillet,Baked,70,45,,2|150|24|1|0,ToBaked:baking->Burned; ToBoiled:boiling->Burned; ToDried:drying->Burned; ToBurned:drying->Burned; ToRotten:time->Rotten
+CarpFilletMeat,Carp Fillet,Boiled,105,55,,2|130|64|1|0,ToBaked:baking->Burned; ToBoiled:boiling->Burned; ToDried:drying->Burned; ToBurned:drying->Burned; ToRotten:time->Rotten
+CarpFilletMeat,Carp Fillet,Dried,70,120,80,3|115|8|1|0,ToBaked:baking->Burned; ToBoiled:boiling->Burned; ToDried:drying->Burned; ToBurned:drying->Burned; ToRotten:time->Rotten
+CarpFilletMeat,Carp Fillet,Burned,100,30,,5|30|0|1|0|16|1|3,
+Catfish,Catfish,Raw,0,0,,1|20|60|70|1,ToRotten:time->Rotten
+Catfish,Catfish,Rotten,0,0,,10|25|25|1|0,
+CatfishFilletMeat,Catfish Fillet,Raw,0,0,,5|30|40|1|0|16|1|9,ToBaked:baking->Baked; ToBoiled:boiling->Boiled; ToDried:drying->Dried; ToBurned:drying->Burned; ToRotten:time->Rotten
+CatfishFilletMeat,Catfish Fillet,Rotten,0,0,,10|15|16|1|0|4 + 		  16|1|15,ToBurned:baking->Burned
+CatfishFilletMeat,Catfish Fillet,Baked,70,45,,2|150|24|1|0,ToBaked:baking->Burned; ToBoiled:boiling->Burned; ToDried:drying->Burned; ToBurned:drying->Burned; ToRotten:time->Rotten
+CatfishFilletMeat,Catfish Fillet,Boiled,105,55,,2|130|64|1|0,ToBaked:baking->Burned; ToBoiled:boiling->Burned; ToDried:drying->Burned; ToBurned:drying->Burned; ToRotten:time->Rotten
+CatfishFilletMeat,Catfish Fillet,Dried,70,120,80,3|115|8|1|0,ToBaked:baking->Burned; ToBoiled:boiling->Burned; ToDried:drying->Burned; ToBurned:drying->Burned; ToRotten:time->Rotten
+CatfishFilletMeat,Catfish Fillet,Burned,100,30,,5|30|0|1|0|16|1|3,
+ChickenBreastMeat,Chicken Steak,Raw,0,0,,5|50|40|1|0|4,ToBaked:baking->Baked; ToBoiled:boiling->Boiled; ToDried:drying->Dried; ToBurned:drying->Burned; ToRotten:time->Rotten
+ChickenBreastMeat,Chicken Steak,Rotten,0,0,,10|25|16|1|0|4 + 		  16|1|25,ToBurned:baking->Burned
+ChickenBreastMeat,Chicken Steak,Baked,70,45,,1|200|24|1|0,ToBaked:baking->Burned; ToBoiled:boiling->Burned; ToDried:drying->Burned; ToBurned:drying->Burned; ToRotten:time->Rotten
+ChickenBreastMeat,Chicken Steak,Boiled,105,55,,1|150|64|1|0,ToBaked:baking->Burned; ToBoiled:boiling->Burned; ToDried:drying->Burned; ToBurned:drying->Burned; ToRotten:time->Rotten
+ChickenBreastMeat,Chicken Steak,Dried,70,120,80,2|150|8|1|0,ToBaked:baking->Burned; ToBoiled:boiling->Burned; ToDried:drying->Burned; ToBurned:drying->Burned; ToRotten:time->Rotten
+ChickenBreastMeat,Chicken Steak,Burned,100,30,,5|50|0|1|0|16|1|8,
+CowSteakMeat,Beef Steak,Raw,0,0,,5|50|40|1|0|4,ToBaked:baking->Baked; ToBoiled:boiling->Boiled; ToDried:drying->Dried; ToBurned:drying->Burned; ToRotten:time->Rotten
+CowSteakMeat,Beef Steak,Rotten,0,0,,10|25|16|1|0|4 + 		  16|1|20,ToBurned:baking->Burned
+CowSteakMeat,Beef Steak,Baked,70,45,,1|300|24|1|0,ToBaked:baking->Burned; ToBoiled:boiling->Burned; ToDried:drying->Burned; ToBurned:drying->Burned; ToRotten:time->Rotten
+CowSteakMeat,Beef Steak,Boiled,105,55,,1|250|60|1|0,ToBaked:baking->Burned; ToBoiled:boiling->Burned; ToDried:drying->Burned; ToBurned:drying->Burned; ToRotten:time->Rotten
+CowSteakMeat,Beef Steak,Dried,70,120,80,1|250|8|1|0,ToBaked:baking->Burned; ToBoiled:boiling->Burned; ToDried:drying->Burned; ToBurned:drying->Burned; ToRotten:time->Rotten
+CowSteakMeat,Beef Steak,Burned,100,30,,5|50|0|1|0|16|1|7,
+CraterellusMushroom,Yellowfoot Mushroom,Raw,0,0,,2.5|120|195|1|0,ToBaked:baking->Baked; ToBoiled:boiling->Boiled; ToDried:drying->Dried; ToBurned:drying->Burned; ToRotten:time->Rotten
+CraterellusMushroom,Yellowfoot Mushroom,Rotten,0,0,,2|90|78|1|0|16|1|9,ToBurned:baking->Burned
+CraterellusMushroom,Yellowfoot Mushroom,Baked,70,35,,1.75|300|117|1|0,ToBaked:baking->Burned; ToBoiled:boiling->Burned; ToDried:drying->Burned; ToBurned:drying->Burned; ToRotten:time->Rotten
+CraterellusMushroom,Yellowfoot Mushroom,Boiled,105,45,,1.5|250|312|1|0,ToBaked:baking->Burned; ToBoiled:boiling->Burned; ToDried:drying->Burned; ToBurned:drying->Burned; ToRotten:time->Rotten
+CraterellusMushroom,Yellowfoot Mushroom,Dried,70,30,80,0.75|250|39|1|0,ToBaked:baking->Burned; ToBoiled:boiling->Burned; ToDried:drying->Burned; ToBurned:drying->Burned; ToRotten:time->Rotten
+CraterellusMushroom,Yellowfoot Mushroom,Burned,100,20,,2|90|0|1|0|16|1|3,
+DeadChicken_Brown,Hen,Raw,0,0,,7|50|50|1|0,ToRotten:time->Rotten
+DeadChicken_Brown,Hen,Rotten,0,0,,10|25|25|1|0,
+DeadChicken_Spotted,Hen,Raw,0,0,,7|50|50|1|0,ToRotten:time->Rotten
+DeadChicken_Spotted,Hen,Rotten,0,0,,10|25|25|1|0,
+DeadChicken_White,Hen,Raw,0,0,,7|50|50|1|0,ToRotten:time->Rotten
+DeadChicken_White,Hen,Rotten,0,0,,10|25|25|1|0,
+DeadFox,Red Fox,Raw,0,0,,7|50|50|1|0,ToRotten:time->Rotten
+DeadFox,Red Fox,Rotten,0,0,,10|25|25|1|0,
+DeadLizard,Desert Monitor,Raw,0,0,,7|50|50|1|0,ToRotten:time->Rotten
+DeadLizard,Desert Monitor,Rotten,0,0,,10|25|25|1|0,
+DeadRabbit,Hare,Raw,0,0,,7|50|50|1|0,ToRotten:time->Rotten
+DeadRabbit,Hare,Rotten,0,0,,10|25|25|1|0,
+DeadRooster,Rooster,Raw,0,0,,7|50|50|1|0,ToRotten:time->Rotten
+DeadRooster,Rooster,Rotten,0,0,,10|25|25|1|0,
+DeerSteakMeat,Venison Steak,Raw,0,0,,5|50|40|1|0|4,ToBaked:baking->Baked; ToBoiled:boiling->Boiled; ToDried:drying->Dried; ToBurned:drying->Burned; ToRotten:time->Rotten
+DeerSteakMeat,Venison Steak,Rotten,0,0,,10|25|16|1|0|4 + 		  16|1|20,ToBurned:baking->Burned
+DeerSteakMeat,Venison Steak,Baked,70,45,,2|350|24|1|0,ToBaked:baking->Burned; ToBoiled:boiling->Burned; ToDried:drying->Burned; ToBurned:drying->Burned; ToRotten:time->Rotten
+DeerSteakMeat,Venison Steak,Boiled,105,55,,1|300|64|1|0,ToBaked:baking->Burned; ToBoiled:boiling->Burned; ToDried:drying->Burned; ToBurned:drying->Burned; ToRotten:time->Rotten
+DeerSteakMeat,Venison Steak,Dried,70,120,80,3|300|8|1|0,ToBaked:baking->Burned; ToBoiled:boiling->Burned; ToDried:drying->Burned; ToBurned:drying->Burned; ToRotten:time->Rotten
+DeerSteakMeat,Venison Steak,Burned,100,30,,5|50|0|1|0|16|1|7,
+DogSteakMeat,Dog Steak,Raw,0,0,,5|50|40|1|0|4,ToBaked:baking->Baked; ToBoiled:boiling->Boiled; ToDried:drying->Dried; ToBurned:drying->Burned; ToRotten:time->Rotten
+DogSteakMeat,Dog Steak,Rotten,0,0,,10|25|16|1|0|4 + 		  16|1|25,ToBurned:baking->Burned
+DogSteakMeat,Dog Steak,Baked,70,45,,2|200|24|1|0,ToBaked:baking->Burned; ToBoiled:boiling->Burned; ToDried:drying->Burned; ToBurned:drying->Burned; ToRotten:time->Rotten
+DogSteakMeat,Dog Steak,Boiled,105,55,,2|150|64|1|0,ToBaked:baking->Burned; ToBoiled:boiling->Burned; ToDried:drying->Burned; ToBurned:drying->Burned; ToRotten:time->Rotten
+DogSteakMeat,Dog Steak,Dried,70,120,80,3|150|8|1|0,ToBaked:baking->Burned; ToBoiled:boiling->Burned; ToDried:drying->Burned; ToBurned:drying->Burned; ToRotten:time->Rotten
+DogSteakMeat,Dog Steak,Burned,100,30,,5|50|0|1|0|16|1|9,
+Figs,Figs,Raw,0,0,,1|200|150|1|0,ToBaked:baking->Baked; ToBoiled:boiling->Boiled; ToDried:drying->Dried; ToBurned:drying->Burned; ToRotten:time->Rotten
+Figs,Figs,Baked,70,35,,1|400|100|1|0,ToBaked:baking->Burned; ToBoiled:boiling->Burned; ToDried:drying->Burned; ToBurned:drying->Burned; ToRotten:time->Rotten
+Figs,Figs,Boiled,105,45,,1|350|200|1|0,ToBaked:baking->Burned; ToBoiled:boiling->Burned; ToDried:drying->Burned; ToBurned:drying->Burned; ToRotten:time->Rotten
+Figs,Figs,Burned,100,20,,5|100|0|1|0|16|1|4,
+Figs,Figs,Dried,70,30,80,1|350|8|1|0,ToBaked:baking->Burned; ToBoiled:boiling->Burned; ToDried:drying->Burned; ToBurned:drying->Burned; ToRotten:time->Rotten
+Figs,Figs,Rotten,0,0,,10|75|16|1|0|16|1|9,ToBurned:baking->Burned
+FoxSteakMeat,Fox Steak,Raw,0,0,,4.5|50|40|1|0|4,ToBaked:baking->Baked; ToBoiled:boiling->Boiled; ToDried:drying->Dried; ToBurned:drying->Burned; ToRotten:time->Rotten
+FoxSteakMeat,Fox Steak,Rotten,0,0,,10|25|16|1|0|4 + 		  16|1|25,ToBurned:baking->Burned
+FoxSteakMeat,Fox Steak,Baked,70,45,,2|200|24|1|0,ToBaked:baking->Burned; ToBoiled:boiling->Burned; ToDried:drying->Burned; ToBurned:drying->Burned; ToRotten:time->Rotten
+FoxSteakMeat,Fox Steak,Boiled,105,55,,2|150|64|1|0,ToBaked:baking->Burned; ToBoiled:boiling->Burned; ToDried:drying->Burned; ToBurned:drying->Burned; ToRotten:time->Rotten
+FoxSteakMeat,Fox Steak,Dried,70,120,80,3|150|8|1|0,ToBaked:baking->Burned; ToBoiled:boiling->Burned; ToDried:drying->Burned; ToBurned:drying->Burned; ToRotten:time->Rotten
+FoxSteakMeat,Fox Steak,Burned,100,30,,5|50|0|1|0|16|1|7,
+GoatSteakMeat,Chevon Steak,Raw,0,0,,5|50|40|1|0|4,ToBaked:baking->Baked; ToBoiled:boiling->Boiled; ToDried:drying->Dried; ToBurned:drying->Burned; ToRotten:time->Rotten
+GoatSteakMeat,Chevon Steak,Rotten,0,0,,10|25|16|1|0|4 + 		  16|1|25,ToBurned:baking->Burned
+GoatSteakMeat,Chevon Steak,Baked,70,45,,2|250|24|1|0,ToBaked:baking->Burned; ToBoiled:boiling->Burned; ToDried:drying->Burned; ToBurned:drying->Burned; ToRotten:time->Rotten
+GoatSteakMeat,Chevon Steak,Boiled,105,55,,2|200|64|1|0,ToBaked:baking->Burned; ToBoiled:boiling->Burned; ToDried:drying->Burned; ToBurned:drying->Burned; ToRotten:time->Rotten
+GoatSteakMeat,Chevon Steak,Dried,70,120,80,3|200|8|1|0,ToBaked:baking->Burned; ToBoiled:boiling->Burned; ToDried:drying->Burned; ToBurned:drying->Burned; ToRotten:time->Rotten
+GoatSteakMeat,Chevon Steak,Burned,100,30,,5|50|0|1|0|16|1|9,
+GreenBellPepper,Pepper,Raw,0,0,,1|100|33|1|0,ToBaked:baking->Baked; ToBoiled:boiling->Boiled; ToDried:drying->Dried; ToBurned:drying->Burned; ToRotten:time->Rotten
+GreenBellPepper,Pepper,Rotten,0,0,,10|50|13|1|0|16|1|9,ToBurned:baking->Burned
+GreenBellPepper,Pepper,Baked,70,35,,1|250|20|1|0,ToBaked:baking->Burned; ToBoiled:boiling->Burned; ToDried:drying->Burned; ToBurned:drying->Burned; ToRotten:time->Rotten
+GreenBellPepper,Pepper,Boiled,105,45,,1|200|53|1|0,ToBaked:baking->Burned; ToBoiled:boiling->Burned; ToDried:drying->Burned; ToBurned:drying->Burned; ToRotten:time->Rotten
+GreenBellPepper,Pepper,Dried,70,30,80,1|200|7|1|0,ToBaked:baking->Burned; ToBoiled:boiling->Burned; ToDried:drying->Burned; ToBurned:drying->Burned; ToRotten:time->Rotten
+GreenBellPepper,Pepper,Burned,100,20,,5|100|0|1|0|16|1|3,
+HumanSteakMeat,Human Steak,Raw,0,0,,7|50|40|1|0|4,ToBaked:baking->Baked; ToBoiled:boiling->Boiled; ToDried:drying->Dried; ToBurned:drying->Burned; ToRotten:time->Rotten
+HumanSteakMeat,Human Steak,Rotten,0,0,,10|25|16|1|0|4 + 		  16|1|25,ToBurned:baking->Burned
+HumanSteakMeat,Human Steak,Baked,70,45,,4|200|24|1|0,ToBaked:baking->Burned; ToBoiled:boiling->Burned; ToDried:drying->Burned; ToBurned:drying->Burned; ToRotten:time->Rotten
+HumanSteakMeat,Human Steak,Boiled,105,55,,4|150|64|1|0,ToBaked:baking->Burned; ToBoiled:boiling->Burned; ToDried:drying->Burned; ToBurned:drying->Burned; ToRotten:time->Rotten
+HumanSteakMeat,Human Steak,Dried,70,120,80,5|150|8|1|0,ToBaked:baking->Burned; ToBoiled:boiling->Burned; ToDried:drying->Burned; ToBurned:drying->Burned; ToRotten:time->Rotten
+HumanSteakMeat,Human Steak,Burned,100,30,,7|50|0|1|0|16|1|9,
+Kiwi,$UNT$Kiwi,Raw,0,0,,1|150|47|1|0,ToRotten:time->Rotten
+Kiwi,$UNT$Kiwi,Rotten,0,0,,10|75|19|1|0|16,
+LactariusMushroom,Red Pine Mushroom,Raw,0,0,,2.5|120|100|1|0,ToBaked:baking->Baked; ToBoiled:boiling->Boiled; ToDried:drying->Dried; ToBurned:drying->Burned; ToRotten:time->Rotten
+LactariusMushroom,Red Pine Mushroom,Rotten,0,0,,2|90|40|1|0|16|1|9,ToBurned:baking->Burned
+LactariusMushroom,Red Pine Mushroom,Baked,70,35,,1.75|300|60|1|0,ToBaked:baking->Burned; ToBoiled:boiling->Burned; ToDried:drying->Burned; ToBurned:drying->Burned; ToRotten:time->Rotten
+LactariusMushroom,Red Pine Mushroom,Boiled,105,45,,1.5|250|160|1|0,ToBaked:baking->Burned; ToBoiled:boiling->Burned; ToDried:drying->Burned; ToBurned:drying->Burned; ToRotten:time->Rotten
+LactariusMushroom,Red Pine Mushroom,Dried,70,30,80,0.75|250|20|1|0,ToBaked:baking->Burned; ToBoiled:boiling->Burned; ToDried:drying->Burned; ToBurned:drying->Burned; ToRotten:time->Rotten
+LactariusMushroom,Red Pine Mushroom,Burned,100,20,,2|90|0|1|0|16|1|3,
+Lard,Fat,Raw,0,0,,7|100|50|1|0|4,ToBaked:baking->Baked; ToBoiled:boiling->Boiled; ToDried:drying->Dried; ToBurned:drying->Burned; ToRotten:time->Rotten
+Lard,Fat,Rotten,0,0,,10|50|20|1|0|4 + 		  16|1|25,ToBurned:baking->Burned
+Lard,Fat,Baked,70,45,,4|300|30|1|0,ToBaked:baking->Burned; ToBoiled:boiling->Burned; ToDried:drying->Burned; ToBurned:drying->Burned; ToRotten:time->Rotten
+Lard,Fat,Boiled,105,55,,4|250|80|1|0,ToBaked:baking->Burned; ToBoiled:boiling->Burned; ToDried:drying->Burned; ToBurned:drying->Burned; ToRotten:time->Rotten
+Lard,Fat,Dried,70,120,80,5|250|10|1|0,ToBaked:baking->Baked; ToBoiled:boiling->Boiled; ToDried:drying->Burned; ToBurned:drying->Burned; ToRotten:time->Rotten
+Lard,Fat,Burned,100,150,,7|100|0|1|0|16|1|9,
+LizardMeat,Lizard Meat,Raw,0,0,,5|50|40|1|0|4,ToBaked:baking->Baked; ToBoiled:boiling->Boiled; ToDried:drying->Dried; ToBurned:drying->Burned; ToRotten:time->Rotten
+LizardMeat,Lizard Meat,Rotten,0,0,,10|25|16|1|0|4 + 		  16|1|25,ToBurned:baking->Burned
+LizardMeat,Lizard Meat,Baked,70,45,,1|200|24|1|0,ToBaked:baking->Burned; ToBoiled:boiling->Burned; ToDried:drying->Burned; ToBurned:drying->Burned; ToRotten:time->Rotten
+LizardMeat,Lizard Meat,Boiled,105,55,,1|150|64|1|0,ToBaked:baking->Burned; ToBoiled:boiling->Burned; ToDried:drying->Burned; ToBurned:drying->Burned; ToRotten:time->Rotten
+LizardMeat,Lizard Meat,Dried,70,120,80,2|150|8|1|0,ToBaked:baking->Burned; ToBoiled:boiling->Burned; ToDried:drying->Burned; ToBurned:drying->Burned; ToRotten:time->Rotten
+LizardMeat,Lizard Meat,Burned,100,30,,5|50|0|1|0|16|1|8,
+Mackerel,Mackerel,Raw,0,0,,1|69|172|70|1,ToRotten:time->Rotten
+Mackerel,Mackerel,Rotten,0,0,,10|25|25|1|0,
+MackerelFilletMeat,Mackerel Fillet,Raw,0,0,,5|20|40|1|0|16|1|9,ToBaked:baking->Baked; ToBoiled:boiling->Boiled; ToDried:drying->Dried; ToBurned:drying->Burned; ToRotten:time->Rotten
+MackerelFilletMeat,Mackerel Fillet,Rotten,0,0,,10|10|16|1|0|4 + 		  16|1|15,ToBurned:baking->Burned
+MackerelFilletMeat,Mackerel Fillet,Baked,70,45,,1|200|24|1|0,ToBaked:baking->Burned; ToBoiled:boiling->Burned; ToDried:drying->Burned; ToBurned:drying->Burned; ToRotten:time->Rotten
+MackerelFilletMeat,Mackerel Fillet,Boiled,105,55,,1|170|64|1|0,ToBaked:baking->Burned; ToBoiled:boiling->Burned; ToDried:drying->Burned; ToBurned:drying->Burned; ToRotten:time->Rotten
+MackerelFilletMeat,Mackerel Fillet,Dried,70,120,80,2|160|8|1|0,ToBaked:baking->Burned; ToBoiled:boiling->Burned; ToDried:drying->Burned; ToBurned:drying->Burned; ToRotten:time->Rotten
+MackerelFilletMeat,Mackerel Fillet,Burned,100,30,,5|30|0|1|0|16|1|3,
+MacrolepiotaMushroom,Parasol Mushroom,Raw,0,0,,2.5|120|100|1|0,ToBaked:baking->Baked; ToBoiled:boiling->Boiled; ToDried:drying->Dried; ToBurned:drying->Burned; ToRotten:time->Rotten
+MacrolepiotaMushroom,Parasol Mushroom,Rotten,0,0,,2|90|40|1|0|16|1|9,ToBurned:baking->Burned
+MacrolepiotaMushroom,Parasol Mushroom,Baked,70,35,,1.75|300|60|1|0,ToBaked:baking->Burned; ToBoiled:boiling->Burned; ToDried:drying->Burned; ToBurned:drying->Burned; ToRotten:time->Rotten
+MacrolepiotaMushroom,Parasol Mushroom,Boiled,105,45,,1.5|250|160|1|0,ToBaked:baking->Burned; ToBoiled:boiling->Burned; ToDried:drying->Burned; ToBurned:drying->Burned; ToRotten:time->Rotten
+MacrolepiotaMushroom,Parasol Mushroom,Dried,70,30,80,0.75|250|20|1|0,ToBaked:baking->Burned; ToBoiled:boiling->Burned; ToDried:drying->Burned; ToBurned:drying->Burned; ToRotten:time->Rotten
+MacrolepiotaMushroom,Parasol Mushroom,Burned,100,20,,2|90|0|1|0|16|1|3,
+MouflonSteakMeat,$UNT$Mouflon Steak,Raw,0,0,,4.5|544|40|236|1|4,ToBaked:baking->Baked; ToBoiled:boiling->Boiled; ToDried:drying->Dried; ToBurned:drying->Burned; ToRotten:time->Rotten
+MouflonSteakMeat,$UNT$Mouflon Steak,Rotten,0,0,,4|250|16|35|1|4 + 		  16,ToBurned:baking->Burned
+MouflonSteakMeat,$UNT$Mouflon Steak,Baked,70,45,,3.5|537|24|129|1,ToBaked:baking->Burned; ToBoiled:boiling->Burned; ToDried:drying->Burned; ToBurned:drying->Burned; ToRotten:time->Rotten
+MouflonSteakMeat,$UNT$Mouflon Steak,Boiled,105,55,,3|537|64|129|1,ToBaked:baking->Burned; ToBoiled:boiling->Burned; ToDried:drying->Burned; ToBurned:drying->Burned; ToRotten:time->Rotten
+MouflonSteakMeat,$UNT$Mouflon Steak,Dried,70,120,80,1.5|390|8|180|1,ToBaked:baking->Burned; ToBoiled:boiling->Burned; ToDried:drying->Burned; ToBurned:drying->Burned; ToRotten:time->Rotten
+MouflonSteakMeat,$UNT$Mouflon Steak,Burned,100,30,,4|250|0|50|1|16,
+Orange,$UNT$Orange,Raw,0,0,,1|75|70|1|0,ToRotten:time->Rotten
+Orange,$UNT$Orange,Rotten,0,0,,10|50|28|1|0|16|1|8,
+Pear,Pear,Raw,0,0,,1|75|27|1|0,ToBaked:baking->Baked; ToBoiled:boiling->Boiled; ToDried:drying->Dried; ToBurned:drying->Burned; ToRotten:time->Rotten
+Pear,Pear,Rotten,0,0,,10|50|11|1|0|16|1|9,ToBurned:baking->Burned
+Pear,Pear,Baked,70,35,,1|300|16|1|0,ToBaked:baking->Burned; ToBoiled:boiling->Burned; ToDried:drying->Burned; ToBurned:drying->Burned; ToRotten:time->Rotten
+Pear,Pear,Boiled,105,45,,1|250|43|1|0,ToBaked:baking->Burned; ToBoiled:boiling->Burned; ToDried:drying->Burned; ToBurned:drying->Burned; ToRotten:time->Rotten
+Pear,Pear,Dried,70,30,80,1|250|5|1|0,ToBaked:baking->Burned; ToBoiled:boiling->Burned; ToDried:drying->Burned; ToBurned:drying->Burned; ToRotten:time->Rotten
+Pear,Pear,Burned,100,20,,5|75|0|1|0|16|1|4,
+PigSteakMeat,Pork Steak,Raw,0,0,,5|50|40|1|0|4,ToBaked:baking->Baked; ToBoiled:boiling->Boiled; ToDried:drying->Dried; ToBurned:drying->Burned; ToRotten:time->Rotten
+PigSteakMeat,Pork Steak,Rotten,0,0,,10|25|16|1|0|4 + 		  16|1|20,ToBurned:baking->Burned
+PigSteakMeat,Pork Steak,Baked,70,45,,1|300|24|1|0,ToBaked:baking->Burned; ToBoiled:boiling->Burned; ToDried:drying->Burned; ToBurned:drying->Burned; ToRotten:time->Rotten
+PigSteakMeat,Pork Steak,Boiled,105,55,,1|250|64|1|0,ToBaked:baking->Burned; ToBoiled:boiling->Burned; ToDried:drying->Burned; ToBurned:drying->Burned; ToRotten:time->Rotten
+PigSteakMeat,Pork Steak,Dried,70,120,80,2|250|8|1|0,ToBaked:baking->Burned; ToBoiled:boiling->Burned; ToDried:drying->Burned; ToBurned:drying->Burned; ToRotten:time->Rotten
+PigSteakMeat,Pork Steak,Burned,100,30,,5|50|0|1|0|16|1|7,
+PleurotusMushroom,Oyster Mushroom,Raw,0,0,,2.5|120|100|1|0,ToBaked:baking->Baked; ToBoiled:boiling->Boiled; ToDried:drying->Dried; ToBurned:drying->Burned; ToRotten:time->Rotten
+PleurotusMushroom,Oyster Mushroom,Rotten,0,0,,2|90|40|1|0|16|1|9,ToBurned:baking->Burned
+PleurotusMushroom,Oyster Mushroom,Baked,70,35,,1.75|300|60|1|0,ToBaked:baking->Burned; ToBoiled:boiling->Burned; ToDried:drying->Burned; ToBurned:drying->Burned; ToRotten:time->Rotten
+PleurotusMushroom,Oyster Mushroom,Boiled,105,45,,1.5|250|160|1|0,ToBaked:baking->Burned; ToBoiled:boiling->Burned; ToDried:drying->Burned; ToBurned:drying->Burned; ToRotten:time->Rotten
+PleurotusMushroom,Oyster Mushroom,Dried,70,30,80,0.75|250|20|1|0,ToBaked:baking->Burned; ToBoiled:boiling->Burned; ToDried:drying->Burned; ToBurned:drying->Burned; ToRotten:time->Rotten
+PleurotusMushroom,Oyster Mushroom,Burned,100,20,,2|90|0|1|0|16|1|3,
+Plum,Plum,Raw,0,0,,1|100|53|1|0,ToBaked:baking->Baked; ToBoiled:boiling->Boiled; ToDried:drying->Dried; ToBurned:drying->Burned; ToRotten:time->Rotten
+Plum,Plum,Rotten,0,0,,10|75|21|1|0|16|1|9,ToBurned:baking->Burned
+Plum,Plum,Baked,70,35,,1|300|32|1|0,ToBaked:baking->Burned; ToBoiled:boiling->Burned; ToDried:drying->Burned; ToBurned:drying->Burned; ToRotten:time->Rotten
+Plum,Plum,Boiled,105,45,,1|250|85|1|0,ToBaked:baking->Burned; ToBoiled:boiling->Burned; ToDried:drying->Burned; ToBurned:drying->Burned; ToRotten:time->Rotten
+Plum,Plum,Dried,70,30,80,1|250|11|1|0,ToBaked:baking->Burned; ToBoiled:boiling->Burned; ToDried:drying->Burned; ToBurned:drying->Burned; ToRotten:time->Rotten
+Plum,Plum,Burned,100,20,,5|125|0|1|0|16|1|4,
+Potato,Peeled Potato,Raw,0,0,,1|75|13|1|0,ToBaked:baking->Baked; ToBoiled:boiling->Boiled; ToDried:drying->Dried; ToBurned:drying->Burned; ToRotten:time->Rotten
+Potato,Peeled Potato,Rotten,0,0,,10|50|5|1|0|16|1|8,ToBurned:baking->Burned
+Potato,Peeled Potato,Baked,70,35,,1|250|8|1|0,ToBaked:baking->Burned; ToBoiled:boiling->Burned; ToDried:drying->Burned; ToBurned:drying->Burned; ToRotten:time->Rotten
+Potato,Peeled Potato,Boiled,105,45,,1|200|20|1|0,ToBaked:baking->Burned; ToBoiled:boiling->Burned; ToDried:drying->Burned; ToBurned:drying->Burned; ToRotten:time->Rotten
+Potato,Peeled Potato,Dried,70,30,80,1|200|3|1|0,ToBaked:baking->Burned; ToBoiled:boiling->Burned; ToDried:drying->Burned; ToBurned:drying->Burned; ToRotten:time->Rotten
+Potato,Peeled Potato,Burned,100,20,,5|75|0|1|0|16|1|2,
+PsilocybeMushroom,Liberty Cap,Raw,0,0,,2.5|120|60|1|0,ToBaked:baking->Baked; ToBoiled:boiling->Boiled; ToDried:drying->Dried; ToBurned:drying->Burned; ToRotten:time->Rotten
+PsilocybeMushroom,Liberty Cap,Rotten,0,0,,2|90|24|1|0|16,ToBurned:baking->Burned
+PsilocybeMushroom,Liberty Cap,Baked,70,35,,1.75|300|36|1|0,ToBaked:baking->Burned; ToBoiled:boiling->Burned; ToDried:drying->Burned; ToBurned:drying->Burned; ToRotten:time->Rotten
+PsilocybeMushroom,Liberty Cap,Boiled,105,45,,1.5|250|96|1|0,ToBaked:baking->Burned; ToBoiled:boiling->Burned; ToDried:drying->Burned; ToBurned:drying->Burned; ToRotten:time->Rotten
+PsilocybeMushroom,Liberty Cap,Dried,70,30,80,0.75|250|12|1|0,ToBaked:baking->Burned; ToBoiled:boiling->Burned; ToDried:drying->Burned; ToBurned:drying->Burned; ToRotten:time->Rotten
+PsilocybeMushroom,Liberty Cap,Burned,100,20,,2|90|0|1|0,
+Pumpkin,Pumpkin,Raw,0,0,,2.5|20|20|1|0,ToRotten:time->Rotten
+Pumpkin,Pumpkin,Rotten,0,0,,2|15|8|1|0|16,
+RabbitLegMeat,Hare Leg,Raw,0,0,,5|30|24|1|0|4,ToBaked:baking->Baked; ToBoiled:boiling->Boiled; ToDried:drying->Dried; ToBurned:drying->Burned; ToRotten:time->Rotten
+RabbitLegMeat,Hare Leg,Rotten,0,0,,10|15|10|1|0|4 + 		  16|1|20,ToBurned:baking->Burned
+RabbitLegMeat,Hare Leg,Baked,70,45,,1|150|14|1|0,ToBaked:baking->Burned; ToBoiled:boiling->Burned; ToDried:drying->Burned; ToBurned:drying->Burned; ToRotten:time->Rotten
+RabbitLegMeat,Hare Leg,Boiled,105,55,,1|100|38|1|0,ToBaked:baking->Burned; ToBoiled:boiling->Burned; ToDried:drying->Burned; ToBurned:drying->Burned; ToRotten:time->Rotten
+RabbitLegMeat,Hare Leg,Dried,70,120,80,2|100|5|1|0,ToBaked:baking->Burned; ToBoiled:boiling->Burned; ToDried:drying->Burned; ToBurned:drying->Burned; ToRotten:time->Rotten
+RabbitLegMeat,Hare Leg,Burned,100,30,,5|30|0|1|0|16|1|7,
+RedCaviar,Red Caviar,Raw,0,0,,2.5|80|20|1|0,ToRotten:time->Rotten
+RedCaviar,Red Caviar,Rotten,0,0,,2|37.5|8|1|0|16|1|25,
+ReindeerSteakMeat,Reindeer Steak,Raw,0,0,,5|50|40|1|0|4,ToBaked:baking->Baked; ToBoiled:boiling->Boiled; ToDried:drying->Dried; ToBurned:drying->Burned; ToRotten:time->Rotten
+ReindeerSteakMeat,Reindeer Steak,Rotten,0,0,,10|25|16|1|0|4 + 		  16|1|20,ToBurned:baking->Burned
+ReindeerSteakMeat,Reindeer Steak,Baked,70,45,,2|350|24|1|0,ToBaked:baking->Burned; ToBoiled:boiling->Burned; ToDried:drying->Burned; ToBurned:drying->Burned; ToRotten:time->Rotten
+ReindeerSteakMeat,Reindeer Steak,Boiled,105,55,,1|300|64|1|0,ToBaked:baking->Burned; ToBoiled:boiling->Burned; ToDried:drying->Burned; ToBurned:drying->Burned; ToRotten:time->Rotten
+ReindeerSteakMeat,Reindeer Steak,Dried,70,120,80,3|300|8|1|0,ToBaked:baking->Burned; ToBoiled:boiling->Burned; ToDried:drying->Burned; ToBurned:drying->Burned; ToRotten:time->Rotten
+ReindeerSteakMeat,Reindeer Steak,Burned,100,30,,5|50|0|1|0|16|1|7,
+RoundGoby,Round Goby,Raw,0,0,,5|10|20|1|0|16|1|8,ToBaked:baking->Baked; ToBoiled:boiling->Boiled; ToDried:drying->Dried; ToBurned:drying->Burned; ToRotten:time->Rotten
+RoundGoby,Round Goby,Rotten,0,0,,10|5|8|1|0|4 + 		  16|1|16,ToBurned:baking->Burned
+RoundGoby,Round Goby,Baked,70,45,,2|50|12|1|0,ToBaked:baking->Burned; ToBoiled:boiling->Burned; ToDried:drying->Burned; ToBurned:drying->Burned; ToRotten:time->Rotten
+RoundGoby,Round Goby,Boiled,105,55,,2|40|32|1|0,ToBaked:baking->Burned; ToBoiled:boiling->Burned; ToDried:drying->Burned; ToBurned:drying->Burned; ToRotten:time->Rotten
+RoundGoby,Round Goby,Dried,70,45,80,3|40|4|1|0,ToBaked:baking->Burned; ToBoiled:boiling->Burned; ToDried:drying->Burned; ToBurned:drying->Burned; ToRotten:time->Rotten
+RoundGoby,Round Goby,Burned,100,30,,5|10|0|1|0|16|1|3,
+SambucusBerry,Elderberries,Raw,0,0,,2.5|50|60|1|0,ToBaked:baking->Baked; ToBoiled:boiling->Boiled; ToDried:drying->Dried; ToBurned:drying->Burned; ToRotten:time->Rotten
+SambucusBerry,Elderberries,Rotten,0,0,,2|37.5|24|1|0|16,ToBurned:baking->Burned
+SambucusBerry,Elderberries,Baked,70,35,,1.75|90|36|1|0,ToBaked:baking->Burned; ToBoiled:boiling->Burned; ToDried:drying->Burned; ToBurned:drying->Burned; ToRotten:time->Rotten
+SambucusBerry,Elderberries,Boiled,105,45,,1.5|90|96|1|0,ToBaked:baking->Burned; ToBoiled:boiling->Burned; ToDried:drying->Burned; ToBurned:drying->Burned; ToRotten:time->Rotten
+SambucusBerry,Elderberries,Dried,70,30,80,0.75|90|12|1|0,ToBaked:baking->Burned; ToBoiled:boiling->Burned; ToDried:drying->Burned; ToBurned:drying->Burned; ToRotten:time->Rotten
+SambucusBerry,Elderberries,Burned,100,20,,2|37.5|0|1|0,
+Sardines,Sardines,Raw,0,0,,5|20|20|1|0|16|1|8,ToBaked:baking->Baked; ToBoiled:boiling->Boiled; ToDried:drying->Dried; ToBurned:drying->Burned; ToRotten:time->Rotten
+Sardines,Sardines,Rotten,0,0,,10|10|8|1|0|4 + 		  16|1|16,ToBurned:baking->Burned
+Sardines,Sardines,Baked,70,45,,1|100|12|1|0,ToBaked:baking->Burned; ToBoiled:boiling->Burned; ToDried:drying->Burned; ToBurned:drying->Burned; ToRotten:time->Rotten
+Sardines,Sardines,Boiled,105,55,,1|80|32|1|0,ToBaked:baking->Burned; ToBoiled:boiling->Burned; ToDried:drying->Burned; ToBurned:drying->Burned; ToRotten:time->Rotten
+Sardines,Sardines,Dried,70,45,80,2|80|4|1|0,ToBaked:baking->Burned; ToBoiled:boiling->Burned; ToDried:drying->Burned; ToBurned:drying->Burned; ToRotten:time->Rotten
+Sardines,Sardines,Burned,100,30,,5|20|0|1|0|16|1|3,
+SheepSteakMeat,Mutton Steak,Raw,0,0,,5|50|40|1|0|4,ToBaked:baking->Baked; ToBoiled:boiling->Boiled; ToDried:drying->Dried; ToBurned:drying->Burned; ToRotten:time->Rotten
+SheepSteakMeat,Mutton Steak,Rotten,0,0,,10|25|16|1|0|4 + 		  16|1|23,ToBurned:baking->Burned
+SheepSteakMeat,Mutton Steak,Baked,70,45,,2|250|24|1|0,ToBaked:baking->Burned; ToBoiled:boiling->Burned; ToDried:drying->Burned; ToBurned:drying->Burned; ToRotten:time->Rotten
+SheepSteakMeat,Mutton Steak,Boiled,105,55,,2|200|64|1|0,ToBaked:baking->Burned; ToBoiled:boiling->Burned; ToDried:drying->Burned; ToBurned:drying->Burned; ToRotten:time->Rotten
+SheepSteakMeat,Mutton Steak,Dried,70,120,80,3|200|8|1|0,ToBaked:baking->Burned; ToBoiled:boiling->Burned; ToDried:drying->Burned; ToBurned:drying->Burned; ToRotten:time->Rotten
+SheepSteakMeat,Mutton Steak,Burned,100,30,,5|50|0|1|0|16|1|8,
+Shrimp,Shrimp,Raw,0,0,,5|35|70|1|0|16|1|16,ToBaked:baking->Baked; ToBoiled:boiling->Boiled; ToDried:drying->Dried; ToBurned:drying->Burned; ToRotten:time->Rotten
+Shrimp,Shrimp,Rotten,0,0,,10|20|30|1|0|4 + 		  16|1|25,ToBurned:baking->Burned
+Shrimp,Shrimp,Baked,70,45,,2|170|40|1|0,ToBaked:baking->Burned; ToBoiled:boiling->Burned; ToDried:drying->Burned; ToBurned:drying->Burned; ToRotten:time->Rotten
+Shrimp,Shrimp,Boiled,105,55,,2|140|110|1|0,ToBaked:baking->Burned; ToBoiled:boiling->Burned; ToDried:drying->Burned; ToBurned:drying->Burned; ToRotten:time->Rotten
+Shrimp,Shrimp,Dried,70,45,80,3|140|15|1|0,ToBaked:baking->Burned; ToBoiled:boiling->Burned; ToDried:drying->Burned; ToBurned:drying->Burned; ToRotten:time->Rotten
+Shrimp,Shrimp,Burned,100,30,,5|35|0|1|0|16|1|6,
+SlicedPumpkin,Pumpkin Slices,Raw,0,0,,1|75|20|1|0,ToBaked:baking->Baked; ToBoiled:boiling->Boiled; ToDried:drying->Dried; ToBurned:drying->Burned; ToRotten:time->Rotten
+SlicedPumpkin,Pumpkin Slices,Rotten,0,0,,10|50|8|1|0|16|1|8,ToBurned:baking->Burned
+SlicedPumpkin,Pumpkin Slices,Baked,70,35,,1|150|12|1|0,ToBaked:baking->Burned; ToBoiled:boiling->Burned; ToDried:drying->Burned; ToBurned:drying->Burned; ToRotten:time->Rotten
+SlicedPumpkin,Pumpkin Slices,Boiled,105,45,,1|125|32|1|0,ToBaked:baking->Burned; ToBoiled:boiling->Burned; ToDried:drying->Burned; ToBurned:drying->Burned; ToRotten:time->Rotten
+SlicedPumpkin,Pumpkin Slices,Dried,70,30,80,1|125|4|1|0,ToBaked:baking->Burned; ToBoiled:boiling->Burned; ToDried:drying->Burned; ToBurned:drying->Burned; ToRotten:time->Rotten
+SlicedPumpkin,Pumpkin Slices,Burned,100,20,,5|75|0|1|0|16|1|3,
+SteelheadTrout,Steelhead Trout,Raw,0,0,,1|69|172|70|1,ToRotten:time->Rotten
+SteelheadTrout,Steelhead Trout,Rotten,0,0,,10|25|25|1|0,
+SteelheadTroutFilletMeat,Steelhead Trout Fillet,Raw,0,0,,5|30|40|1|0|16|1|9,ToBaked:baking->Baked; ToBoiled:boiling->Boiled; ToDried:drying->Dried; ToBurned:drying->Burned; ToRotten:time->Rotten
+SteelheadTroutFilletMeat,Steelhead Trout Fillet,Rotten,0,0,,10|15|16|1|0|4 + 		  16|1|15,ToBurned:baking->Burned
+SteelheadTroutFilletMeat,Steelhead Trout Fillet,Baked,70,45,,1|220|24|1|0,ToBaked:baking->Burned; ToBoiled:boiling->Burned; ToDried:drying->Burned; ToBurned:drying->Burned; ToRotten:time->Rotten
+SteelheadTroutFilletMeat,Steelhead Trout Fillet,Boiled,105,55,,1|180|64|1|0,ToBaked:baking->Burned; ToBoiled:boiling->Burned; ToDried:drying->Burned; ToBurned:drying->Burned; ToRotten:time->Rotten
+SteelheadTroutFilletMeat,Steelhead Trout Fillet,Dried,70,120,80,2|160|8|1|0,ToBaked:baking->Burned; ToBoiled:boiling->Burned; ToDried:drying->Burned; ToBurned:drying->Burned; ToRotten:time->Rotten
+SteelheadTroutFilletMeat,Steelhead Trout Fillet,Burned,100,30,,5|40|0|1|0|16|1|3,
+Tomato,Tomato,Raw,0,0,,1|50|50|1|0,ToBaked:baking->Baked; ToBoiled:boiling->Boiled; ToDried:drying->Dried; ToBurned:drying->Burned; ToRotten:time->Rotten
+Tomato,Tomato,Rotten,0,0,,10|25|20|1|0|16|1|9,ToBurned:baking->Burned
+Tomato,Tomato,Baked,70,35,,1|150|30|1|0,ToBaked:baking->Burned; ToBoiled:boiling->Burned; ToDried:drying->Burned; ToBurned:drying->Burned; ToRotten:time->Rotten
+Tomato,Tomato,Boiled,105,45,,1|125|80|1|0,ToBaked:baking->Burned; ToBoiled:boiling->Burned; ToDried:drying->Burned; ToBurned:drying->Burned; ToRotten:time->Rotten
+Tomato,Tomato,Dried,70,30,80,1|125|10|1|0,ToBaked:baking->Burned; ToBoiled:boiling->Burned; ToDried:drying->Burned; ToBurned:drying->Burned; ToRotten:time->Rotten
+Tomato,Tomato,Burned,100,20,,5|50|0|1|0|16|1|4,
+WalleyePollock,Walleye Pollock,Raw,0,0,,1|69|172|70|1,ToRotten:time->Rotten
+WalleyePollock,Walleye Pollock,Rotten,0,0,,10|25|25|1|0,
+WalleyePollockFilletMeat,Walleye Pollock Fillet,Raw,0,0,,5|20|40|1|0|16|1|9,ToBaked:baking->Baked; ToBoiled:boiling->Boiled; ToDried:drying->Dried; ToBurned:drying->Burned; ToRotten:time->Rotten
+WalleyePollockFilletMeat,Walleye Pollock Fillet,Rotten,0,0,,10|10|16|1|0|4 + 		  16|1|15,ToBurned:baking->Burned
+WalleyePollockFilletMeat,Walleye Pollock Fillet,Baked,70,45,,1|150|24|1|0,ToBaked:baking->Burned; ToBoiled:boiling->Burned; ToDried:drying->Burned; ToBurned:drying->Burned; ToRotten:time->Rotten
+WalleyePollockFilletMeat,Walleye Pollock Fillet,Boiled,105,55,,1|130|64|1|0,ToBaked:baking->Burned; ToBoiled:boiling->Burned; ToDried:drying->Burned; ToBurned:drying->Burned; ToRotten:time->Rotten
+WalleyePollockFilletMeat,Walleye Pollock Fillet,Dried,70,120,80,2|115|8|1|0,ToBaked:baking->Burned; ToBoiled:boiling->Burned; ToDried:drying->Burned; ToBurned:drying->Burned; ToRotten:time->Rotten
+WalleyePollockFilletMeat,Walleye Pollock Fillet,Burned,100,30,,5|30|0|1|0|16|1|3,
+WolfSteakMeat,Wolf Steak,Raw,0,0,,5|50|40|1|0|4,ToBaked:baking->Baked; ToBoiled:boiling->Boiled; ToDried:drying->Dried; ToBurned:drying->Burned; ToRotten:time->Rotten
+WolfSteakMeat,Wolf Steak,Rotten,0,0,,10|25|16|1|0|4 + 		  16|1|25,ToBurned:baking->Burned
+WolfSteakMeat,Wolf Steak,Baked,70,45,,2|200|24|1|0,ToBaked:baking->Burned; ToBoiled:boiling->Burned; ToDried:drying->Burned; ToBurned:drying->Burned; ToRotten:time->Rotten
+WolfSteakMeat,Wolf Steak,Boiled,105,55,,2|150|64|1|0,ToBaked:baking->Burned; ToBoiled:boiling->Burned; ToDried:drying->Burned; ToBurned:drying->Burned; ToRotten:time->Rotten
+WolfSteakMeat,Wolf Steak,Dried,70,120,80,3|150|8|1|0,ToBaked:baking->Burned; ToBoiled:boiling->Burned; ToDried:drying->Burned; ToBurned:drying->Burned; ToRotten:time->Rotten
+WolfSteakMeat,Wolf Steak,Burned,100,30,,5|50|0|1|0|16|1|9,
+Worm,Earthworm,Raw,0,0,,1|80|8|42|1,ToRotten:time->Rotten
+Zucchini,Zucchini,Raw,0,0,,1|125|25|1|0,ToBaked:baking->Baked; ToBoiled:boiling->Boiled; ToDried:drying->Dried; ToBurned:drying->Burned; ToRotten:time->Rotten
+Zucchini,Zucchini,Rotten,0,0,,10|25|10|1|0|16|1|8,ToBurned:baking->Burned
+Zucchini,Zucchini,Baked,70,35,,1|250|15|1|0,ToBaked:baking->Burned; ToBoiled:boiling->Burned; ToDried:drying->Burned; ToBurned:drying->Burned; ToRotten:time->Rotten
+Zucchini,Zucchini,Boiled,105,45,,1|200|40|1|0,ToBaked:baking->Burned; ToBoiled:boiling->Burned; ToDried:drying->Burned; ToBurned:drying->Burned; ToRotten:time->Rotten
+Zucchini,Zucchini,Dried,70,30,80,1|200|5|1|0,ToBaked:baking->Burned; ToBoiled:boiling->Burned; ToDried:drying->Burned; ToBurned:drying->Burned; ToRotten:time->Rotten
+Zucchini,Zucchini,Burned,100,20,,5|125|0|1|0|16|1|3,

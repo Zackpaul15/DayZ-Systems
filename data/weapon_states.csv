@@ -1,0 +1,83 @@
+mechanism,file,var,state_class,state_id,has_bullet,has_magazine,jammed,bolt_open,muzzle_state
+BoltActionRifle_ExternalMagazine_Base,BoltActionRifleExternalMagazine_Base.c,C00,BAREM_CLO_BU0_MA0,BAREMStableStateID.BAREM_CLO_BU0_MA0,false,false,false,,E
+BoltActionRifle_ExternalMagazine_Base,BoltActionRifleExternalMagazine_Base.c,C01,BAREM_CLO_BU0_MA1,BAREMStableStateID.BAREM_CLO_BU0_MA1,false,true,false,,E
+BoltActionRifle_ExternalMagazine_Base,BoltActionRifleExternalMagazine_Base.c,CF0,BAREM_CLO_BUF_MA0,BAREMStableStateID.BAREM_CLO_BUF_MA0,true,false,false,,F
+BoltActionRifle_ExternalMagazine_Base,BoltActionRifleExternalMagazine_Base.c,JF0,BAREM_JAM_BU1_MA0,BAREMStableStateID.BAREM_JAM_BU1_MA0,true,false,true,true,F
+BoltActionRifle_ExternalMagazine_Base,BoltActionRifleExternalMagazine_Base.c,C10,BAREM_CLO_BU1_MA0,BAREMStableStateID.BAREM_CLO_BU1_MA0,true,false,false,,L
+BoltActionRifle_ExternalMagazine_Base,BoltActionRifleExternalMagazine_Base.c,C11,BAREM_CLO_BU1_MA1,BAREMStableStateID.BAREM_CLO_BU1_MA1,true,true,false,,L
+BoltActionRifle_ExternalMagazine_Base,BoltActionRifleExternalMagazine_Base.c,CF1,BAREM_CLO_BUF_MA1,BAREMStableStateID.BAREM_CLO_BUF_MA1,true,true,false,,F
+BoltActionRifle_ExternalMagazine_Base,BoltActionRifleExternalMagazine_Base.c,JF1,BAREM_JAM_BU1_MA1,BAREMStableStateID.BAREM_JAM_BU1_MA1,true,true,true,true,F
+BoltActionRifle_InnerMagazine_Base,BoltActionRifleInnerMagazine_Base.c,C0,BARIMEmptyDischarged,BARIMStableStateID.EmptyDischarged,false,false,false,,E
+BoltActionRifle_InnerMagazine_Base,BoltActionRifleInnerMagazine_Base.c,JF,BARIMLoadedJammed,BARIMStableStateID.LoadedJammed,true,false,true,,F
+BoltActionRifle_InnerMagazine_Base,BoltActionRifleInnerMagazine_Base.c,C1,BARIMLoadedCharged,BARIMStableStateID.LoadedCharged,true,false,false,,L
+BoltActionRifle_InnerMagazine_Base,BoltActionRifleInnerMagazine_Base.c,D1,BARIMLoadedDischarged,BARIMStableStateID.LoadedDischarged,true,false,false,,F
+ChamberFirst_InnerMagazine_SemiAutomatic_Base,ChamberFirstInnerMagazineSemiAutomatic_Base.c,E,CFIMSAEmpty,CFIMSAStableStateID.Empty,false,false,false,,E
+ChamberFirst_InnerMagazine_SemiAutomatic_Base,ChamberFirstInnerMagazineSemiAutomatic_Base.c,L,CFIMSALoaded,CFIMSAStableStateID.Loaded,true,false,false,,L
+ChamberFirst_InnerMagazine_SemiAutomatic_Base,ChamberFirstInnerMagazineSemiAutomatic_Base.c,O,CFIMSAOpenned,CFIMSAStableStateID.Empty,false,false,false,,E
+ChamberFirst_InnerMagazine_SemiAutomatic_Base,ChamberFirstInnerMagazineSemiAutomatic_Base.c,J,CFIMSAJammed,CFIMSAStableStateID.Jammed,true,false,true,,F
+DoubleBarrel_Base,DoubleBarrel_Base.c,L_L,DoubleBarrelLoadedLoaded,DoubleBarrelStableStateID.LoadedLoaded,true,false,false,,"L, L"
+DoubleBarrel_Base,DoubleBarrel_Base.c,E_L,DoubleBarrelEmptyLoaded,DoubleBarrelStableStateID.EmptyLoaded,true,false,false,,"E, L"
+DoubleBarrel_Base,DoubleBarrel_Base.c,F_F,DoubleBarrelFireoutFireout,DoubleBarrelStableStateID.FireoutFireout,true,false,false,,"F, F"
+DoubleBarrel_Base,DoubleBarrel_Base.c,E_F,DoubleBarrelEmptyFireout,DoubleBarrelStableStateID.EmptyFireout,true,false,false,,"E, F"
+DoubleBarrel_Base,DoubleBarrel_Base.c,L_E,DoubleBarrelLoadedEmpty,DoubleBarrelStableStateID.LoadedEmpty,true,false,false,,"L, E"
+DoubleBarrel_Base,DoubleBarrel_Base.c,F_L,DoubleBarrelFireoutLoaded,DoubleBarrelStableStateID.FireoutLoaded,true,false,false,,"F, L"
+DoubleBarrel_Base,DoubleBarrel_Base.c,F_E,DoubleBarrelFireoutEmpty,DoubleBarrelStableStateID.FireoutEmpty,true,false,false,,"F, E"
+DoubleBarrel_Base,DoubleBarrel_Base.c,E_E,DoubleBarrelEmptyEmpty,DoubleBarrelStableStateID.EmptyEmpty,false,false,false,,"E, E"
+OpenBolt_Base,OpenBolt_Base.c,C0,OB_CLO_MA0,OBStableStateID.OB_CLO_MA0,false,false,false,false,E
+OpenBolt_Base,OpenBolt_Base.c,C1,OB_CLO_MA1,OBStableStateID.OB_CLO_MA1,false,true,false,false,E
+OpenBolt_Base,OpenBolt_Base.c,O1E,OB_OPN_MA1_EMPTY,OBStableStateID.OB_OPN_MA1_EMPTY,false,true,false,true,E
+OpenBolt_Base,OpenBolt_Base.c,J1,OB_JAM_MA1,OBStableStateID.OB_JAM_MA1,true,true,true,true,F
+OpenBolt_Base,OpenBolt_Base.c,O0,OB_OPN_MA0,OBStableStateID.OB_OPN_MA0,false,false,false,true,E
+OpenBolt_Base,OpenBolt_Base.c,O1,OB_OPN_MA1,OBStableStateID.OB_OPN_MA1,true,true,false,true,L
+OpenBolt_Base,OpenBolt_Base.c,J0,OB_JAM_MA0,OBStableStateID.OB_JAM_MA0,true,false,true,true,F
+Pistol_Base,Pistol_Base.c,CD00,Pistol_CLO_DIS_BU0_MA0,PistolStableStateID.CLO_DIS_BU0_MA0,false,false,false,,E
+Pistol_Base,Pistol_Base.c,CC10,Pistol_CLO_CHG_BU1_MA0,PistolStableStateID.CLO_CHG_BU1_MA0,true,false,false,,L
+Pistol_Base,Pistol_Base.c,OD00,Pistol_OPE_DIS_BU0_MA0,PistolStableStateID.OPE_DIS_BU0_MA0,false,false,false,true,E
+Pistol_Base,Pistol_Base.c,CC01,Pistol_CLO_CHG_BU0_MA1,PistolStableStateID.CLO_CHG_BU0_MA1,false,true,false,,E
+Pistol_Base,Pistol_Base.c,CJF1,Pistol_CLO_JAM_BU1_MA1,PistolStableStateID.CLO_JAM_BU1_MA1,true,true,true,true,L
+Pistol_Base,Pistol_Base.c,CC00,Pistol_CLO_CHG_BU0_MA0,PistolStableStateID.CLO_CHG_BU0_MA0,false,false,false,,E
+Pistol_Base,Pistol_Base.c,CJF0,Pistol_CLO_JAM_BU1_MA0,PistolStableStateID.CLO_JAM_BU1_MA0,true,false,true,true,F
+Pistol_Base,Pistol_Base.c,CD01,Pistol_CLO_DIS_BU0_MA1,PistolStableStateID.CLO_DIS_BU0_MA1,false,true,false,,E
+Pistol_Base,Pistol_Base.c,CC11,Pistol_CLO_CHG_BU1_MA1,PistolStableStateID.CLO_CHG_BU1_MA1,true,true,false,,L
+Pistol_Base,Pistol_Base.c,OD01,Pistol_OPE_DIS_BU0_MA1,PistolStableStateID.OPE_DIS_BU0_MA1,false,true,false,true,E
+RifleBoltFree_Base,RifleBoltFree_Base.c,C00,RBF_CLO_BU0_MA0,RBFStableStateID.RBF_CLO_BU0_MA0,false,false,false,,E
+RifleBoltFree_Base,RifleBoltFree_Base.c,C11,RBF_CLO_BU1_MA1,,,,,,
+RifleBoltFree_Base,RifleBoltFree_Base.c,JF0,RBF_JAM_BU1_MA0,RBFStableStateID.RBF_JAM_BU1_MA0,true,false,true,true,F
+RifleBoltFree_Base,RifleBoltFree_Base.c,C10,RBF_CLO_BU1_MA0,RBFStableStateID.RBF_CLO_BU1_MA0,true,false,false,,L
+RifleBoltFree_Base,RifleBoltFree_Base.c,C01,RBF_CLO_BU0_MA1,RBFStableStateID.RBF_CLO_BU0_MA1,false,true,false,,E
+RifleBoltFree_Base,RifleBoltFree_Base.c,JF1,RBF_JAM_BU1_MA1,RBFStableStateID.RBF_JAM_BU1_MA1,true,true,true,true,F
+RifleBoltLock_Base,RifleBoltLock_Base.c,C00,RBL_CLO_BU0_MA0,RBLStableStateID.RBL_CLO_BU0_MA0,false,false,false,,E
+RifleBoltLock_Base,RifleBoltLock_Base.c,C11,RBL_CLO_BU1_MA1,RBLStableStateID.RBL_CLO_BU1_MA1,true,true,false,,L
+RifleBoltLock_Base,RifleBoltLock_Base.c,O00,RBL_OPN_BU0_MA0,RBLStableStateID.RBL_OPN_BU0_MA0,false,false,false,true,E
+RifleBoltLock_Base,RifleBoltLock_Base.c,JF0,RBL_JAM_BU1_MA0,RBLStableStateID.RBL_JAM_BU1_MA0,true,false,true,true,F
+RifleBoltLock_Base,RifleBoltLock_Base.c,C10,RBL_CLO_BU1_MA0,RBLStableStateID.RBL_CLO_BU1_MA0,true,false,false,,L
+RifleBoltLock_Base,RifleBoltLock_Base.c,C01,RBL_CLO_BU0_MA1,RBLStableStateID.RBL_CLO_BU0_MA1,false,true,false,,E
+RifleBoltLock_Base,RifleBoltLock_Base.c,O01,RBL_OPN_BU0_MA1,RBLStableStateID.RBL_OPN_BU0_MA1,false,true,false,true,E
+RifleBoltLock_Base,RifleBoltLock_Base.c,JF1,RBL_JAM_BU1_MA1,RBLStableStateID.RBL_JAM_BU1_MA1,true,true,true,true,F
+RifleSingleShot_Base,RifleSingleShot_Base.c,E,RSSEmpty,RSSStableStateID.Empty,false,false,false,,E
+RifleSingleShot_Base,RifleSingleShot_Base.c,J,RSSJammed,RSSStableStateID.Jammed,true,false,true,true,F
+RifleSingleShot_Base,RifleSingleShot_Base.c,F,RSSFireout,RSSStableStateID.Fireout,true,false,false,,F
+RifleSingleShot_Base,RifleSingleShot_Base.c,L,RSSLoaded,RSSStableStateID.Loaded,true,false,false,,L
+SingleShotPistol_Base,SingleShotPistol_Base.c,E,SSPEmpty,SSPStableStateID.Empty,false,false,false,false,E
+SingleShotPistol_Base,SingleShotPistol_Base.c,L,SSPLoaded,SSPStableStateID.Loaded,true,false,false,false,L
+SingleShotPistol_Base,SingleShotPistol_Base.c,F,SSPFireout,SSPStableStateID.Fireout,true,false,false,false,F
+Crossbow_Base,Archery/Crossbow.c,U,XBUncockedEmpty,XBStableStateID.UncockedEmpty,false,false,false,,E
+Crossbow_Base,Archery/Crossbow.c,L,XBLoaded,XBStableStateID.Loaded,true,false,false,,L
+Crossbow_Base,Archery/Crossbow.c,C,XBCockedEmpty,XBStableStateID.CockedEmpty,false,false,false,,E
+SKS_Base,AutomaticRifle/SKS.c,C0,SKS_CLO_BU0,SKSStableStateID.SKS_CLO_BU0,false,false,false,,E
+SKS_Base,AutomaticRifle/SKS.c,L0,SKS_OPN_BU0,SKSStableStateID.SKS_OPN_BU0,false,false,false,true,E
+SKS_Base,AutomaticRifle/SKS.c,C1,SKS_CLO_BU1,SKSStableStateID.SKS_CLO_BU1,true,false,false,,L
+SKS_Base,AutomaticRifle/SKS.c,JF,SKS_JAM_BU1,SKSStableStateID.SKS_JAM_BU1,true,false,true,true,F
+Flaregun,Pistol/Flaregun.c,E,FLAREEmpty,FLAREStableStateID.Empty,false,false,false,false,E
+Flaregun,Pistol/Flaregun.c,L,FLARELoaded,FLAREStableStateID.Loaded,true,false,false,false,L
+Flaregun,Pistol/Flaregun.c,F,FLAREFireout,FLAREStableStateID.Fireout,true,false,false,false,F
+Magnum_Base,Pistol/Magnum.c,C,Magnum_Static_State,MagnumStableStateID.DEFAULT,,false,,,
+Repeater_Base,Rifle/Repeater.c,D0,RPTEmptyDischarged,RPTStableStateID.EmptyDischarged,false,false,false,,E
+Repeater_Base,Rifle/Repeater.c,DF,RPTLoadedDischarged,RPTStableStateID.LoadedDischarged,true,false,false,,F
+Repeater_Base,Rifle/Repeater.c,JF,RPTLoadedJammed,RPTStableStateID.LoadedJammed,true,false,true,,F
+Repeater_Base,Rifle/Repeater.c,C0,RPTEmptyDischarged,RPTStableStateID.EmptyDischarged,false,false,false,,E
+Repeater_Base,Rifle/Repeater.c,C1,RPTLoadedCharged,RPTStableStateID.LoadedCharged,true,false,false,,L
+Mp133Shotgun_Base,Shotgun/MP133.c,E,PumpShotgunEmpty,PumpShotgunStableStateID.Empty,false,false,false,,E
+Mp133Shotgun_Base,Shotgun/MP133.c,L,PumpShotgunLoaded,PumpShotgunStableStateID.Loaded,true,false,false,,L
+Mp133Shotgun_Base,Shotgun/MP133.c,F,PumpShotgunFireout,PumpShotgunStableStateID.Fireout,true,false,false,,F
+Mp133Shotgun_Base,Shotgun/MP133.c,J,PumpShotgunJammed,PumpShotgunStableStateID.Jammed,true,false,true,true,F

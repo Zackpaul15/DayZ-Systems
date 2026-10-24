@@ -1,0 +1,25 @@
+# Python
+__pycache__/
+*.pyc
+
+# Extracted game content and tool output must never be committed (regenerate with scripts/bootstrap.py outside the project)
+boot*/
+bootstrap_out/
+scripts_src/
+cfg/
+ce/
+lang/
+dz/
+tables/
+stage_*/
+*.pbo
+*.bisurf
+_ghidra_*.txt
+
+# Scratch and editor files
+scratch*/
+*.tmp
+*.bak
+.vscode/
+.idea/
+Thumbs.db

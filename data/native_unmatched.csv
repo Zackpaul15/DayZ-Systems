@@ -1,0 +1,731 @@
+script_class,method,category,candidate_classes,candidate_reg_fns
+ActionManager,ActivateAction,not registered,,
+ActionManager,ActivateContext,other class,UAInputAPI,FUN_140abe4a0
+ActionManager,AddActionListener,not registered,,
+ActionManager,GetActionTriggered,not registered,,
+ActionManager,IsActionActive,not registered,,
+ActionManager,IsContextActive,not registered,,
+ActionManager,LocalValue,other class,Input|UAInput,FUN_140680bf0|FUN_140abea40
+ActionManager,RegisterAction,not registered,,
+ActionManager,RegisterContext,not registered,,
+ActionManager,SetContextDebug,not registered,,
+ActionManager,SetDebug,not registered,,
+ActionManager,SetParent,other class,AnimPhysMove|AnimPhysOwnerState|InventoryLocation|SoundObject,FUN_140838100|FUN_140a0d490|FUN_140b0bbc0|FUN_140b150b0
+AudioSystem,BankLoad,other class,Math3D,FUN_1402c7320
+AudioSystem,ShaderLoad,other class,Math3D,FUN_1402c7320
+AudioSystem,SoundDestroy,other class,Math3D,FUN_1402c7320
+AudioSystem,SoundPlay,other class,Math3D,FUN_1402c7320
+BackendApi,GetBackendApi,not registered,,
+BaseContainer,Get,other class,Math|Math3D|Widget|map,FUN_140293a60|FUN_1402969f0|FUN_1402c7320|FUN_1402d2860
+BaseContainer,GetClassName,other class,Math3D,FUN_1402c7320
+BaseContainer,GetName,other class,BiosUser|BotStateMachineData|EntityType|LOD|Math3D|ModInfo|ParticleManager|PlayerIdentityBase|Selection|SoundParams|SurfaceInfo|TestBase|TestSuite|Widget,FUN_1402c7320|FUN_1402d2860|FUN_140701990|FUN_140748de0|FUN_1407fc130|FUN_140835a80|FUN_14086d080|FUN_1408c1b50|FUN_1408e3260|FUN_14094c520|FUN_140a46080|FUN_140aa6310|FUN_140b3f310|FUN_140b3f470
+BaseContainer,IsType,other class,Math3D,FUN_1402c7320
+BaseContainer,IsVariableSet,other class,Math3D,FUN_1402c7320
+BaseContainer,VarIndex,other class,Math3D,FUN_1402c7320
+BaseListboxWidget,ClearItems,other class,Widget,FUN_1402d2860
+BaseListboxWidget,EnsureVisible,other class,Widget,FUN_1402d2860
+BaseListboxWidget,GetNumItems,other class,Widget,FUN_1402d2860
+BaseListboxWidget,GetSelectedRow,other class,Widget,FUN_1402d2860
+BaseListboxWidget,RemoveRow,other class,Widget,FUN_1402d2860
+BaseListboxWidget,SelectRow,other class,Widget,FUN_1402d2860
+BaseSoundComponent,GetEventNames,not registered,,
+BaseSoundComponent,GetSignalIndex,not registered,,
+BaseSoundComponent,GetSignalNames,not registered,,
+BaseSoundComponent,IsHandleValid,not registered,,
+BaseSoundComponent,IsPlayed,not registered,,
+BaseSoundComponent,Play,other class,AbstractWave|Widget,FUN_1402d2860|FUN_14082bb00
+BaseSoundComponent,SetDebug,not registered,,
+BaseSoundComponent,SetSignalValue,not registered,,
+BaseSoundComponent,SetSignalValueName,not registered,,
+BaseSoundComponent,SetTransform,other class,DebugTextWorldSpace|Widget,FUN_1401f1ad0|FUN_1402d2860
+BaseSoundComponent,Terminate,not registered,,
+BaseSoundComponent,Update,other class,Widget,FUN_1402d2860
+BoneMask,ChangeAnimSlotFPS,not registered,,
+BoneMask,ChangeAnimSlotMask,not registered,,
+BoneMask,ClearAnimMask,not registered,,
+BoneMask,GetParticleCount,not registered,,
+BoneMask,GetParticleEmitorCount,not registered,,
+BoneMask,GetParticleEmitors,not registered,,
+BoneMask,GetParticleParm,not registered,,
+BoneMask,GetParticleParmOriginal,not registered,,
+BoneMask,HasActiveParticle,not registered,,
+BoneMask,IsAnimSlotPlaying,not registered,,
+BoneMask,ResetParticlePosition,not registered,,
+BoneMask,RestartParticle,not registered,,
+BoneMask,SetAnimMask,not registered,,
+BoneMask,SetAnimSlot,not registered,,
+BoneMask,SetMorphState,not registered,,
+BoneMask,SetParticleParm,not registered,,
+ButtonWidget,GetState,other class,HumanCommandActionCallback|HumanCommandClimb|Widget,FUN_1402d2860|FUN_140acb390|FUN_140acdb80
+ButtonWidget,GetText,other class,Widget,FUN_1402d2860
+ButtonWidget,GetTextProportion,other class,Widget,FUN_1402d2860
+ButtonWidget,SetState,other class,Widget,FUN_1402d2860
+ButtonWidget,SetText,other class,Widget,FUN_1402d2860
+ButtonWidget,SetTextHorizontalAlignment,other class,Widget,FUN_1402d2860
+ButtonWidget,SetTextOffset,other class,Widget,FUN_1402d2860
+ButtonWidget,SetTextProportion,other class,Widget,FUN_1402d2860
+ButtonWidget,SetTextVerticalAlignment,other class,Widget,FUN_1402d2860
+CEApi,GetCEApi,not registered,,
+CGame,ReloadShape,not registered,,
+CanvasWidget,Clear,other class,ScriptCallQueue|ScriptInvoker|Widget|map,FUN_1402969f0|FUN_1402d2860|FUN_140b226b0|FUN_140b228a0
+CanvasWidget,DrawLine,other class,Widget,FUN_1402d2860
+CargoBase,CanFitItemIntoCargo,not registered,,
+CargoBase,CanFitSwappedItemInCargo,not registered,,
+CargoBase,FindEntityInCargoOn,other class,?,FUN_140a2d170
+CargoBase,GetMaxWeight,not registered,,
+CargoBase,GetTotalWeight,not registered,,
+CharacterEntity,GetCurrentMovement,not registered,,
+CharacterEntity,GetCurrentStance,not registered,,
+CharacterEntity,Teleport,not registered,,
+CheckBoxWidget,IsChecked,other class,Widget,FUN_1402d2860
+CheckBoxWidget,SetChecked,other class,Widget,FUN_1402d2860
+CheckBoxWidget,SetText,other class,Widget,FUN_1402d2860
+Class,Cast,builtin type,,
+Class,CastTo,builtin type,map,FUN_1402969f0
+Class,ClassName,builtin type,map,FUN_1402969f0
+Class,IsInherited,builtin type,Math|map,FUN_140293a60|FUN_1402969f0
+Class,SafeCastType,builtin type,map,FUN_1402969f0
+Class,StaticType,builtin type,map,FUN_1402969f0
+Class,ToString,builtin type,Math|Math3D|map,FUN_140293a60|FUN_1402969f0|FUN_1402c7320
+Class,Type,builtin type,map,FUN_1402969f0
+DayZCreature,DebugSetShadow,not registered,,
+DayZCreatureAI,DebugDisableAIControl,not registered,,
+DayZCreatureAI,DebugRestoreAIControl,not registered,,
+DbgUI,Begin,dev/VR/console,Math3D|TestHarness|map,FUN_1402969f0|FUN_1402c7320|FUN_140b3f5f0
+DbgUI,BeginCleanupScope,dev/VR/console,Math3D,FUN_1402c7320
+DbgUI,Button,dev/VR/console,Math3D,FUN_1402c7320
+DbgUI,Check,dev/VR/console,Math3D,FUN_1402c7320
+DbgUI,ColoredText,dev/VR/console,Math3D,FUN_1402c7320
+DbgUI,Combo,dev/VR/console,Math3D,FUN_1402c7320
+DbgUI,DoUnitTest,dev/VR/console,Math3D,FUN_1402c7320
+DbgUI,End,dev/VR/console,Math3D|TestHarness|map,FUN_1402969f0|FUN_1402c7320|FUN_140b3f5f0
+DbgUI,EndCleanupScope,dev/VR/console,Math3D,FUN_1402c7320
+DbgUI,InputFloat,dev/VR/console,Math3D,FUN_1402c7320
+DbgUI,InputInt,dev/VR/console,Math3D,FUN_1402c7320
+DbgUI,InputText,dev/VR/console,Math3D,FUN_1402c7320
+DbgUI,List,dev/VR/console,Math3D,FUN_1402c7320
+DbgUI,Panel,dev/VR/console,Math3D,FUN_1402c7320
+DbgUI,PlotLive,dev/VR/console,Math3D,FUN_1402c7320
+DbgUI,PopID,dev/VR/console,Math3D,FUN_1402c7320
+DbgUI,PushID_Int,dev/VR/console,Math3D,FUN_1402c7320
+DbgUI,PushID_Str,dev/VR/console,Math3D,FUN_1402c7320
+DbgUI,SameLine,dev/VR/console,Math3D,FUN_1402c7320
+DbgUI,SameSpot,dev/VR/console,Math3D,FUN_1402c7320
+DbgUI,SliderFloat,dev/VR/console,Math3D,FUN_1402c7320
+DbgUI,Spacer,dev/VR/console,Math3D,FUN_1402c7320
+DbgUI,Text,dev/VR/console,Math3D,FUN_1402c7320
+DebugText,GetBackgroundColor,dev/VR/console,,
+DebugText,GetFontSize,dev/VR/console,,
+DebugText,GetPriority,dev/VR/console,,
+DebugText,GetText,dev/VR/console,Widget,FUN_1402d2860
+DebugText,GetTextColor,dev/VR/console,,
+DebugText,SetBackgroundColor,dev/VR/console,,
+DebugText,SetFontSize,dev/VR/console,,
+DebugText,SetPriority,dev/VR/console,,
+DebugText,SetText,dev/VR/console,Widget,FUN_1402d2860
+DebugText,SetTextColor,dev/VR/console,Widget,FUN_1402d2860
+EditBoxWidget,GetText,other class,Widget,FUN_1402d2860
+EditBoxWidget,SetText,other class,Widget,FUN_1402d2860
+EnProfiler,AddFlags,dev/VR/console,,
+EnProfiler,ClearFlags,dev/VR/console,Widget,FUN_1402d2860
+EnProfiler,Dump,dev/VR/console,,
+EnProfiler,Enable,dev/VR/console,Widget,FUN_1402d2860
+EnProfiler,EnableAverage,dev/VR/console,,
+EnProfiler,GetAllocationsOfClass,dev/VR/console,,
+EnProfiler,GetAllocationsPerClass,dev/VR/console,,
+EnProfiler,GetCountOfFunc,dev/VR/console,,
+EnProfiler,GetCountOfFuncG,dev/VR/console,,
+EnProfiler,GetCountPerFunc,dev/VR/console,,
+EnProfiler,GetFlags,dev/VR/console,AnimPhysOwnerState|Widget,FUN_1402d2860|FUN_140b150b0
+EnProfiler,GetGameFrame,dev/VR/console,,
+EnProfiler,GetInstancesOfClass,dev/VR/console,,
+EnProfiler,GetInstancesPerClass,dev/VR/console,,
+EnProfiler,GetInterval,dev/VR/console,,
+EnProfiler,GetModule,dev/VR/console,Math,FUN_140293a60
+EnProfiler,GetProfiledFrames,dev/VR/console,,
+EnProfiler,GetProfiledSessionFrames,dev/VR/console,,
+EnProfiler,GetSessionFrame,dev/VR/console,,
+EnProfiler,GetTimeOfClass,dev/VR/console,,
+EnProfiler,GetTimeOfFunc,dev/VR/console,,
+EnProfiler,GetTimeOfFuncG,dev/VR/console,,
+EnProfiler,GetTimePerClass,dev/VR/console,,
+EnProfiler,GetTimePerFunc,dev/VR/console,,
+EnProfiler,GetTimeResolution,dev/VR/console,,
+EnProfiler,GetTotalFrames,dev/VR/console,,
+EnProfiler,IsAverage,dev/VR/console,,
+EnProfiler,IsEnabled,dev/VR/console,EntityLightSource|TestBase|TestSuite,FUN_140a4af00|FUN_140b3f310|FUN_140b3f470
+EnProfiler,IsFlagsSet,dev/VR/console,,
+EnProfiler,ModuleToName,dev/VR/console,,
+EnProfiler,NameToModule,dev/VR/console,,
+EnProfiler,RemoveFlags,dev/VR/console,,
+EnProfiler,ResetSession,dev/VR/console,,
+EnProfiler,SetFlags,dev/VR/console,AnimPhysOwnerState|PGFilter|Shape|Widget,FUN_1402d2860|FUN_140429690|FUN_140564be0|FUN_140b150b0
+EnProfiler,SetInterval,dev/VR/console,,
+EnProfiler,SetModule,dev/VR/console,,
+EnProfiler,SetTimeResolution,dev/VR/console,,
+EnProfiler,SortData,dev/VR/console,,
+EnScript,GetClassVar,builtin type,Math,FUN_140293a60
+EnScript,Idle,builtin type,,
+EnScript,KillThread,builtin type,,
+EnScript,ParseString,builtin type,Math,FUN_140293a60
+EnScript,ParseStringEx,builtin type,Math,FUN_140293a60
+EnScript,SetClassVar,builtin type,Math,FUN_140293a60
+EnScript,SetVar,builtin type,Math,FUN_140293a60
+EnScript,Sort,builtin type,map,FUN_1402969f0
+EnScript,ThreadFunction,builtin type,,
+EnScript,Watch,builtin type,Math,FUN_140293a60
+EnScript,copyarray,builtin type,,
+EnScript,reversearray,builtin type,,
+Game,FindEntity,not registered,,
+Game,GetBuildTime,not registered,,
+Game,GetBuildVersion,not registered,,
+Game,GetInputManager,not registered,,
+Game,GetMenuManager,not registered,,
+Game,GetTickCount,not registered,,
+Game,GetWorkspace,other class,CGame,FUN_140b34b30
+Game,GetWorldEntity,not registered,,
+Game,GetWorldFile,not registered,,
+Game,RequestClose,not registered,,
+Game,RequestReload,not registered,,
+Game,SetWorldFile,not registered,,
+Game,SpawnComponentTemplate,not registered,,
+Game,SpawnEntity,other class,CEApi,FUN_140787e10
+Game,SpawnEntityTemplate,not registered,,
+GameInventory,DumpInventoryDebug,not registered,,
+GameInventory,DumpStaticInventoryDebug,not registered,,
+GameInventory,HasAttachmentSlot,not registered,,
+GeneratedResources,RegisterResource,not registered,,
+GenericComponent,Activate,not registered,,
+GenericComponent,ClearEventMask,other class,Widget,FUN_1402d2860
+GenericComponent,Deactivate,not registered,,
+GenericComponent,GetEventMask,other class,Widget,FUN_1402d2860
+GenericComponent,IsActive,other class,Camera|Physics|SandstormController,FUN_1402c1060|FUN_14079c100|FUN_140b5dba0
+GenericComponent,SetEventMask,other class,Widget,FUN_1402d2860
+GenericEntity,DeleteComponent,not registered,,
+GenericEntity,FindComponent,not registered,,
+GenericEntity,InsertComponent,not registered,,
+GenericEntity,RemoveComponent,not registered,,
+GenericEntity,Show,other class,Widget,FUN_1402d2860
+GizmoApi,CreateGizmoApi,not registered,,
+GizmoApi,DestroyGizmoApi,not registered,,
+GizmoApi,GetGizmoApi,not registered,,
+Hive,CreateHive,not registered,,
+Hive,DestroyHive,not registered,,
+Hive,GetHive,not registered,,
+HtmlWidget,LoadFile,other class,MapWidget,FUN_140aa15e0
+HumanInputController,DisableCrouchCameratHorizontalRotation,not registered,,
+HumanInputController,DisableErectCameratHorizontalRotation,not registered,,
+IEntity,AddChild,other class,Widget,FUN_1402d2860
+IEntity,Animate,other class,Widget,FUN_1402d2860
+IEntity,AnimateEx,other class,Widget,FUN_1402d2860
+IEntity,ClearEventMask,other class,Widget,FUN_1402d2860
+IEntity,ClearFlags,other class,Widget,FUN_1402d2860
+IEntity,CoordToLocal,other class,Widget,FUN_1402d2860
+IEntity,CoordToParent,other class,Widget,FUN_1402d2860
+IEntity,FilterNextTrace,other class,Widget,FUN_1402d2860
+IEntity,GetAngles,other class,Widget,FUN_1402d2860
+IEntity,GetBounds,other class,Widget,FUN_1402d2860
+IEntity,GetChildren,other class,Math3D|Widget,FUN_1402c7320|FUN_1402d2860
+IEntity,GetEventMask,other class,Widget,FUN_1402d2860
+IEntity,GetFlags,other class,AnimPhysOwnerState|Widget,FUN_1402d2860|FUN_140b150b0
+IEntity,GetHierarchyPivot,other class,SoundObject|Widget,FUN_1402d2860|FUN_140838100
+IEntity,GetID,other class,Widget,FUN_1402d2860
+IEntity,GetLocalAngles,other class,Widget,FUN_1402d2860
+IEntity,GetLocalPosition,other class,Widget,FUN_1402d2860
+IEntity,GetLocalTransform,other class,Widget,FUN_1402d2860
+IEntity,GetLocalYawPitchRoll,other class,Widget,FUN_1402d2860
+IEntity,GetName,other class,BiosUser|BotStateMachineData|EntityType|LOD|Math3D|ModInfo|ParticleManager|PlayerIdentityBase|Selection|SoundParams|SurfaceInfo|TestBase|TestSuite|Widget,FUN_1402c7320|FUN_1402d2860|FUN_140701990|FUN_140748de0|FUN_1407fc130|FUN_140835a80|FUN_14086d080|FUN_1408c1b50|FUN_1408e3260|FUN_14094c520|FUN_140a46080|FUN_140aa6310|FUN_140b3f310|FUN_140b3f470
+IEntity,GetOrigin,other class,Widget,FUN_1402d2860
+IEntity,GetParent,other class,AnimPhysMove|AnimPhysOwnerState|InventoryLocation|Math3D|ParticleProperties|SoundObject|Widget,FUN_1402c7320|FUN_1402d2860|FUN_140838100|FUN_1408dc770|FUN_140a0d490|FUN_140b0bbc0|FUN_140b150b0
+IEntity,GetPhysics,other class,Widget,FUN_1402d2860
+IEntity,GetRenderTransform,other class,Widget,FUN_1402d2860
+IEntity,GetRenderView,not registered,,
+IEntity,GetScale,other class,MapWidget|Widget,FUN_1402d2860|FUN_140aa15e0
+IEntity,GetSibling,other class,Math3D|Widget,FUN_1402c7320|FUN_1402d2860
+IEntity,GetTransform,other class,DebugTextWorldSpace|Widget,FUN_1401f1ad0|FUN_1402d2860
+IEntity,GetTransformAxis,other class,Widget,FUN_1402d2860
+IEntity,GetVObject,other class,Widget,FUN_1402d2860
+IEntity,GetWorldBounds,other class,Widget,FUN_1402d2860
+IEntity,GetYawPitchRoll,other class,Widget,FUN_1402d2860
+IEntity,IsFlagSet,other class,Widget,FUN_1402d2860
+IEntity,IsHierarchyPositionOnly,other class,Widget,FUN_1402d2860
+IEntity,RemoveChild,other class,Widget,FUN_1402d2860
+IEntity,SendEvent,other class,ScriptAnalytics|Widget,FUN_1402d2860|FUN_140820810
+IEntity,SetAngles,other class,Widget,FUN_1402d2860
+IEntity,SetCameraMask,other class,Widget,FUN_1402d2860
+IEntity,SetEventMask,other class,Widget,FUN_1402d2860
+IEntity,SetFixedLOD,not registered,,
+IEntity,SetFlags,other class,AnimPhysOwnerState|PGFilter|Shape|Widget,FUN_1402d2860|FUN_140429690|FUN_140564be0|FUN_140b150b0
+IEntity,SetID,not registered,,
+IEntity,SetName,other class,BotStateMachineData|ParticleManager|Widget,FUN_1402d2860|FUN_1408e3260|FUN_140aa6310
+IEntity,SetObject,other class,Widget,FUN_1402d2860
+IEntity,SetOrigin,other class,Widget,FUN_1402d2860
+IEntity,SetRenderView,not registered,,
+IEntity,SetScale,other class,MapWidget|Widget,FUN_1402d2860|FUN_140aa15e0
+IEntity,SetTransform,other class,DebugTextWorldSpace|Widget,FUN_1401f1ad0|FUN_1402d2860
+IEntity,SetYawPitchRoll,other class,Widget,FUN_1402d2860
+IEntity,Update,other class,Widget,FUN_1402d2860
+IEntity,VectorToLocal,other class,Widget,FUN_1402d2860
+IEntity,VectorToParent,other class,Widget,FUN_1402d2860
+IEntitySource,GetChildren,other class,Math3D|Widget,FUN_1402c7320|FUN_1402d2860
+IEntitySource,GetParent,other class,AnimPhysMove|AnimPhysOwnerState|InventoryLocation|Math3D|ParticleProperties|SoundObject|Widget,FUN_1402c7320|FUN_1402d2860|FUN_140838100|FUN_1408dc770|FUN_140a0d490|FUN_140b0bbc0|FUN_140b150b0
+IEntitySource,GetSibling,other class,Math3D|Widget,FUN_1402c7320|FUN_1402d2860
+ImageWidget,GetImage,other class,Widget,FUN_1402d2860
+ImageWidget,GetImageSize,other class,Widget,FUN_1402d2860
+ImageWidget,GetMaskProgress,other class,Widget,FUN_1402d2860
+ImageWidget,GetMaskTransitionWidth,other class,Widget,FUN_1402d2860
+ImageWidget,LoadImageFile,other class,Widget,FUN_1402d2860
+ImageWidget,LoadMaskTexture,other class,Widget,FUN_1402d2860
+ImageWidget,SetImage,other class,Widget,FUN_1402d2860
+ImageWidget,SetImageTexture,other class,Widget,FUN_1402d2860
+ImageWidget,SetMaskProgress,other class,Widget,FUN_1402d2860
+ImageWidget,SetMaskTransitionWidth,other class,Widget,FUN_1402d2860
+ImageWidget,SetUV,other class,Widget,FUN_1402d2860
+InputManager,RegisterActionManager,not registered,,
+InputManager,ResetAction,not registered,,
+InputManager,SetCursorPosition,not registered,,
+InputManager,UnregisterActionManager,not registered,,
+ItemPreviewWidget,GetItem,other class,CargoBase|InventoryLocation|MapWidget,FUN_140a0d490|FUN_140a32b50|FUN_140aa15e0
+ItemPreviewWidget,GetView,other class,MapWidget,FUN_140aa15e0
+ItemPreviewWidget,SetForceFlip,other class,MapWidget,FUN_140aa15e0
+ItemPreviewWidget,SetForceFlipEnable,other class,MapWidget,FUN_140aa15e0
+ItemPreviewWidget,SetItem,other class,InventoryLocation|MapWidget|Widget,FUN_1402d2860|FUN_140a0d490|FUN_140aa15e0
+ItemPreviewWidget,SetView,other class,MapWidget,FUN_140aa15e0
+JsonApi,CreateJsonApi,not registered,,
+JsonApi,DestroyJsonApi,not registered,,
+JsonApi,GetJsonApi,not registered,,
+LightEntity,GetConeAngle,not registered,,
+LightEntity,GetDiffuseColor,not registered,,
+LightEntity,GetRadius,other class,CarWheel|EntityLightSource,FUN_1409d8390|FUN_140a4af00
+LightEntity,IsCastShadow,not registered,,
+LightEntity,SetCastShadow,other class,EntityLightSource,FUN_140a4af00
+LightEntity,SetConeAngle,not registered,,
+LightEntity,SetDiffuseColor,other class,EntityLightSource,FUN_140a4af00
+LightEntity,SetRadius,other class,EntityLightSource,FUN_140a4af00
+Link,Get,other class,Math|Math3D|Widget|map,FUN_140293a60|FUN_1402969f0|FUN_1402c7320|FUN_1402d2860
+Link,Init,other class,ScriptCaller|Widget|map,FUN_1402969f0|FUN_1402d2860|FUN_140b22ae0
+Material,GetParamIndex,other class,Math3D,FUN_1402c7320
+Material,ResetParam,other class,Math3D,FUN_1402c7320
+Material,SetParam,other class,Math3D,FUN_1402c7320
+Material,SetParamByIndex,other class,Math3D,FUN_1402c7320
+Math2D,IsPointInPolygon,other class,Math3D,FUN_1402c7320
+Math2D,IsPointInPolygonXZ,other class,Math3D,FUN_1402c7320
+Math2D,IsPointInTriangleXZ,other class,Math3D,FUN_1402c7320
+Math2D,TriangleWindingXZ,other class,Math3D,FUN_1402c7320
+MenuBase,BindItem,not registered,,
+MenuBase,Close,other class,FileSerializer|UIMenuPanel,FUN_1402c5b70|FUN_140a95310
+MenuBase,GetItemWidget,not registered,,
+MenuBase,GetManager,not registered,,
+MenuBase,GetRootWidget,not registered,,
+MenuBase,GetUserId,not registered,,
+MenuBase,SetLabel,not registered,,
+MenuManager,CloseMenu,not registered,,
+MenuManager,CloseMenuByPreset,not registered,,
+MenuManager,CloseMenuByUserId,not registered,,
+MenuManager,FindMenuByPreset,not registered,,
+MenuManager,FindMenuByUserId,not registered,,
+MenuManager,GetTopMenu,not registered,,
+MenuManager,IsAnyDialogOpen,not registered,,
+MenuManager,IsAnyMenuOpen,not registered,,
+MenuManager,OpenDialog,not registered,,
+MenuManager,OpenMenu,not registered,,
+MetaFile,GetResourceID,not registered,,
+MetaFile,GetSourceFilePath,not registered,,
+MetaFile,Save,not registered,,
+MultilineEditBoxWidget,GetCarriageLine,other class,Widget,FUN_1402d2860
+MultilineEditBoxWidget,GetCarriagePos,other class,Widget,FUN_1402d2860
+MultilineEditBoxWidget,GetLine,other class,Widget,FUN_1402d2860
+MultilineEditBoxWidget,GetLinesCount,other class,Widget,FUN_1402d2860
+MultilineEditBoxWidget,GetText,other class,Widget,FUN_1402d2860
+MultilineEditBoxWidget,SetLine,other class,Widget,FUN_1402d2860
+MultilineTextWidget,SetLineBreakingOverride,other class,Widget,FUN_1402d2860
+Object,FromBonePivot,not registered,,
+Object,ToBonePivot,not registered,,
+OcclusionQuery,AddPointToLandMarkDecal,not registered,,
+OcclusionQuery,CanAddToLandMarkDecal,not registered,,
+OcclusionQuery,CreateDecal,not registered,,
+OcclusionQuery,CreateLandMarkDecal,not registered,,
+OcclusionQuery,Destroy,other class,Physics|PhysicsGeom|PhysicsJoint|Shape,FUN_1402bb860|FUN_1402bbaf0|FUN_1402c1060|FUN_140429690
+OcclusionQuery,FinalizeLandMarkDecal,not registered,,
+OcclusionQuery,GetLastLandMarkPoint,not registered,,
+OcclusionQuery,GetOceanHeight,not registered,,
+OcclusionQuery,GetOceanHeightAndDisplace,not registered,,
+OcclusionQuery,GetResult,other class,TestBase,FUN_140b3f310
+OcclusionQuery,IsLandMarkFinalized,not registered,,
+OcclusionQuery,IsOcean,not registered,,
+OcclusionQuery,OcclusionQuery,not registered,,
+OcclusionQuery,RemoveDecal,not registered,,
+OcclusionQuery,SetGlobalLandMarkParams,not registered,,
+OcclusionQuery,SetPosition,other class,AbstractWave|AnimPhysMove|AnimPhysOwnerState|DebugTextScreenSpace|DebugTextWorldSpace|Object|Shape|SoundObject,FUN_1401f18f0|FUN_1401f1ad0|FUN_140429690|FUN_14066f490|FUN_14082bb00|FUN_140838100|FUN_140b0bbc0|FUN_140b150b0
+PBOAPI,GetPBOAPI,not registered,,
+PacketInputAdapter,GetFPS,not registered,,
+PacketInputAdapter,InitSky,not registered,,
+PacketInputAdapter,LerpSkyPreset,not registered,,
+PacketInputAdapter,LerpSkyPreset3,not registered,,
+PacketInputAdapter,LoadSkyPresets,not registered,,
+PacketInputAdapter,MakeScreenshot,not registered,,
+PacketInputAdapter,ReadBool,not registered,,
+PacketInputAdapter,ReadFloat,not registered,,
+PacketInputAdapter,ReadFloatAsByte,not registered,,
+PacketInputAdapter,ReadFloatAsHalf,not registered,,
+PacketInputAdapter,ReadInt,not registered,,
+PacketInputAdapter,ReadIntAsByte,not registered,,
+PacketInputAdapter,ReadIntAsHalf,not registered,,
+PacketInputAdapter,ReadIntAsUByte,not registered,,
+PacketInputAdapter,ReadIntAsUHalf,not registered,,
+PacketInputAdapter,ReadMatrixAsQuaternionVector,not registered,,
+PacketInputAdapter,ReadString,not registered,,
+PacketInputAdapter,ReadVector,not registered,,
+PacketInputAdapter,SetNightLayerRotMatrix,not registered,,
+PacketInputAdapter,SetRealStarAutoUpdate,not registered,,
+PacketInputAdapter,SetSkyPlanet,not registered,,
+PacketInputAdapter,SetSkyPlanetSize,not registered,,
+PacketInputAdapter,SetSkyPreset,not registered,,
+PacketInputAdapter,SetSkyUserPlanets,not registered,,
+PacketInputAdapter,SetStarsObserverPosition,not registered,,
+PacketInputAdapter,SetStarsObserverTime,not registered,,
+PacketInputAdapter,SetStarsRotMatrix,not registered,,
+PacketOutputAdapter,WriteBool,not registered,,
+PacketOutputAdapter,WriteFloat,not registered,,
+PacketOutputAdapter,WriteFloatAsByte,not registered,,
+PacketOutputAdapter,WriteFloatAsHalf,not registered,,
+PacketOutputAdapter,WriteInt,not registered,,
+PacketOutputAdapter,WriteIntAsByte,not registered,,
+PacketOutputAdapter,WriteIntAsHalf,not registered,,
+PacketOutputAdapter,WriteIntAsUByte,not registered,,
+PacketOutputAdapter,WriteIntAsUHalf,not registered,,
+PacketOutputAdapter,WriteMatrixAsQuaternionVector,not registered,,
+PacketOutputAdapter,WriteString,not registered,,
+PacketOutputAdapter,WriteVector,not registered,,
+ParamEntry,GetEntry,not registered,,
+ParamEntry,GetFloat,not registered,,
+ParamEntry,GetInt,not registered,,
+ParamEntry,GetNumChildren,not registered,,
+ParamEntry,GetString,not registered,,
+PasswordEditBoxWidget,SetHideText,other class,Widget,FUN_1402d2860
+Physics,GetBone,not registered,,
+Physics,GetGeomSurfaces,not registered,,
+Physics,GetNumBones,not registered,,
+PlayerPreviewWidget,GetDummyPlayer,other class,MapWidget,FUN_140aa15e0
+PlayerPreviewWidget,Refresh,other class,MapWidget,FUN_140aa15e0
+PlayerPreviewWidget,SetPlayer,other class,MapWidget,FUN_140aa15e0
+PlayerPreviewWidget,UpdateItemInHands,other class,MapWidget,FUN_140aa15e0
+PreviewWidget,ApplyToCamera,other class,MapWidget,FUN_140aa15e0
+PreviewWidget,GetModelOrientation,other class,MapWidget,FUN_140aa15e0
+PreviewWidget,GetModelPosition,other class,MapWidget,FUN_140aa15e0
+PreviewWidget,SetModelOrientation,other class,MapWidget,FUN_140aa15e0
+PreviewWidget,SetModelPosition,other class,MapWidget,FUN_140aa15e0
+RenderTargetWidget,SetRefresh,other class,Widget,FUN_1402d2860
+RenderTargetWidget,SetResolutionScale,other class,Widget,FUN_1402d2860
+ResourceManager,GetMetaFile,not registered,,
+ResourceManager,RebuildResourceFile,not registered,,
+ResourceManager,RebuildResourceFiles,not registered,,
+ResourceManager,RegisterResourceFile,not registered,,
+ResourceManager,WaitForFile,not registered,,
+RestApi,CreateRestApi,not registered,,
+RestApi,DestroyRestApi,not registered,,
+RestApi,GetRestApi,not registered,,
+RichTextWidget,ElideText,other class,Widget,FUN_1402d2860
+RichTextWidget,GetContentHeight,other class,Widget,FUN_1402d2860
+RichTextWidget,GetContentOffset,other class,Widget,FUN_1402d2860
+RichTextWidget,GetLineWidth,other class,Widget,FUN_1402d2860
+RichTextWidget,GetNumLines,other class,Widget,FUN_1402d2860
+RichTextWidget,SetContentOffset,other class,Widget,FUN_1402d2860
+RichTextWidget,SetLineBreakingOverride,other class,Widget,FUN_1402d2860
+RichTextWidget,SetLinesVisibility,other class,Widget,FUN_1402d2860
+ScriptEditor,GetCurrentFile,dev/VR/console,,
+ScriptEditor,GetCurrentLine,dev/VR/console,,
+ScriptEditor,GetLineText,dev/VR/console,,
+ScriptEditor,GetLinesCount,dev/VR/console,Widget,FUN_1402d2860
+ScriptEditor,InsertLine,dev/VR/console,,
+ScriptEditor,RemoveLine,dev/VR/console,,
+ScriptEditor,SetLineText,dev/VR/console,,
+ScriptModule,Call,other class,ScriptCallQueue|map,FUN_1402969f0|FUN_140b226b0
+ScriptModule,CallFunction,other class,map,FUN_1402969f0
+ScriptModule,CallFunctionParams,other class,map,FUN_1402969f0
+ScriptModule,LoadScript,other class,map,FUN_1402969f0
+ScriptModule,Release,other class,map,FUN_1402969f0
+ScriptedWidgetEventHandler,GetFocus,not registered,,
+ScriptedWidgetEventHandler,IsCircleToCrossSwapped,not registered,,
+ScriptedWidgetEventHandler,LoadWidgetImageSet,not registered,,
+ScriptedWidgetEventHandler,LoadWidgetStyles,not registered,,
+ScriptedWidgetEventHandler,ReloadTexture,not registered,,
+ScriptedWidgetEventHandler,SetActiveWindow,not registered,,
+ScriptedWidgetEventHandler,SetCursorWidget,not registered,,
+ScriptedWidgetEventHandler,SetFocus,other class,Camera,FUN_140b5dba0
+ScriptedWidgetEventHandler,SetModal,not registered,,
+ScriptedWidgetEventHandler,SetWidgetWorld,not registered,,
+ScriptedWidgetEventHandler,ShowCursorWidget,not registered,,
+ScrollWidget,GetContentHeight,other class,Widget,FUN_1402d2860
+ScrollWidget,GetContentWidth,other class,Widget,FUN_1402d2860
+ScrollWidget,GetHScrollPos,other class,Widget,FUN_1402d2860
+ScrollWidget,GetHScrollPos01,other class,Widget,FUN_1402d2860
+ScrollWidget,GetScrollbarWidth,other class,Widget,FUN_1402d2860
+ScrollWidget,GetVScrollPos,other class,Widget,FUN_1402d2860
+ScrollWidget,GetVScrollPos01,other class,Widget,FUN_1402d2860
+ScrollWidget,HScrollStep,other class,Widget,FUN_1402d2860
+ScrollWidget,HScrollToPos,other class,Widget,FUN_1402d2860
+ScrollWidget,HScrollToPos01,other class,Widget,FUN_1402d2860
+ScrollWidget,HScrollToWidget,other class,Widget,FUN_1402d2860
+ScrollWidget,IsScrollbarVisible,other class,Widget,FUN_1402d2860
+ScrollWidget,VScrollStep,other class,Widget,FUN_1402d2860
+ScrollWidget,VScrollToPos,other class,Widget,FUN_1402d2860
+ScrollWidget,VScrollToPos01,other class,Widget,FUN_1402d2860
+ScrollWidget,VScrollToWidget,other class,Widget,FUN_1402d2860
+Shape,Shape,not registered,,
+SimpleProgressBarWidget,GetCurrent,other class,Widget,FUN_1402d2860
+SimpleProgressBarWidget,GetMax,other class,NumericOptionsAccess|Widget,FUN_1402d2860|FUN_1407f3760
+SimpleProgressBarWidget,GetMin,other class,CEItemProfile|NumericOptionsAccess|Widget,FUN_1402d2860|FUN_140757ab0|FUN_1407f3760
+SimpleProgressBarWidget,SetCurrent,other class,Widget,FUN_1402d2860
+SliderWidget,GetCurrent,other class,Widget,FUN_1402d2860
+SliderWidget,GetMax,other class,NumericOptionsAccess|Widget,FUN_1402d2860|FUN_1407f3760
+SliderWidget,GetMin,other class,CEItemProfile|NumericOptionsAccess|Widget,FUN_1402d2860|FUN_140757ab0|FUN_1407f3760
+SliderWidget,GetStep,other class,Widget,FUN_1402d2860
+SliderWidget,SetCurrent,other class,Widget,FUN_1402d2860
+SliderWidget,SetMinMax,other class,Widget,FUN_1402d2860
+SliderWidget,SetStep,other class,Widget,FUN_1402d2860
+SpacerBaseWidget,AddChildAfter,other class,Widget,FUN_1402d2860
+SpacerWidget,GetContentAlignmentH,other class,Widget,FUN_1402d2860
+SpacerWidget,GetContentAlignmentV,other class,Widget,FUN_1402d2860
+SpacerWidget,SetContentAlignmentH,other class,Widget,FUN_1402d2860
+SpacerWidget,SetContentAlignmentV,other class,Widget,FUN_1402d2860
+TextListboxWidget,AddItem,other class,Widget,FUN_1402d2860
+TextListboxWidget,GetItemData,other class,Widget,FUN_1402d2860
+TextListboxWidget,GetItemText,other class,ListOptionsAccess|SwitchOptionsAccess|Widget,FUN_1402d2860|FUN_1407f3960|FUN_1407f3b60
+TextListboxWidget,SetItem,other class,InventoryLocation|MapWidget|Widget,FUN_1402d2860|FUN_140a0d490|FUN_140aa15e0
+TextListboxWidget,SetItemColor,other class,Widget,FUN_1402d2860
+TextWidget,GetBold,other class,Widget,FUN_1402d2860
+TextWidget,GetItalic,other class,Widget,FUN_1402d2860
+TextWidget,GetOutlineColor,other class,Widget,FUN_1402d2860
+TextWidget,GetOutlineSize,other class,Widget,FUN_1402d2860
+TextWidget,GetShadowColor,other class,Widget,FUN_1402d2860
+TextWidget,GetShadowOffset,other class,Widget,FUN_1402d2860
+TextWidget,GetShadowOpacity,other class,Widget,FUN_1402d2860
+TextWidget,GetShadowSize,other class,Widget,FUN_1402d2860
+TextWidget,GetTextProportion,other class,Widget,FUN_1402d2860
+TextWidget,GetTextSize,other class,Widget,FUN_1402d2860
+TextWidget,SetBold,other class,Widget,FUN_1402d2860
+TextWidget,SetItalic,other class,Widget,FUN_1402d2860
+TextWidget,SetOutline,other class,Widget,FUN_1402d2860
+TextWidget,SetShadow,other class,Widget,FUN_1402d2860
+TextWidget,SetText,other class,Widget,FUN_1402d2860
+TextWidget,SetTextExactSize,other class,Widget,FUN_1402d2860
+TextWidget,SetTextFormat,other class,Widget,FUN_1402d2860
+TextWidget,SetTextOffset,other class,Widget,FUN_1402d2860
+TextWidget,SetTextProportion,other class,Widget,FUN_1402d2860
+TextWidget,SetTextSpacing,other class,Widget,FUN_1402d2860
+TraceContact,TraceLineToEntity,not registered,,
+TraceOBB,IsBoxVisible,not registered,,
+TraceOBB,P2PVisibilityEx,not registered,,
+TraceOBB,SphereQuery,not registered,,
+TraceOBB,TraceMove,not registered,,
+TraceOBB,VisEntities,not registered,,
+UAInputAPI,GetUApi,not registered,,
+UAInterface,SyncedGetInputOverride,not registered,,
+UAInterface,SyncedOverride,not registered,,
+UAInterface,SyncedOverride_ID,not registered,,
+UAInterface,SyncedRemoveAllOverrides,not registered,,
+UAInterface,SyncedRemoveOverride,not registered,,
+UAInterface,SyncedRemoveOverride_ID,not registered,,
+UIWidget,GetTextBold,other class,Widget,FUN_1402d2860
+UIWidget,GetTextItalic,other class,Widget,FUN_1402d2860
+UIWidget,GetTextOutlineColor,other class,Widget,FUN_1402d2860
+UIWidget,GetTextOutlineSize,other class,Widget,FUN_1402d2860
+UIWidget,GetTextShadowColor,other class,Widget,FUN_1402d2860
+UIWidget,GetTextShadowOffsetX,other class,Widget,FUN_1402d2860
+UIWidget,GetTextShadowOffsetY,other class,Widget,FUN_1402d2860
+UIWidget,GetTextShadowOpacity,other class,Widget,FUN_1402d2860
+UIWidget,GetTextShadowSize,other class,Widget,FUN_1402d2860
+UIWidget,SetTextBold,other class,Widget,FUN_1402d2860
+UIWidget,SetTextColor,other class,Widget,FUN_1402d2860
+UIWidget,SetTextItalic,other class,Widget,FUN_1402d2860
+UIWidget,SetTextOutline,other class,Widget,FUN_1402d2860
+UIWidget,SetTextShadow,other class,Widget,FUN_1402d2860
+VRDevice,GetDeviceType,dev/VR/console,,
+VRDevice,GetEyeFOV,dev/VR/console,,
+VRDevice,GetEyeOrientation,dev/VR/console,,
+VRDevice,GetEyePosition,dev/VR/console,,
+VRDevice,GetHandOrientation,dev/VR/console,,
+VRDevice,GetHandPosition,dev/VR/console,,
+VRDevice,GetHeadOrientation,dev/VR/console,,
+VRDevice,GetHeadPosition,dev/VR/console,,
+VRDevice,GetInstance,dev/VR/console,ErrorModuleHandler|FreeDebugCamera|GizmoApi,FUN_140a45b30|FUN_140b52600|FUN_140b5e3a0
+VRDevice,GetName,dev/VR/console,BiosUser|BotStateMachineData|EntityType|LOD|Math3D|ModInfo|ParticleManager|PlayerIdentityBase|Selection|SoundParams|SurfaceInfo|TestBase|TestSuite|Widget,FUN_1402c7320|FUN_1402d2860|FUN_140701990|FUN_140748de0|FUN_1407fc130|FUN_140835a80|FUN_14086d080|FUN_1408c1b50|FUN_1408e3260|FUN_14094c520|FUN_140a46080|FUN_140aa6310|FUN_140b3f310|FUN_140b3f470
+VRDevice,GetScale,dev/VR/console,MapWidget|Widget,FUN_1402d2860|FUN_140aa15e0
+VRDevice,GetStatusFlags,dev/VR/console,,
+VRDevice,RecenterHeadTracking,dev/VR/console,,
+VRDevice,SetScale,dev/VR/console,MapWidget|Widget,FUN_1402d2860|FUN_140aa15e0
+VRDevice_PS4,GetEyeOffset,dev/VR/console,,
+VRDevice_PS4,GetHmdTrackingStatus,dev/VR/console,,
+VRDevice_PS4,GetMoveTrackingStatus,dev/VR/console,,
+VRDevice_PS4,GetRecenterHeadFlags,dev/VR/console,,
+VRDevice_PS4,GetServiceDialogStatus,dev/VR/console,,
+VRDevice_PS4,GetSetupDialogStatus,dev/VR/console,,
+VRDevice_PS4,ResetToDeviceFOV,dev/VR/console,,
+VRDevice_PS4,Set2D,dev/VR/console,,
+VRDevice_PS4,SetEyeFOV,dev/VR/console,,
+VRDevice_PS4,SetMinOutputColor,dev/VR/console,,
+VRDevice_PS4,SetOversamplingFactor,dev/VR/console,,
+VRDevice_PS4,SetRecenterHeadFlags,dev/VR/console,,
+VRDevice_PS4,ShowHmdServiceDialog,dev/VR/console,,
+VRDevice_PS4,ShowHmdSetupDialog,dev/VR/console,,
+VideoWidget,DisableSubtitles,other class,Widget,FUN_1402d2860
+VideoWidget,GetState,other class,HumanCommandActionCallback|HumanCommandClimb|Widget,FUN_1402d2860|FUN_140acb390|FUN_140acdb80
+VideoWidget,GetTime,other class,CGame|Weather|Widget,FUN_1402d2860|FUN_1406c8290|FUN_140b34b30
+VideoWidget,GetTotalTime,other class,Widget,FUN_1402d2860
+VideoWidget,IsLooping,other class,Widget,FUN_1402d2860
+VideoWidget,IsPlaying,other class,Widget,FUN_1402d2860
+VideoWidget,IsSubtitlesDisabled,other class,Widget,FUN_1402d2860
+VideoWidget,Load,other class,NoiseParams|SoundParams|Widget,FUN_1402d2860|FUN_140551370|FUN_140835a80
+VideoWidget,Pause,other class,Widget,FUN_1402d2860
+VideoWidget,Play,other class,AbstractWave|Widget,FUN_1402d2860|FUN_14082bb00
+VideoWidget,SetCallback,other class,Widget,FUN_1402d2860
+VideoWidget,SetGUIWidget,not registered,,
+VideoWidget,SetLooping,other class,Widget,FUN_1402d2860
+VideoWidget,SetTime,other class,Widget,FUN_1402d2860
+VideoWidget,Stop,other class,AbstractWave|SandstormController|Widget,FUN_1402d2860|FUN_14079c100|FUN_14082bb00
+VideoWidget,Unload,other class,Widget,FUN_1402d2860
+WBModuleDef,Close,dev/VR/console,FileSerializer|UIMenuPanel,FUN_1402c5b70|FUN_140a95310
+WBModuleDef,ExecuteAction,dev/VR/console,,
+WBModuleDef,GetCmdLine,dev/VR/console,,
+WBModuleDef,GetContainer,dev/VR/console,,
+WBModuleDef,GetNumContainers,dev/VR/console,,
+WBModuleDef,GetPlugin,dev/VR/console,,
+WBModuleDef,Save,dev/VR/console,,
+WBModuleDef,SetOpenedResource,dev/VR/console,,
+WBProgressDialog,SetActionTitle,not registered,,
+WBProgressDialog,SetMainTitle,not registered,,
+WBProgressDialog,SetProgress,not registered,,
+WeaponInventory,TryFireWeapon,not registered,,
+Widget,Widget,not registered,,
+WidgetSource,GetChildren,other class,Math3D|Widget,FUN_1402c7320|FUN_1402d2860
+WidgetSource,GetParent,other class,AnimPhysMove|AnimPhysOwnerState|InventoryLocation|Math3D|ParticleProperties|SoundObject|Widget,FUN_1402c7320|FUN_1402d2860|FUN_140838100|FUN_1408dc770|FUN_140a0d490|FUN_140b0bbc0|FUN_140b150b0
+WidgetSource,GetSibling,other class,Math3D|Widget,FUN_1402c7320|FUN_1402d2860
+Workbench,CloseModule,dev/VR/console,,
+Workbench,Dialog,dev/VR/console,,
+Workbench,Exit,dev/VR/console,HumanCommandLadder,FUN_140accdd0
+Workbench,FinishProcess,dev/VR/console,,
+Workbench,GenerateGloballyUniqueID64,dev/VR/console,,
+Workbench,GetAbsolutePath,dev/VR/console,,
+Workbench,GetCurrentGameProjectFile,dev/VR/console,,
+Workbench,GetCwd,dev/VR/console,,
+Workbench,GetExecutableFilePath,dev/VR/console,,
+Workbench,GetGameProjectSettings,dev/VR/console,,
+Workbench,GetModule,dev/VR/console,Math,FUN_140293a60
+Workbench,GetPackedUtcTime,dev/VR/console,,
+Workbench,GetResourceName,dev/VR/console,,
+Workbench,GetUserName,dev/VR/console,,
+Workbench,GetWBGameScriptModule,dev/VR/console,,
+Workbench,GetWBScriptModule,dev/VR/console,,
+Workbench,IsRunningProcess,dev/VR/console,,
+Workbench,JumpToScriptSymbol,dev/VR/console,,
+Workbench,KillProcess,dev/VR/console,,
+Workbench,OpenModule,dev/VR/console,,
+Workbench,OpenResource,dev/VR/console,,
+Workbench,RunCmd,dev/VR/console,,
+Workbench,RunProcess,dev/VR/console,,
+Workbench,ScriptDialog,dev/VR/console,,
+Workbench,SearchResources,dev/VR/console,,
+Workbench,WaitProcess,dev/VR/console,,
+WorkspaceWidget,CancelWidgetDragging,not registered,,
+WorkspaceWidget,CreateWidget,other class,Widget,FUN_1402d2860
+WorkspaceWidget,CreateWidgets,other class,Widget,FUN_1402d2860
+WorkspaceWidget,GetDragWidget,not registered,,
+WorkspaceWidget,GetWidgetUnderCursor,other class,UIManager,FUN_140a93d60
+WorkspaceWidget,ReportMouse,not registered,,
+WorldEditorIngame,LoadWorld,not registered,,
+WorldEditorIngame,SaveWorld,not registered,,
+XComboBoxWidget,AddItem,other class,Widget,FUN_1402d2860
+XComboBoxWidget,ClearAll,other class,Widget,FUN_1402d2860
+XComboBoxWidget,GetCurrentItem,other class,Widget,FUN_1402d2860
+XComboBoxWidget,GetNumItems,other class,Widget,FUN_1402d2860
+XComboBoxWidget,RemoveItem,other class,Widget,FUN_1402d2860
+XComboBoxWidget,SetCurrentItem,other class,Widget,FUN_1402d2860
+XComboBoxWidget,SetItem,other class,InventoryLocation|MapWidget|Widget,FUN_1402d2860|FUN_140a0d490|FUN_140aa15e0
+array,Clear,builtin type,ScriptCallQueue|ScriptInvoker|Widget|map,FUN_1402969f0|FUN_1402d2860|FUN_140b226b0|FUN_140b228a0
+array,Copy,builtin type,InventoryLocation|map,FUN_1402969f0|FUN_140a0d490
+array,Count,builtin type,ScriptInvoker|map,FUN_1402969f0|FUN_140b228a0
+array,Find,builtin type,map,FUN_1402969f0
+array,Get,builtin type,Math|Math3D|Widget|map,FUN_140293a60|FUN_1402969f0|FUN_1402c7320|FUN_1402d2860
+array,Init,builtin type,ScriptCaller|Widget|map,FUN_1402969f0|FUN_1402d2860|FUN_140b22ae0
+array,Insert,builtin type,Math|ScriptInvoker|map,FUN_140293a60|FUN_1402969f0|FUN_140b228a0
+array,InsertAt,builtin type,map,FUN_1402969f0
+array,Remove,builtin type,PhysicsBlock|ScriptCallQueue|ScriptInvoker|map,FUN_1402969f0|FUN_1402bc170|FUN_140b226b0|FUN_140b228a0
+array,RemoveOrdered,builtin type,map,FUN_1402969f0
+array,Reserve,builtin type,map,FUN_1402969f0
+array,Resize,builtin type,map,FUN_1402969f0
+array,Set,builtin type,Math|WeatherPhenomenon|map,FUN_140293a60|FUN_1402969f0|FUN_140799960
+array,Sort,builtin type,map,FUN_1402969f0
+array,Swap,builtin type,map,FUN_1402969f0
+float,ToString,builtin type,Math|Math3D|map,FUN_140293a60|FUN_1402969f0|FUN_1402c7320
+func,SetInstance,other class,Math,FUN_140293a60
+int,AsciiToString,builtin type,Math,FUN_140293a60
+int,ToHex,builtin type,Math,FUN_140293a60
+int,ToString,builtin type,Math|Math3D|map,FUN_140293a60|FUN_1402969f0|FUN_1402c7320
+set,Clear,builtin type,ScriptCallQueue|ScriptInvoker|Widget|map,FUN_1402969f0|FUN_1402d2860|FUN_140b226b0|FUN_140b228a0
+set,Copy,builtin type,InventoryLocation|map,FUN_1402969f0|FUN_140a0d490
+set,Count,builtin type,ScriptInvoker|map,FUN_1402969f0|FUN_140b228a0
+set,Find,builtin type,map,FUN_1402969f0
+set,Get,builtin type,Math|Math3D|Widget|map,FUN_140293a60|FUN_1402969f0|FUN_1402c7320|FUN_1402d2860
+set,Init,builtin type,ScriptCaller|Widget|map,FUN_1402969f0|FUN_1402d2860|FUN_140b22ae0
+set,Insert,builtin type,Math|ScriptInvoker|map,FUN_140293a60|FUN_1402969f0|FUN_140b228a0
+set,InsertAt,builtin type,map,FUN_1402969f0
+set,Remove,builtin type,PhysicsBlock|ScriptCallQueue|ScriptInvoker|map,FUN_1402969f0|FUN_1402bc170|FUN_140b226b0|FUN_140b228a0
+set,Swap,builtin type,map,FUN_1402969f0
+string,Format,builtin type,Math,FUN_140293a60
+string,Get,builtin type,Math|Math3D|Widget|map,FUN_140293a60|FUN_1402969f0|FUN_1402c7320|FUN_1402d2860
+string,Hash,builtin type,Math,FUN_140293a60
+string,HexToInt,builtin type,Math,FUN_140293a60
+string,IndexOf,builtin type,Math,FUN_140293a60
+string,IndexOfFrom,builtin type,Math,FUN_140293a60
+string,Insert,builtin type,Math|ScriptInvoker|map,FUN_140293a60|FUN_1402969f0|FUN_140b228a0
+string,LastIndexOf,builtin type,Math,FUN_140293a60
+string,Length,builtin type,Math|Math3D,FUN_140293a60|FUN_1402c7320
+string,LengthUtf8,builtin type,Math,FUN_140293a60
+string,ParseString,builtin type,Math,FUN_140293a60
+string,ParseStringEx,builtin type,Math,FUN_140293a60
+string,Replace,builtin type,Math,FUN_140293a60
+string,Set,builtin type,Math|WeatherPhenomenon|map,FUN_140293a60|FUN_1402969f0|FUN_140799960
+string,Substring,builtin type,Math,FUN_140293a60
+string,SubstringUtf8,builtin type,Math,FUN_140293a60
+string,ToAscii,builtin type,Math,FUN_140293a60
+string,ToFloat,builtin type,Math,FUN_140293a60
+string,ToInt,builtin type,Math,FUN_140293a60
+string,ToLower,builtin type,Math,FUN_140293a60
+string,ToString,builtin type,Math|Math3D|map,FUN_140293a60|FUN_1402969f0|FUN_1402c7320
+string,ToType,builtin type,Math,FUN_140293a60
+string,ToUpper,builtin type,Math,FUN_140293a60
+string,ToVector,builtin type,Math,FUN_140293a60
+string,Trim,builtin type,Math,FUN_140293a60
+string,TrimInPlace,builtin type,Math,FUN_140293a60
+typename,GetModule,builtin type,Math,FUN_140293a60
+typename,GetVariableCount,builtin type,DayZCreatureAnimScriptDebug|Math,FUN_140293a60|FUN_140b6e4d0
+typename,GetVariableName,builtin type,DayZCreatureAnimScriptDebug|Math,FUN_140293a60|FUN_140b6e4d0
+typename,GetVariableType,builtin type,DayZCreatureAnimScriptDebug|Math,FUN_140293a60|FUN_140b6e4d0
+typename,GetVariableValue,builtin type,Math,FUN_140293a60
+typename,IsInherited,builtin type,Math|map,FUN_140293a60|FUN_1402969f0
+typename,Spawn,builtin type,Math,FUN_140293a60
+typename,ToString,builtin type,Math|Math3D|map,FUN_140293a60|FUN_1402969f0|FUN_1402c7320
+vector,AnglesToVector,builtin type,Math3D,FUN_1402c7320
+vector,Distance,builtin type,Math3D,FUN_1402c7320
+vector,DistanceSq,builtin type,Math3D,FUN_1402c7320
+vector,InvMultiply3,builtin type,Math3D,FUN_1402c7320
+vector,InvMultiply4,builtin type,Math3D,FUN_1402c7320
+vector,Length,builtin type,Math|Math3D,FUN_140293a60|FUN_1402c7320
+vector,LengthSq,builtin type,Math3D,FUN_1402c7320
+vector,Lerp,builtin type,Math|Math3D,FUN_140293a60|FUN_1402c7320
+vector,Multiply3,builtin type,Math3D,FUN_1402c7320
+vector,Multiply4,builtin type,Math3D,FUN_1402c7320
+vector,Normalize,builtin type,Math3D,FUN_1402c7320
+vector,Normalized,builtin type,Math3D,FUN_1402c7320
+vector,RotationMatrixFromAngles,builtin type,Math3D,FUN_1402c7320
+vector,ToString,builtin type,Math|Math3D|map,FUN_140293a60|FUN_1402969f0|FUN_1402c7320
+vector,VectorToAngles,builtin type,Math3D,FUN_1402c7320
+vector,VectorToYaw,builtin type,Math3D,FUN_1402c7320
+vector,YawToVector,builtin type,Math3D,FUN_1402c7320
+vobject,EndSound,not registered,,
+vobject,GetSoundLength,other class,SoundOnVehicle,FUN_140728e40
+vobject,GetSoundPosition,not registered,,
+vobject,SetSoundFrequency,not registered,,
+vobject,SetSoundVolume,other class,AbstractSoundScene,FUN_14082ced0
+vobject,ToEntitySource,other class,Math3D,FUN_1402c7320
