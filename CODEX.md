@@ -288,3 +288,5 @@ Read the revised comparator, rebuild runner, consistency checker, regression fix
 - 2026-10-24 (Claude): re-read after task E4 (part 2). No open findings; CXR-008/009 stay verified. Only notes 4.8 (addendum 5), 6.26 and PLAN.md changed. check_notes.py: 0 errors, 6 warnings; selftest.py: 24 OK.
 
 - 2026-10-24 (Claude): re-read after task E3 (first pass). No open findings; CXR-008/009 stay verified. Only notes 4.9, notes README and PLAN.md changed. check_notes.py: 0 errors, 6 warnings; selftest.py: 24 OK.
+
+- 2026-10-24 (Claude): re-read after task E3 (serialiser pass). No open findings; CXR-008/009 stay verified. Only notes 4.9.1 and PLAN.md changed. check_notes.py: 0 errors, 6 warnings; selftest.py: 24 OK.
