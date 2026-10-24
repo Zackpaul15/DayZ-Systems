@@ -63,7 +63,7 @@ Cost: **S** = scripts and config only, **G** = Ghidra, hours are rough session t
 ### Engine (one Ghidra process at a time)
 | ID | Task | Why | Cost |
 |---|---|---|---|
-| E1 | **Central Economy engine side**: how `types.xml` fields (nominal, min, lifetime, restock, cost, quantmin and quantmax, flags) and `events.xml` are used; the loot spawn and cleanup loop; `LootDepleteAndDamage` and related natives | the most useful engine area for server owners; the data side is already tabulated | G, 4 to 6 h |
+| E1 | **Partly done (notes 5.14; cleanup loop, lifetime refresh, area flags and native bodies still open)** Central Economy engine side**: how `types.xml` fields (nominal, min, lifetime, restock, cost, quantmin and quantmax, flags) and `events.xml` are used; the loot spawn and cleanup loop; `LootDepleteAndDamage` and related natives | the most useful engine area for server owners; the data side is already tabulated | G, 4 to 6 h |
 | E2 | **Physics**: `DayZPhysics` natives, ragdoll, vehicle simulation inputs (the config values in `vehicles.csv` and what the engine does with them) | completes the vehicle and combat pictures | G, 4 to 6 h |
 | E3 | **Network synchronisation**: net-sync variable registration and encoding, RPC dispatch, juncture messages; connects the message IDs in 4.2 to script-level sync | needed to know what a mod can safely add | G, 3 to 5 h |
 | E4 | Close the open details: alert rise rate and the noise `radius` fields (6.26), the armour threshold test and ricochet constants (4.8), statistics event payloads (4.3), `deflection` for terrain surfaces | removes the remaining [inf] on the AI and ballistics pictures | G, 3 h |
@@ -106,7 +106,7 @@ Cost: **S** = scripts and config only, **G** = Ghidra, hours are rough session t
 
 ## 7. Single best next step
 
-H1 to H5 are done (H4 split the survival notes; H5 put the project in a private GitHub repo, `Zackpaul15/DayZ-Systems`). Next, the engine track starting with E1 (Central Economy).
+H1 to H5 are done (H4 split the survival notes; H5 put the project in a private GitHub repo, `Zackpaul15/DayZ-Systems`). E1 first pass is done (notes 5.14). Next: finish E1's open items or move to E4.
 
 ## Standing step: Codex review tracker
 After every task, re-read `CODEX.md` (maintained by Codex), assess new or open findings, fix the valid ones, and record the disposition and the check result in that file. The first review (CXR-001 to CXR-005, 2026-10-24) is fixed and awaiting Codex's validation; see `CODEX.md` and `data/PROVENANCE.md`.

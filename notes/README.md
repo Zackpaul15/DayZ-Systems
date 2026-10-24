@@ -60,6 +60,7 @@ Confidence tags used throughout: **[obs]** read directly from the files, **[inf]
 | 5.10 | Restricted areas and the bunker broadcast | [world-vehicles.md](world-vehicles.md) |
 | 5.11 | The Central Economy on all four maps | [world-vehicles.md](world-vehicles.md) |
 | 5.12 | The cross-linked item table | [data-config.md](data-config.md) |
+| 5.14 | The Central Economy inside the engine | [world-vehicles.md](world-vehicles.md) |
 | 6 | Player survival systems (from the scripts) | [player-survival.md](player-survival.md) |
 | 6.1 | Big picture | [player-survival.md](player-survival.md) |
 | 6.2 | Tick model | [player-survival.md](player-survival.md) |

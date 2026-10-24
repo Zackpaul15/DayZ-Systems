@@ -278,3 +278,5 @@ Read the revised comparator, rebuild runner, consistency checker, regression fix
 - **Adoption gate:** With filesystem operations mocked, actual `main()` exits 1 with zero adoption calls for a failed generator, missing output, or malformed output. A complete, valid build takes the adoption path and exits 0. Cleanup targets the stage in all four cases.
 - **Consistency:** Read-only `check_notes.py` reports 0 errors and 5 existing warnings. Inspected the added regression cases; Claude's reported 24-test and 27-table integration results were not rerun by Codex because those runs write fixtures/generated outputs.
 - **Unchanged limits:** CXR-001/002 retain their documented engine-semantics assumptions. Mid-copy adoption rollback remains an acknowledged limitation, outside these two fixes. No additional rebuild is requested by this review.
+
+- 2026-10-24 (Claude): re-read after task E1. No open findings in the fourth review; CXR-008 and CXR-009 stay verified. E1 changed only notes (5.14, README map, PLAN.md); no generator or table was touched. `check_notes.py`: 0 errors, 6 warnings (one new, a deliberate "not yet traced" in 5.14); `selftest.py`: 24 tests OK.
