@@ -67,7 +67,7 @@ Cost: **S** = scripts and config only, **G** = Ghidra; hours are rough session t
 ### Track B: script gaps (no Ghidra; can run beside Track A)
 | ID | Task | Cost | Priority |
 |---|---|---|---|
-| S1 | Base building and locks: `CodeLock`, `CombinationLock`, `Totem` (flag and territory), barrels, tents, fences and watchtowers (`BaseBuilding`), with a table of build parts, materials and times | S, 4 h | high (feeds M2) |
+| S1 | **Done 2026-10-30** (notes 5.15; `data/build_parts.csv` 793 parts, `data/construction_tools.csv` 18 tools, generator `scripts/build_parts.py` in `build_tables.py`). Covers tool masks and times, destroy and dismantle rules, part damage multipliers, combination and digital code locks (battery, brute-force protection), the territory flag refresher, barrels, and the new rebuildable Nasdara buildings (24 classes). Still open: lock and battery energy numbers, rebuild support statics, whether rebuilt parts decay. Runtime checks V24 to V26 | S | done |
 | S6 | Remaining `ItemBase` families: tools, electronics and the energy component, radios, lights, canned food, fireworks; one table per family | S, 6 h | medium |
 | S2 | Inventory engine: `DayZPlayerInventory`, hand states and guards, drag and drop rules, juncture handling | S, 4 h | medium (feeds M1) |
 | S3 | World buildings: underground complex, warhead storage, power stations, generators, doors (ties to the bunker broadcast, 5.10) | S, 3 h | medium |
@@ -108,7 +108,7 @@ Cost: **S** = scripts and config only, **G** = Ghidra; hours are rough session t
 
 ## 8. Single best next step
 
-Phase 0 done except the optional C4 (C1 to C3, 2026-10-30; checker at 0 errors, 0 warnings). E3 done (2026-10-30, notes 4.9 third pass). Next: S1 (Track B), then M3; on Track A, the E1 remainder or E2.
+Phase 0 done except the optional C4 (C1 to C3, 2026-10-30; checker at 0 errors, 0 warnings). E3 done (2026-10-30, notes 4.9 third pass). S1 done (2026-10-30, notes 5.15). Next: M3 (`lookup.py`), then M2 (server-owner guide; S1 and E1 now feed it); on Track A, the E1 remainder or E2.
 
 ## Standing step: Codex review tracker
 After every task, re-read `CODEX.md` (maintained by Codex), assess new or open findings, fix the valid ones, and record the disposition and the check result in that file. Reviews CXR-001 to CXR-009 are all fixed and verified. Run `py -I scripts\selftest.py` after any change to the table tools.

@@ -1,0 +1,19 @@
+tool,displayName,build_action_type,build_tools,dismantle_action_type,dismantle_tools,script_actions
+BrickTrowel,Brick Trowel,256,bricklaying,,,build
+Crowbar,Crowbar,0,none,10,nail|mount_log,dismantle
+FarmingHoe,Farming Hoe,4,dig_base,4,dig_base,build|dismantle
+FieldShovel,Field Shovel,4,dig_base,4,dig_base,build|dismantle
+FirefighterAxe,Firefighter Axe,,,74,nail|mount_log|woodwork,dismantle
+FirefighterAxe_Black,Firefighter Axe,,,74,nail|mount_log|woodwork,dismantle
+FirefighterAxe_Green,Firefighter Axe,,,74,nail|mount_log|woodwork,dismantle
+Hacksaw,Hacksaw,,,64,woodwork,dismantle
+Hammer,Hammer,10,nail|mount_log,0,none,build
+HandSaw,Hand Saw,,,64,woodwork,dismantle
+Hatchet,Hatchet,10,nail|mount_log,74,nail|mount_log|woodwork,build|dismantle
+Iceaxe,Ice Axe,4,dig_base,14,nail|dig_base|mount_log,
+MeatTenderizer,Meat Tenderizer,10,nail|mount_log,0,none,build
+Pickaxe,Pickaxe,36,dig_base|excavation,46,nail|dig_base|mount_log|excavation,build|dismantle
+Pliers,Pliers,1,wire,1,wire,build|dismantle
+Shovel,Shovel,4,dig_base,4,dig_base,build|dismantle
+SledgeHammer,Sledgehammer,16,heavy,16,heavy,build|dismantle
+WoodAxe,Splitting Axe,,,74,nail|mount_log|woodwork,dismantle

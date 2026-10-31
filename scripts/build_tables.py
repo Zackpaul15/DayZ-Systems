@@ -40,7 +40,7 @@ KEYS = {"ammo": "name", "ammo_physics": "name", "explosives": "name", "body_zone
         "food_stages": "item,stage", "actions": "action", "weapon_states": "mechanism,var", "weapon_transitions": "mechanism,from,event,to",
         "vehicles": "name", "catching_items": "name", "penetration_materials": "material", "ai_perception": "behaviour",
         "noise_sources": "section,class,noise", "archives": "folder,pbo", "native_api": "reg_fn,method,native_fn",
-        "native_unmatched": "script_class,method"}
+        "native_unmatched": "script_class,method", "build_parts": "object,part", "construction_tools": "tool"}
 GHIDRA_TABLES = {"native_api", "native_unmatched"}
 MANUAL_TABLES = ["message_ids", "message_map"]
 CE_MAPS = {"chernarus": "worlds_chernarusplus_ce", "enoch": "worlds_enoch_ce", "nasdara": "worlds_nasdara_ce",
@@ -103,6 +103,9 @@ def build(boot, out, game, requested, ghidra):
         ok &= run(PY + [os.path.join(HERE, "vehicles.py"), cfg, os.path.join(out, "vehicles.csv"), lang], "vehicles")
     if want("catching_items"):
         ok &= run(PY + [os.path.join(HERE, "catching.py"), cfg, os.path.join(out, "catching_items.csv"), lang], "catching_items")
+    if want("build_parts", "construction_tools"):
+        ok &= run(PY + [os.path.join(HERE, "build_parts.py"), cfg, scripts, os.path.join(out, "build_parts.csv"),
+                        os.path.join(out, "construction_tools.csv"), lang], "build parts")
     if want("penetration_materials"):
         ok &= run(PY + [os.path.join(HERE, "penetration.py"), os.path.join(boot, "dz"),
                         os.path.join(out, "penetration_materials.csv")], "penetration_materials")

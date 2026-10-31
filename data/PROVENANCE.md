@@ -21,6 +21,7 @@ py -I scripts\build_tables.py <that folder> --only native_api,native_unmatched -
 | `actions` | 342 | `actions.py` | action scripts |
 | `weapon_states`, `weapon_transitions` | 82, 1,410 | `weapon_states.py` | firearm scripts |
 | `vehicles`, `catching_items`, `ai_perception`, `noise_sources` | 28, 53, 36, 851 | `vehicles.py`, `catching.py`, `ai_perception.py`, `noise_sources.py` | merged configs |
+| `build_parts`, `construction_tools` | 793, 18 | `build_parts.py` | merged configs (parts, tools, damage zones), the language table, and the unpacked scripts (which tool classes register the build, dismantle and destroy actions) |
 | `penetration_materials` | 51 | `penetration.py` | the penetration material files in dz.pbo |
 | `archives` | 158 | `pbo_inventory.py` | archive headers |
 | `native_api`, `native_unmatched` | 3,191, 730 | `native_api.py`, `native_gaps.py` | Ghidra output for the registration functions (task lists in `scripts\ghidra\tasks`) plus the proto declarations in the scripts |

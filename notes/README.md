@@ -8,7 +8,7 @@ The write-up is split by workstream. **Section numbers are the original ones**, 
 | [player-survival.md](player-survival.md) | The player survival model: stats, modifiers, environment, injuries, item temperature, contamination, cooking, soft skills (6 to 6.15, 6.18 to 6.21) |
 | [weapons-combat.md](weapons-combat.md) | Firearms and recoil (5.3), melee, grenades, weapon state tables (6.16, 6.17, 6.24) |
 | [items-actions-ai.md](items-actions-ai.md) | Inventory, actions and the action catalog (5.2, 6.23), recipes (6.22), infected, animals, AI helpers and perception (5.4, 6.25, 6.26) |
-| [world-vehicles.md](world-vehicles.md) | Server mission data and the Central Economy (5.6), vehicles, base building and fireplaces (5.7), placement hologram, tents and gardening (5.9) |
+| [world-vehicles.md](world-vehicles.md) | Server mission data and the Central Economy (5.6), vehicles, base building and fireplaces (5.7), placement hologram, tents and gardening (5.9), locks, territory flag, barrels and rebuildable buildings (5.15) |
 | [data-config.md](data-config.md) | Install layout and archive inventory (1, 1.2), script layers (5), binary configs and real item numbers (5.1), language table (5.5), crafting recipes (5.8), how to reproduce (8) |
 | [open-questions.md](open-questions.md) | The backlog (7.1 to 7.6) and the smaller open questions (7.7). The forward plan is in `../PLAN.md` |
 | [verification.md](verification.md) | The statements that only a running game can confirm, each with what to observe and the predicted result (V1 to V21). |
@@ -62,6 +62,7 @@ Confidence tags used throughout: **[obs]** read directly from the files, **[inf]
 | 5.11 | The Central Economy on all four maps | [world-vehicles.md](world-vehicles.md) |
 | 5.12 | The cross-linked item table | [data-config.md](data-config.md) |
 | 5.14 | The Central Economy inside the engine | [world-vehicles.md](world-vehicles.md) |
+| 5.15 | Base building in 1.30: locks, territory flag, barrels, rebuildable buildings | [world-vehicles.md](world-vehicles.md) |
 | 6 | Player survival systems (from the scripts) | [player-survival.md](player-survival.md) |
 | 6.1 | Big picture | [player-survival.md](player-survival.md) |
 | 6.2 | Tick model | [player-survival.md](player-survival.md) |

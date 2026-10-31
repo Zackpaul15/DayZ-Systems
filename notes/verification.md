@@ -29,6 +29,9 @@ Part of the DayZ static analysis notes (see `README.md` in this folder for the m
 | V21 | Statistics: on a normal client only the web reporting service is on; a dedicated server probably never creates the statistics client | 4.3 addendum | Network traffic of a client and of a dedicated server (observed from outside the game, for example with a firewall log) | Traffic to the reporting address from the client only | |
 | V22 | `SetSynchDirty` called on a client changes nothing on other machines; called on the server several times in one frame produces one update | 4.9 third pass | A small test mod: a synced int changed and marked on the client only, then on the server in a loop | Client-only change is never seen elsewhere; server changes arrive once per frame with the last value | |
 | V23 | An RPC sent by a client before login is dropped with the "too early" log line; a server RPC reaches only players fully in game | 4.9 third pass | Script log of a client that sends an RPC during connect | The log line appears and the server's `OnRPC` is not called | |
+| V24 | A digital code lock unlocks and forgets its PIN when its 9V battery runs empty | 5.15 | Lock a fence gate with a code lock and a nearly empty battery, wait | The gate opens freely and the lock asks for a new code | |
+| V25 | After 3 wrong codes the code lock refuses input for 30 s; each further wrong code repeats the 30 s block until an hour passes or it is opened | 5.15 | Enter wrong codes and time the lockout | 30 s lockout from the third wrong code on | |
+| V26 | A fully raised territory flag lowers one step (20 %) about every 8 days and keeps items with a lifetime of 5 days or more within 60 m from expiring | 5.15 | Raise a flag fully on a test server with a shortened `FlagRefreshFrequency`, watch an item 50 m and one 70 m away | The near item survives, the far one expires; the flag drops step by step | |
 
 ## Notes on running the tests
 
