@@ -290,3 +290,5 @@ Read the revised comparator, rebuild runner, consistency checker, regression fix
 - 2026-10-24 (Claude): re-read after task E3 (first pass). No open findings; CXR-008/009 stay verified. Only notes 4.9, notes README and PLAN.md changed. check_notes.py: 0 errors, 6 warnings; selftest.py: 24 OK.
 
 - 2026-10-24 (Claude): re-read after task E3 (serialiser pass). No open findings; CXR-008/009 stay verified. Only notes 4.9.1 and PLAN.md changed. check_notes.py: 0 errors, 6 warnings; selftest.py: 24 OK.
+
+- 2026-10-30 (Claude): re-read after PLAN v3 and Phase 0 cleanup (C1 to C3). No open findings; CXR-001 to CXR-009 stay as recorded. Only notes text and planning files changed (PLAN.md rewritten as v3; plan-history appendix; open-questions 7.1 and 7.6; reworded open items in 4.3, 5.11, 5.14 and 6.26; 5.1 addendum heading made a bold line). No generator or table touched. check_notes.py: 0 errors, 0 warnings; selftest.py: 24 OK. Your earlier process suggestions (archive hashes, per-generator tests, adopt() rollback) are now PLAN task C4.

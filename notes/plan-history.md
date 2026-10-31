@@ -1,6 +1,6 @@
 # Plan history (superseded)
 
-This is the planning document used from the start of the project until 2026-10-24. Its task IDs (H, G, S, W, D, Q) are referenced in the notes; the current plan is `PLAN.md`.
+This is the planning document used from the start of the project until 2026-10-24. Its task IDs (H, G, S, W, D, Q) are referenced in the notes; the current plan is `PLAN.md`. PLAN v2 (2026-10-24, task IDs E, S, M) was replaced by v3 on 2026-10-30 and is in the git history (commit 541daaf); v3 keeps its task IDs.
 
 # PLAN: continuing the DayZ project
 
@@ -219,3 +219,22 @@ Phase 0: kick off the H3 import in the background, then do H4, H1 and H2. It unb
 | AI perception (noise, alert, vision config) | hearing formula and config done; vision evaluation and alert rate partly open | notes 6.26, data/ai_perception.csv, data/noise_sources.csv |
 | Stats service details (3 services, what is sent, TD disabled) | done at structure level; event payload fields not decoded | notes 4.3 addendum |
 | Vision evaluation | done (formula in 6.26 addendum) | notes 6.26 |
+
+## Appendix: planning preamble of the first plan (plan-mode draft, 2026-10-23)
+
+Archived 2026-10-30 from the untracked file `Dayz Plan.md`; the plan body itself is the document above. Every finding listed here has since been written into the notes (altitude and isolation in 6.10 and 6.14, the persistent Ghidra project in section 8, the int truncation in open-questions.md).
+
+### Context
+The DayZ notes (`DayZ\DayZ-analysis-notes.md`, 1,306 lines) now cover most scripts-side systems, and every backlog item 1 to 17 is marked Done, but many carry open follow-ups scattered through the prose. The user wants a single `PLAN.md` that audits status, groups the remaining work into workstreams, sequences it for parallel sessions, and fits their goals. Plan mode: nothing is executed this session.
+
+**After approval, the only action is:** write the document below (from the line `# PLAN: continuing the DayZ project`) verbatim to `C:\Users\zackp\Documents\Code stuff\Reverse Engineer\REA-Workspace\DayZ\PLAN.md`. No backlog task is run, no notes are edited, no config is touched. Verification of that step: file exists, tables render, every task ID in the sequencing section appears in a task table (check with a grep).
+
+**User answers applied:** goals = modding/server-config reference + complete documentation; Ghidra = moderate, batched via a persistent project, item 18 only as a pilot; layout = split notes first, then parallel sessions; extras = Livonia and Sakhal economy data, and a model (`.p3d`) damage-zone reader.
+
+**Findings from this planning pass (already verified read-only):**
+- Altitude question (6.10) is answerable now: `WorldData.c:230` computes `max(0, terrainHeight x m_TemperaturePerHeightReductionModifier)`, and the modifier is per map (default 0.02; Chernarus 0.012, Enoch 0.01, Nasdara 0.005). The height is in metres, so the unit is degrees per metre (Chernarus about 1.2 degrees per 100 m); the "per 100 m" comment is stale. [obs formula, inf unit]
+- 6.10 still says "I did not read the function that applies" the isolation factors; 6.14 now documents it. Stale.
+- The `rea` CLI has no batch command and every call re-imports (about 10 min); the MCP route times out at about 60 s. `analyzeHeadless` and PyGhidra exist in `tools\ghidra_12.1.4_PUBLIC`, so a persistent Ghidra project with batch scripts is feasible (untested, [?]).
+- Scripts do contain a hint for the int-truncation question: `ItemBase.c:1552` "implicit cast to int", plus the car code that replaced int constants with literals.
+
+---

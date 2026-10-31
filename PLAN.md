@@ -1,113 +1,114 @@
-# PLAN v2: where the DayZ project stands and what to do next
+# PLAN v3: where the DayZ project stands and what to do next
 
-Written 2026-10-24 after a review of the whole folder. Build 1.30.164.200, install `F:\SteamLibrary\steamapps\common\DayZ`. The earlier plan (task IDs H, G, S, W, D, Q, which the notes still cite) is kept in [notes/plan-history.md](notes/plan-history.md).
+Written 2026-10-30 after a review of the whole folder. Build 1.30.164.200 (checked against the installed `DayZ_x64.exe` on 2026-10-30), install `F:\SteamLibrary\steamapps\common\DayZ`. v3 replaces PLAN v2 (2026-10-24) and keeps its task IDs (E, S, M), which the notes cite; v2 is in the git history (commit 541daaf). The first plan (task IDs H, G, S, W, D, Q, also cited in the notes) is in [notes/plan-history.md](notes/plan-history.md). Note that the old S and the v2/v3 S IDs are different series: the notes say which plan they mean.
 
-**Rules that do not change.** Static analysis only; nothing is executed and the game files stay read-only. No work on `BEClient_x64.dll` internals and nothing aimed at bypassing or evading anti-cheat (section 4 of the notes is the limit). Tag findings [obs] / [inf] / [?]. Do not copy game content into the project (extracted scripts, raw config dumps, string dumps); regenerate it with `scripts/bootstrap.py` into a folder outside the project. Notes and tools go in the game's subfolder.
+**Goals (unchanged from the first plan):** a modding and server-configuration reference, and complete documentation of the game's systems.
+
+**Rules that do not change.** Static analysis only; nothing is executed and the game files stay read-only. No work on `BEClient_x64.dll` internals and nothing aimed at bypassing or evading anti-cheat (section 4 of the notes is the limit). Tag findings [obs] / [inf] / [?]. Do not copy game content into the project (extracted scripts, raw config dumps, string dumps, decompiled text); regenerate it with `scripts/bootstrap.py` into a folder outside the project. Notes and tools go in the game's subfolder. One Ghidra process at a time.
 
 ## 1. What exists
 
 | Part | Size | What it is |
 |---|---|---|
-| `notes/` | 8 files, about 300 KB, 69 numbered sections | The write-up. `engine-network.md` (sections 1.1 to 4.8), `player-survival.md`, `weapons-combat.md` and `items-actions-ai.md` (5.2 to 5.4, 6 to 6.26; split from the former 128 KB `survival-combat.md` in H4), `world-vehicles.md` (5.6 to 5.13), `data-config.md` (1 to 8), `open-questions.md`, `plan-history.md`; `notes/README.md` maps each section number to its file. |
-| `data/` | 31 CSV tables, 3.4 MB for the whole project | Derived numbers: items (2,508 rows joined with loot on four maps and recipe use), clothing, weapons, ammo, ammo physics, recoil, food and food stages, recipes (234), melee, explosives, actions (342), weapon states (82) and transitions (1,410), vehicles (28), penetration materials (51), AI perception (36 behaviours), noise sources (851), catching items (53), message IDs (155), native API (3,191 methods) and the 730 unmatched declarations, archives (158). |
-| `scripts/` | 21 Python tools and the Ghidra batch runner | All read-only on the game. `bootstrap.py` regenerates the extracted game data outside the project. |
-| Ghidra project | outside the folder (`...\tools\ghidra_projects\DayZ`) | Persistent analysed `DayZ_x64.exe`; a task file of `decompile`, `xrefs`, `bytes`, `string`, `symbols`, `vtable`, `instrscan` and `funcs` lines runs in seconds to a minute. |
+| `notes/` | 10 files, about 364 KB, 71 numbered sections | The write-up. `engine-network.md` (1.1 to 4.9.1), `player-survival.md`, `weapons-combat.md`, `items-actions-ai.md`, `world-vehicles.md` (5.6 to 5.14), `data-config.md`, `open-questions.md`, `verification.md` (V1 to V21, things only a running game can confirm), `plan-history.md`; `notes/README.md` maps each section number to its file. |
+| `data/` | 31 CSV tables | Derived numbers (items, loot on four maps, weapons, ammo, recipes, actions, weapon states, vehicles, AI perception, noise, message IDs, native API and more). All but `message_ids` and `message_map` rebuild with `scripts/build_tables.py`; sources in `data/PROVENANCE.md`. |
+| `scripts/` | 27 Python tools and the Ghidra batch runner | All read-only on the game. `bootstrap.py` regenerates the extracted game data outside the project; `check_notes.py` and `selftest.py` guard the notes and the table tools. |
+| Ghidra project | outside the folder (`...\Code stuff\tools\ghidra_projects\DayZ`) | Persistent analysed `DayZ_x64.exe`; `scripts\ghidra\run_batch.ps1 TASKS.txt OUT.txt` answers a whole task file in seconds. |
+| `CODEX.md` | review tracker | Codex reviews CXR-001 to CXR-009, all fixed and verified; no open findings. |
+
+Health on 2026-10-30: `check_notes.py` 0 errors, 6 warnings; `selftest.py` 24 tests OK; working tree matches `origin/main` (private repo `Zackpaul15/DayZ-Systems`).
 
 ## 2. What is done (by area)
 
 | Area | State | Where |
 |---|---|---|
 | Install layout, archives, configs, string table, recipes | complete for what was planned | 1, 1.2, 5, 5.1, 5.5, 5.8 |
-| Player survival (stats, modifiers, stomach, agents, temperature, stamina, shock, bleeding, injuries, stat levels, cooking, rotting) | complete on the script side | 6.1 to 6.15, 6.20, 6.21 |
-| Combat on the script side (melee, grenades, wounds, firearms and recoil, weapon state tables) | complete | 5.3, 6.16 to 6.19, 6.24 |
-| Combat on the engine side (shot creation, flight, ricochet, penetration, damage, armour, hit curves, materials) | done for the main path; some constants and the armour threshold are inferred | 4.6 to 4.8 |
-| Infected and animals: config, perception, noise, alert, vision | done; alert rise rate and noise radius fields open | 5.4, 6.25, 6.26 |
-| Vehicles, boats, motorbikes (start, battery, fluids, crashes), base objects and gardening, fishing and trapping | done | 5.7, 5.7a, 5.7b, 5.9, 5.9a, 5.13 |
-| Server data: gameplay config, Central Economy tables on four maps, restricted areas, bunker broadcast | done at table level; how the engine runs the Central Economy is not covered | 5.6, 5.10, 5.11 |
-| Network: 155 message IDs, native API, BattlEye hosting (understanding only), statistics service | done to the structure level | 4 to 4.5 |
-| Question G2 (do `int` constants holding fractions truncate) | answered: yes, the engine converter truncates | open-questions.md |
+| Player survival (stats, modifiers, stomach, agents, temperature, stamina, shock, bleeding, injuries, cooking, rotting) | complete on the script side | 6.1 to 6.15, 6.20, 6.21 |
+| Combat on the script side (melee, grenades, wounds, firearms, recoil, weapon state tables) | complete | 5.3, 6.16 to 6.19, 6.24 |
+| Combat on the engine side (shot creation, flight, ricochet, penetration, damage, armour, hit curves, materials) | done (E4) | 4.6 to 4.8 |
+| Infected and animals (config, perception, noise, alert, vision) | done; only the consumer of the noise `radius` fields is [?] | 5.4, 6.25, 6.26 |
+| Vehicles, boats, motorbikes, base objects, gardening, fishing, trapping | done on the script side; engine physics not opened | 5.7, 5.7a, 5.7b, 5.9, 5.9a, 5.13 |
+| Server data and the Central Economy | tables on four maps done; engine side mostly done (E1) | 5.6, 5.10, 5.11, 5.14 |
+| Network: message IDs, native API, BattlEye hosting (understanding only), statistics service | done to the structure level | 4 to 4.5 |
+| Network synchronisation | mostly done (E3): registration, range storage, script RPC and juncture paths, the bit-stream serialiser | 4.9, 4.9.1 |
+| Project hygiene (regeneration, checker, verification list, notes split, git) | done (v2 H1 to H5) | `scripts/`, `notes/verification.md` |
 
-## 3. Review findings
+## 3. Review findings (2026-10-30)
 
-**Fixed during this review:** the README still described the old REA workflow (now the Ghidra batch runner); two sections still said "not decoded" for things later decoded (vision, stats service) and now point at their addenda; the first-pass native coverage figure now points at the corrected one; one wrong cross-reference ("6.1x") in 6.22.
+1. **Stale planning text.** PLAN v2 still listed H4 and H5 as open and its "suggested order" still started with H1 to H3; `notes/open-questions.md` 7.1 and 7.6 still describe the REA command-line workaround (about 10 minutes per query) that the persistent Ghidra project replaced. Fixed for the plan by this rewrite; the notes part is task C2.
+2. **The untracked `Dayz Plan.md`** was the plan-mode draft of the first plan. Its body was already in `notes/plan-history.md`; its preamble was appended there and the file removed.
+3. **Checker warnings (6).** Section 5.1 is detected twice because the D1 addendum uses a `### 5.1 addendum` heading; three "not decoded" and two "not yet traced" phrases need re-checking against later addenda (some are true, some may be stale). Task C3.
+4. **Session start cost.** The extracted game data lives outside the project, so every new session must run `bootstrap.py` first (about 3 s). Not a defect; listed so it is not forgotten.
+5. **Balance of work.** The research is well ahead of the deliverables: none of M1 to M4 has started, although the goals are a modding and server reference. v3 moves the deliverables forward.
+6. **Remaining gaps** (from the v2 coverage review, still valid): `5_Mission/GUI` (menus and HUD), `PluginBase` (admin and debug plugins), many `ItemBase` families (locks, territory flag, barrels, tents, generators, radios, lights), the inventory engine (`DayZPlayerInventory`, hand state machines), world buildings (bunkers, warhead storage), area damage and effect areas; on the engine side physics, sound, animation, terrain and weather.
 
-**Checked and fine:** every numbered section is in the map, every table and script is named in `README.md`, no unresolved cross-references remain (the check is in section 4, item H2).
+## 4. Tasks
 
-**Still open:**
-1. **No version control or backup.** The project is plain files; a bad edit or disk problem loses everything. (A `git init` plus a backup copy is cheap; it needs your go-ahead because it adds a hidden folder.)
-2. ~~`bootstrap.py` does not rebuild the derived tables.~~ **Done (H1, 2026-10-24).** `build_tables.py` rebuilds all 29 tables; ten of them had no generator at all and now have one (`config_tables.py`). They turned out to predate the nested-class inheritance fix, so the corrected tables replaced them (details in `data/PROVENANCE.md`). Only `message_ids` and `message_map` are still hand-built.
-3. ~~`survival-combat.md` is 128 KB~~ Split in H4 (done) into `player-survival.md`, `weapons-combat.md` and `items-actions-ai.md`; section numbers kept.
-4. **Inference density.** Roughly 55 [inf] tags against 95 [obs] tags (many sections carry one tag for the whole section); several inferences are testable in-game (list in H3). Static analysis cannot confirm them.
-5. **Coverage gaps** (crude measure: script files whose class names are mentioned in the notes: 14% of the 3,056 files and 31% of the 460,000 lines; the true figure is higher because tables such as `actions.csv` cover files whose names are not in the prose, but the picture of where the gaps are is reliable):
-   - `5_Mission/GUI` (203 files, 74,000 lines): menus, HUD, inventory screens, server browser, script console. Almost untouched.
-   - `4_World/Plugins/PluginBase` (59 files, 24,000 lines): developer and diagnostic plugins; probably not gameplay, but they show admin and debug tools.
-   - `4_World/Entities/ItemBase` (678 files, 43,000 lines; 31% by lines): the per-item classes not covered yet include locks (`CodeLock`, `CombinationLock`), `Totem` (territory flag), barrels, traps, fireworks, canned food, tents, generators, radios and lights.
-   - `4_World/Systems/Inventory` (`DayZPlayerInventory.c`, 5,000 lines) and `3_Game/Systems` hand and inventory state machines: the inventory engine, described only at overview level in 5.2.
-   - `4_World/Entities/Building` (80 files): the underground bunkers, the warhead storage, power stations and similar world buildings.
-   - Smaller: area damage (21 files), contaminated and effect areas (14), sound events (21), ambient effects, particles and post-process (PPE) managers (visual), the bot framework (21), console services (Xbox, PlayStation).
-6. **Engine areas never opened:** physics (ragdoll, vehicle and body simulation natives), the Central Economy engine (how loot and events are placed and removed), the networking and synchronisation protocol (RPC, sync variables, junctures), the sound system, the animation system, and terrain and weather simulation.
+Cost: **S** = scripts and config only, **G** = Ghidra; hours are rough session time.
 
-## 4. Next steps
-
-Cost: **S** = scripts and config only, **G** = Ghidra, hours are rough session time.
-
-### Hygiene (do first; small and they protect everything else)
+### Phase 0: cleanup (one short session, do first)
 | ID | Task | Cost | Output |
 |---|---|---|---|
-| H1 | ~~One-command regeneration~~ **Done.** `bootstrap.py` (new `dz` step), `build_tables.py` (`--check`, `--adopt`, `--ghidra`), `config_tables.py`, `csv_diff.py`, `data/PROVENANCE.md`, saved Ghidra task lists in `scripts/ghidra/tasks/`. All 29 tables rebuild identically (27 from the bootstrap folder, the 2 native-API tables through Ghidra). | S, done | |
-| H2 | ~~Check script~~ **Done.** `scripts/check_notes.py`: section map, cross-references, README and PROVENANCE coverage, table shape, control characters, game-content and signature guards; warns about stale phrases. Currently 0 errors, 5 warnings. | S, done | |
-| H3 | ~~Verification list~~ **Done.** `notes/verification.md`: 21 statements (V1 to V21) with what to observe and the predicted result. | S, done | |
-| H4 | Split `survival-combat.md` into player survival, weapons and combat, and infected and animals, keeping section numbers; update the map | S, 1 h | three smaller files |
-| H5 | Version control or backup of the project folder (your decision) | S, 15 min | safety |
+| C1 | ~~Rewrite the plan as v3; archive the old untracked plan~~ **Done 2026-10-30.** | S | this file, `notes/plan-history.md` appendix |
+| C2 | ~~Refresh `open-questions.md` 7.1 and 7.6~~ **Done 2026-10-30.** 7.1 item 0 now records the persistent Ghidra project as the route that worked; 7.6 points at this plan and the current way of running sessions; the cost key no longer says 8 to 10 minutes per query. | S | edited notes |
+| C3 | ~~Clear the checker warnings~~ **Done 2026-10-30: 0 warnings.** The 5.1 addendum heading became a bold addendum line. Of the five flagged phrases, two were stale and now point at their answers (stats payload keys in 4.8 addendum 5; the sweeper passes in 5.14). The other three are still open and now say exactly what is [?]: the stats file name and defaults (4.3), the vision visibility-modifier factor (6.26), and the area-flag layout and its placement test (5.11/5.14). | S | 0 warnings |
+| C4 | Optional CODEX follow-ups still listed as not done: archive hashes as an input baseline for `build_tables.py`; per-generator tests on small shipped examples; rollback (or narrower wording) for `adopt()` on a mid-copy failure | S, 2 h | tool changes plus `selftest.py` cases |
 
-### Engine (one Ghidra process at a time)
+### Track A: engine (Ghidra; one process at a time)
 | ID | Task | Why | Cost |
 |---|---|---|---|
-| E1 | **Mostly done (notes 5.14; the per-object lifetime rule behind vtable slots 0x30/0xA0 and the forwarder at 0x1402cdaf0 are still open)** Central Economy engine side**: how `types.xml` fields (nominal, min, lifetime, restock, cost, quantmin and quantmax, flags) and `events.xml` are used; the loot spawn and cleanup loop; `LootDepleteAndDamage` and related natives | the most useful engine area for server owners; the data side is already tabulated | G, 4 to 6 h |
-| E2 | **Physics**: `DayZPhysics` natives, ragdoll, vehicle simulation inputs (the config values in `vehicles.csv` and what the engine does with them) | completes the vehicle and combat pictures | G, 4 to 6 h |
-| E3 | **Mostly done (notes 4.9 and 4.9.1: registration table, range storage, script RPC and sync juncture paths, and the per-update bit-stream serialiser; the RPC send path and dirty-flag plumbing are still open)** Network synchronisation**: net-sync variable registration and encoding, RPC dispatch, juncture messages; connects the message IDs in 4.2 to script-level sync | needed to know what a mod can safely add | G, 3 to 5 h |
-| E4 | **Done (notes 4.8 addenda 4 and 5, 6.26: ricochet constants, armour keys `damage`/`startOnHealth` with default 1.0, alert rate, noise list, surface `deflection` field, statistics payload keys; only the consumer of the noise `radius` fields stays [?])** Close the open details: alert rise rate and the noise `radius` fields (6.26), the armour threshold test and ricochet constants (4.8), statistics event payloads (4.3), `deflection` for terrain surfaces | removes the remaining [inf] on the AI and ballistics pictures | G, 3 h |
-| E5 | The rest of the 730 unmatched native declarations (mostly base-class attribution): rebuild the attribution using the script inheritance chain | finishes the native API table | S, 2 h |
-| E6 | A `.p3d` damage-zone reader feasibility spike (read the first bytes of 50 models, decide if the format can be parsed) | links config zones to model geometry | S, 1 h to decide |
+| E1 | **Mostly done** (notes 5.14). Open: the per-object lifetime rule behind vtable slots 0x30/0xA0 and the forwarder at `0x1402cdaf0` | completes the Central Economy picture for server owners | G, 1 to 2 h |
+| E2 | **Physics**: `DayZPhysics` natives, ragdoll, vehicle simulation inputs (what the engine does with the values in `vehicles.csv`) | completes the vehicle and combat pictures | G, 4 to 6 h |
+| E3 | **Mostly done** (notes 4.9, 4.9.1). Open: the RPC send path (script `RPC`/`RPCSingleParam` to the message that leaves the machine) and the dirty-flag plumbing that decides when sync variables are sent | needed for M1: what a mod can safely sync and how often | G, 2 to 3 h |
+| E4 | **Done** (notes 4.8 addenda 4 and 5, 6.26). Only the consumer of the noise `radius` fields stays [?] | | |
+| E5 | The 730 unmatched native declarations: rebuild the class attribution using the script inheritance chain | finishes `data/native_api.csv` | S, 2 h (no Ghidra needed; can run beside Track A) |
+| E6 | `.p3d` damage-zone reader feasibility spike: read the first bytes of 50 models, decide if the format can be parsed | links config damage zones to model geometry | S, 1 h to decide |
 
-### Script gaps (parallel, no Ghidra)
-| ID | Task | Cost |
-|---|---|---|
-| S1 | Base building and locks: `CodeLock`, `CombinationLock`, `Totem` (flag and territory), barrels, tents, fences and watchtowers (`BaseBuilding`), with a table of build parts, materials and times | S, 4 h |
-| S2 | Inventory engine: `DayZPlayerInventory`, hand states and guards, drag and drop rules, juncture handling | S, 4 h |
-| S3 | World buildings: underground complex, warhead storage, power stations, generators, doors and their scripts (ties to the bunker broadcast, 5.10) | S, 3 h |
-| S4 | Area damage, contaminated and effect areas, geysers, oil pits and the Halloween area; sound events | S, 3 h |
-| S5 | User interface map: the in-game HUD, inventory screens, menus, server browser; what is configurable by a mod | S, 4 to 6 h (large, optional) |
-| S6 | Remaining `ItemBase` families: tools, electronics and the energy component, radios, lights, canned food, fireworks, tents; one table per family | S, 6 h |
-| S7 | Admin and developer plugins (`PluginBase`): what a server operator or modder gets from them | S, 2 h |
-| S8 | Bot framework summary; console service classes (one-line description each) | S, 1 h |
+### Track B: script gaps (no Ghidra; can run beside Track A)
+| ID | Task | Cost | Priority |
+|---|---|---|---|
+| S1 | Base building and locks: `CodeLock`, `CombinationLock`, `Totem` (flag and territory), barrels, tents, fences and watchtowers (`BaseBuilding`), with a table of build parts, materials and times | S, 4 h | high (feeds M2) |
+| S6 | Remaining `ItemBase` families: tools, electronics and the energy component, radios, lights, canned food, fireworks; one table per family | S, 6 h | medium |
+| S2 | Inventory engine: `DayZPlayerInventory`, hand states and guards, drag and drop rules, juncture handling | S, 4 h | medium (feeds M1) |
+| S3 | World buildings: underground complex, warhead storage, power stations, generators, doors (ties to the bunker broadcast, 5.10) | S, 3 h | medium |
+| S4 | Area damage, contaminated and effect areas, geysers, oil pits, the Halloween area; sound events | S, 3 h | medium |
+| S7 | Admin and developer plugins (`PluginBase`): what a server operator or modder gets from them | S, 2 h | low |
+| S8 | Bot framework summary; console service classes (one line each) | S, 1 h | low |
+| S5 | User interface map: HUD, inventory screens, menus, server browser; what a mod can configure | S, 4 to 6 h | optional |
 
-### Deliverables for people who want to use this (the "what can we build with it" items)
-| ID | Task | Cost |
-|---|---|---|
-| M1 | **Modding cheat sheet**: for each kind of mod (config only, script, loot, vehicle, recipe, AI tuning) the files, sections, safe hooks and limits, with a worked example per kind | S, 3 h |
-| M2 | **Server-owner guide**: every `cfggameplay.json` field, `globals.xml` variable and `events.xml` setting with its effect, default and where in the notes it comes from | S, 4 h |
-| M3 | `scripts/lookup.py`: search items, actions, recipes, ammo, vehicles and noise sources by name or substring across the CSVs and print the joined record | S, 2 h |
-| M4 | Calculators built on the decoded formulas: penetration depth by material and ammo, vehicle crash damage, noise audibility by distance, food rot time, bite chance | S, 4 h; clearly labelled as formula-based estimates |
+### Track C: deliverables (what the goals ask for)
+| ID | Task | Depends on | Cost |
+|---|---|---|---|
+| M3 | `scripts/lookup.py`: search items, actions, recipes, ammo, vehicles and noise sources by name or substring across the CSVs and print the joined record | nothing | S, 2 h |
+| M2 | **Server-owner guide**: every `cfggameplay.json` field, `globals.xml` variable, `types.xml` and `events.xml` setting with its effect, default and the notes section it comes from | E1 remainder helps; S1 for base building | S, 4 h |
+| M1 | **Modding cheat sheet**: for each kind of mod (config only, script, loot, vehicle, recipe, AI tuning) the files, sections, safe hooks and limits, with a worked example per kind | E3 remainder, S2 helps | S, 3 h |
+| M4 | Calculators on the decoded formulas: penetration by material and ammo, vehicle crash damage, noise audibility by distance, food rot time, bite chance; clearly labelled as formula-based estimates | M3 | S, 4 h |
 
 ## 5. Suggested order
 
-1. **This week:** H1, H2, H3 (a regenerable, checkable project and a list of things to test), then H4 and H5 if you agree.
-2. **Engine track (one Ghidra session):** E1 (Central Economy), then E4 (close open details), then E2 (physics), then E3 (network sync).
-3. **Script track (can run alongside):** S1 (base building and locks), S6, S2, S3, S4; S5 only if the interface matters for your goals.
-4. **Deliverables:** M2 and M1 after E1 and S1, M3 and M4 any time after H1.
+1. **Phase 0:** C1 to C3 done 2026-10-30; C4 whenever the table tools are next touched.
+2. **Then two sessions in parallel** (they write different files): Track A runs the E3 remainder; Track B runs S1. E5 can fill gaps in either, because it needs no Ghidra.
+3. **Deliverables next:** M3 (cheap, helps everything after it), then M2 (after S1), then M1 (after the E3 remainder).
+4. **Afterwards:** E1 remainder, E2; S2, S6, S3, S4; M4; E6 spike. S5, S7, S8 only if they serve the goals.
 
-## 6. Risks and limits
+**Parallel-session rule:** each session writes only its own notes file and new files in `data/`; one owner per shared tool (`cfgmodel.py`, `rap_reader.py`, `build_tables.py`, `scripts/ghidra/*`). Only one session uses Ghidra at a time.
 
-- Static analysis cannot show timing, balance feel, or anything decided at run time; H3 exists to turn the important inferences into observations.
-- Some engine paths go through virtual calls and runtime tables that the decompiler cannot resolve; expect [?] items to remain.
-- The game updates change addresses and numbers. Every note carries the build number; after an update, re-run `bootstrap.py`, `build_tables.py` (once it exists) and the check script, and diff the tables before trusting the notes.
-- The modding section of the notes describes what the shipped scripts and configs allow; mod loading, signing and server rules are outside what was analysed.
+## 6. How each task runs
 
-## 7. Single best next step
+1. **Start:** run `py -I scripts\bootstrap.py OUT_DIR` into a folder outside the project (the extracted data does not survive between sessions); for Ghidra work, check that no other Ghidra process is running.
+2. **Work:** Ghidra questions are batched in one task file per question (`dayz-ghidra-batch` skill); findings go in as addenda to the existing section, or a new numbered section mapped in `notes/README.md` (`re-notes-writer` skill). Anything only a running game can confirm goes in `notes/verification.md`.
+3. **Close:** `re-task-closeout` skill: `check_notes.py` (0 errors), `selftest.py` after any table-tool change, re-read `CODEX.md` and handle new findings, update the task row and section 8 of this file, then commit and push.
 
-H1 to H5 are done (H4 split the survival notes; H5 put the project in a private GitHub repo, `Zackpaul15/DayZ-Systems`). E1 is mostly done (notes 5.14, sweeper passes traced; per-object lifetime rule left open). E4 is done (see its row). E3 is mostly done (see its row). Next: E2 (physics), the E1 remainder, or the E3 RPC send path.
+## 7. Risks and limits
+
+- Static analysis cannot show timing, balance feel, or anything decided at run time; `notes/verification.md` lists the inferences worth testing in game.
+- Some engine paths go through virtual calls and runtime tables that the decompiler cannot resolve; expect [?] items to remain (for example `DAT_144a8d1d0`, filled at run time).
+- Game updates change addresses and numbers. Every note carries the build number. After an update: re-run `bootstrap.py`, re-import the Ghidra project, run `build_tables.py --check` and the checker, and diff the tables before trusting the notes.
+- The modding material describes what the shipped scripts and configs allow; mod loading, signing and server rules are outside what was analysed.
+
+## 8. Single best next step
+
+Phase 0 done except the optional C4 (C1 to C3, 2026-10-30; checker at 0 errors, 0 warnings). Next: the E3 remainder (Track A) and S1 (Track B) in parallel, then M3.
 
 ## Standing step: Codex review tracker
-After every task, re-read `CODEX.md` (maintained by Codex), assess new or open findings, fix the valid ones, and record the disposition and the check result in that file. The first review (CXR-001 to CXR-005, 2026-10-24) is fixed and awaiting Codex's validation; see `CODEX.md` and `data/PROVENANCE.md`.
-The second Codex pass (CXR-006 comparator, CXR-007 adoption gating) is also fixed; `scripts/selftest.py` holds the regression tests and should be run (`py -I scripts\selftest.py`) after any change to the table tools.
+After every task, re-read `CODEX.md` (maintained by Codex), assess new or open findings, fix the valid ones, and record the disposition and the check result in that file. Reviews CXR-001 to CXR-009 are all fixed and verified. Run `py -I scripts\selftest.py` after any change to the table tools.

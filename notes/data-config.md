@@ -325,7 +325,7 @@ Of the 143 live recipes: **62 "Craft" and 25 "DeCraft"** (take apart: ghillie pi
   - `recipes.py SCRIPTS_DIR OUT_CSV [LANGUAGECORE_PBO]` parses the crafting recipe scripts (following `super.Init()`) and the registration list into one row per recipe class.
 - Format notes: header `\0raP`, two integers (0 and 8), the enum table offset, then the root class at offset 16; class bodies are a parent name, a compressed count, then entries (class with body offset, scalar, array, extern, delete, array append); counts use a 7-bit continuation encoding.
 
-### 5.1 addendum: nested-class inheritance is now resolved (task D1) [obs]
+**5.1 addendum: nested-class inheritance is now resolved (task D1)** [obs]
 
 `scripts\cfgmodel.py` used to drop the parent named by a nested class (for example `class RightArm: LeftArm` inside `DamageZones`), so right-side body zones and some creature values came out empty (see the limitation in 5.1). The new `resolve_nested` lays each nested class over its named sibling (inherited or defined earlier in the same class) before applying its own entries. **Regression check against the old tool, over all 30,539 classes in every config section: 0 keys lost, 0 values changed, 25,554 keys gained in 2,126 classes** (mostly `DamageSystem` 8,902, `AnimationSources` 6,128, `AttackActions` 4,430, `Construction` 2,522, and smaller counts for `BehaviourHLZombie`, `DamageApplied` and `SimulationModule`). Nested dicts keep a `__parent__` marker so `is_cls()` still works; the nested parent names themselves are no longer kept in the output.
 

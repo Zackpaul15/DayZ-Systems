@@ -4,13 +4,13 @@ Part of the DayZ static analysis notes (see `README.md` in this folder for the m
 
 ## 7. Backlog and open questions
 
-Cost key: **S** = script or file reading only (minutes); **G** = needs a Ghidra pass (about 8 to 10 minutes per query, one at a time). All items below are static analysis of the shipped files.
+Cost key: **S** = script or file reading only (minutes); **G** = needs a Ghidra pass (seconds to a minute per batched task file with the persistent project, one Ghidra process at a time). This backlog is the first pass and is kept for its cross-references; the current task list is `PLAN.md`. All items below are static analysis of the shipped files.
 
-### 7.1 Enabler (do first if wanted)
+### 7.1 Enabler (done)
 
 | # | Task | Why | Cost |
 |---|---|---|---|
-| 0 | Raise the MCP tool-call timeout (and `REA_GHIDRA_STARTUP_TIMEOUT_MS`) for the `rea` server so queries run through the normal REA tools instead of a CLI re-import each time | Each engine question currently costs a full 8-minute re-analysis; with a longer timeout the first query pays once and later ones should be fast while the session stays open. **Applied but not effective.** Added `REA_GHIDRA_STARTUP_TIMEOUT_MS=3600000` to the `rea` server's `env` in `~/.claude.json` and `MCP_TOOL_TIMEOUT=3600000` to `env` in `~/.claude/settings.json` (backups next to each, `.bak-before-rea-timeout`). After a restart, MCP calls still timed out at about a minute, so Ghidra queries were run through the `rea` CLI in the background instead (see 7.6) | one-time |
+| 0 | Make engine queries cheap | **Done, by another route.** Raising the MCP timeout did not work (calls still stopped after about a minute), so the project uses a persistent Ghidra project instead: `DayZ_x64.exe` was imported and analysed once into `...\Code stuff\tools\ghidra_projects\DayZ`, and `scripts\ghidra\run_batch.ps1 TASKS.txt OUT.txt` answers a whole task file in seconds (section 8, `notes/plan-history.md` H3). The timeout settings added earlier to `~/.claude.json` and `~/.claude/settings.json` are harmless and can stay or go (backups `.bak-before-rea-timeout`) | one-time |
 
 ### 7.2 Finish the player and survival picture (scripts, all S)
 
@@ -52,11 +52,10 @@ Cost key: **S** = script or file reading only (minutes); **G** = needs a Ghidra 
 
 ### 7.6 Suggested order and how to run them
 
-- Order: the first pass is finished (items 1 to 17 were all worked through). What to do next, with task IDs and sequencing, is in `PLAN.md` (Phase 0 enablers, then four parallel workstreams).
-- Items in 7.2 to 7.4 touch only extracted files and can run in parallel as separate sessions, but they all append to this one file. If run in parallel, give each its own notes file under a `notes/` folder and merge later.
-- The Ghidra items (16, 17, 18) must run one at a time; parallel runs failed earlier.
-- **Tool timeout (item 0):** the settings added in `~/.claude.json` and `~/.claude/settings.json` did not lift the roughly one-minute limit on `rea` MCP calls in the desktop app (a call timed out about a minute in and the session was lost). What works: run the `rea` CLI in the background (`rea decompile EXE ADDRESS --snapshot FILE --format json`, with `REA_GHIDRA_STARTUP_TIMEOUT_MS=3600000`, `GHIDRA_INSTALL_DIR`, `JAVA_HOME` set), one process at a time. Each run took 595 to 617 s even with a snapshot, so the snapshot saves analysis but not the import.
-- The extracted script source lives in the temporary scratchpad, not in this project. It will need re-extracting from `scripts.pbo` in a new session (about a minute).
+- Order: the first pass is finished (items 1 to 18 were all worked through). What to do next, with task IDs and sequencing, is in `PLAN.md` (v3: Phase 0 cleanup, then an engine track, a script track and a deliverables track).
+- Script-only work touches only extracted files and can run in parallel sessions, provided each session writes its own notes file and one session owns each shared tool (`PLAN.md` section 5).
+- Ghidra work runs one process at a time. Use the persistent project and the batch runner (`scripts\ghidra\run_batch.ps1`, section 8); batch by question, not by function.
+- The extracted game data lives outside the project and does not survive between sessions; regenerate it first with `scripts\bootstrap.py OUT_DIR` (a few seconds).
 
 ### 7.7 Smaller open questions
 
