@@ -27,6 +27,8 @@ Part of the DayZ static analysis notes (see `README.md` in this folder for the m
 | V19 | Stat levels: blood steps at 3,000, 3,500, 4,000 and 4,500; the blood regeneration multiplier is 0.65 at the middle water or energy level and 0 below | 6.21 | Blood regeneration when moderately thirsty or hungry versus well fed | Slower, then none when very low | |
 | V20 | Melee finisher needs the target calm and the attacker within 60 degrees behind; targeting cone 30 degrees (15 sprinting) | 6.16 | Backstab on a calm infected from different angles | Works only from behind | |
 | V21 | Statistics: on a normal client only the web reporting service is on; a dedicated server probably never creates the statistics client | 4.3 addendum | Network traffic of a client and of a dedicated server (observed from outside the game, for example with a firewall log) | Traffic to the reporting address from the client only | |
+| V22 | `SetSynchDirty` called on a client changes nothing on other machines; called on the server several times in one frame produces one update | 4.9 third pass | A small test mod: a synced int changed and marked on the client only, then on the server in a loop | Client-only change is never seen elsewhere; server changes arrive once per frame with the last value | |
+| V23 | An RPC sent by a client before login is dropped with the "too early" log line; a server RPC reaches only players fully in game | 4.9 third pass | Script log of a client that sends an RPC during connect | The log line appears and the server's `OnRPC` is not called | |
 
 ## Notes on running the tests
 

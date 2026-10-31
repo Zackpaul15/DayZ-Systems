@@ -59,7 +59,7 @@ Cost: **S** = scripts and config only, **G** = Ghidra; hours are rough session t
 |---|---|---|---|
 | E1 | **Mostly done** (notes 5.14). Open: the per-object lifetime rule behind vtable slots 0x30/0xA0 and the forwarder at `0x1402cdaf0` | completes the Central Economy picture for server owners | G, 1 to 2 h |
 | E2 | **Physics**: `DayZPhysics` natives, ragdoll, vehicle simulation inputs (what the engine does with the values in `vehicles.csv`) | completes the vehicle and combat pictures | G, 4 to 6 h |
-| E3 | **Mostly done** (notes 4.9, 4.9.1). Open: the RPC send path (script `RPC`/`RPCSingleParam` to the message that leaves the machine) and the dirty-flag plumbing that decides when sync variables are sent | needed for M1: what a mod can safely sync and how often | G, 2 to 3 h |
+| E3 | **Done 2026-10-30** (notes 4.9 first, second and third pass). The third pass traced the RPC send path (serialisation, target check, server broadcast and client "too early" guard) and the dirty flag (`SetSynchDirty` sets entity flag `0x10`, queues kind 2 on the server only, one update per flush through `GetNMType`; nothing on a client). Still [?]: bit 63 of the network id, the update rate, the deferred object lookup callback, `DAT_144a8d1d0`. Runtime checks V22, V23 | ready for M1 | |
 | E4 | **Done** (notes 4.8 addenda 4 and 5, 6.26). Only the consumer of the noise `radius` fields stays [?] | | |
 | E5 | The 730 unmatched native declarations: rebuild the class attribution using the script inheritance chain | finishes `data/native_api.csv` | S, 2 h (no Ghidra needed; can run beside Track A) |
 | E6 | `.p3d` damage-zone reader feasibility spike: read the first bytes of 50 models, decide if the format can be parsed | links config damage zones to model geometry | S, 1 h to decide |
@@ -108,7 +108,7 @@ Cost: **S** = scripts and config only, **G** = Ghidra; hours are rough session t
 
 ## 8. Single best next step
 
-Phase 0 done except the optional C4 (C1 to C3, 2026-10-30; checker at 0 errors, 0 warnings). Next: the E3 remainder (Track A) and S1 (Track B) in parallel, then M3.
+Phase 0 done except the optional C4 (C1 to C3, 2026-10-30; checker at 0 errors, 0 warnings). E3 done (2026-10-30, notes 4.9 third pass). Next: S1 (Track B), then M3; on Track A, the E1 remainder or E2.
 
 ## Standing step: Codex review tracker
 After every task, re-read `CODEX.md` (maintained by Codex), assess new or open findings, fix the valid ones, and record the disposition and the check result in that file. Reviews CXR-001 to CXR-009 are all fixed and verified. Run `py -I scripts\selftest.py` after any change to the table tools.
